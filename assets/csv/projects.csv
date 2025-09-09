@@ -1,0 +1,7 @@
+Name,Client,PM,Department,Status,Progress (%),Created,Due,Hold,Health
+Acme Website Revamp,Acme Corp,Priya Nair,Website,Ongoing,48,2024-06-10,2024-10-30,,Green
+Orchid eCommerce Launch,Orchid Spa,Priya Nair,Website,On Hold,32,2024-07-05,2024-11-15,Client,Amber
+Phoenix Logistics Portal,Phoenix Logistics,Arjun Mehta,Website,Ongoing,76,2024-04-18,2024-09-20,,Green
+Vista Realty Corporate Site,Vista Realty,Priya Nair,Website,Completed,100,2024-01-12,2024-05-30,,Green
+BlueWave Foods Microsite,BlueWave Foods,Arjun Mehta,Website,Ongoing,22,2024-08-02,2024-12-10,,Red
+IKF Marketing Site Refresh,Internal,Priya Nair,Website,Ongoing,61,2024-05-22,2024-10-05,,Green

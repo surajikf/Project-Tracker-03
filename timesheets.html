@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Timesheets — IKF Project Livetracker</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary">
+    <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
+    <nav>
+      <a href="admin.html"><span>Dashboard</span></a>
+      <a href="projects.html"><span>Projects</span></a>
+      <a class="is-active" href="timesheets.html"><span>Timesheets</span></a>
+      <a href="reports.html"><span>Reports</span></a>
+      <a href="resources.html"><span>Resources</span></a>
+      <a href="clients.html"><span>Clients</span></a>
+      <a href="settings.html"><span>Settings</span></a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="app-header" role="banner">
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Timesheet ✌</h1>
+        <span class="chip">TIMESHEET V2 — Track Your Time, Effortlessly.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="chip">02:53:52 hrs</span>
+        <a class="btn" href="assets/csv/timesheets.csv" download>Export CSV</a>
+      </div>
+    </header>
+    <div class="app-content" id="main">
+      <nav class="breadcrumbs">Home / Timesheets</nav>
+
+      <nav class="tabs mt-6">
+        <a href="#tab-my" aria-current="page">My Timesheet</a>
+        <a href="#tab-admin">Admin / PM</a>
+      </nav>
+
+      <section id="tab-my" class="tab-panel is-active">
+        <div class="card">
+          <h2 style="margin-top:0">This Week</h2>
+          <table class="table" aria-label="My weekly timesheet">
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Project</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Content Writing</td>
+                <td>Acme Website Revamp</td>
+                <td>6</td>
+                <td>0</td>
+                <td>4</td>
+                <td>0</td>
+                <td>0</td>
+                <td>10</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-4 text-right"><strong>Week Total: 10 hrs</strong></div>
+        </div>
+      </section>
+
+      <section id="tab-admin" class="tab-panel">
+        <div class="card">
+          <h2 style="margin-top:0">By User</h2>
+          <table class="table" aria-label="Admin view">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Project</th>
+                <th>Stage</th>
+                <th>Date</th>
+                <th>Hours</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Riya Kapoor</td>
+                <td>Acme Website Revamp</td>
+                <td>Content Writing</td>
+                <td>2024-08-12</td>
+                <td>6</td>
+                <td><span class="badge ongoing">Logged</span></td>
+              </tr>
+              <tr>
+                <td>Riya Kapoor</td>
+                <td>Acme Website Revamp</td>
+                <td>Content Writing</td>
+                <td>2024-08-14</td>
+                <td>4</td>
+                <td><span class="badge ongoing">Logged</span></td>
+              </tr>
+              <tr>
+                <td>Karan Shah</td>
+                <td>Orchid eCommerce Launch</td>
+                <td>Design</td>
+                <td>2024-08-13</td>
+                <td>5</td>
+                <td><span class="badge onhold">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Karan Shah</td>
+                <td>Orchid eCommerce Launch</td>
+                <td>Design</td>
+                <td>2024-08-15</td>
+                <td>3</td>
+                <td><span class="badge onhold">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Neha Joshi</td>
+                <td>Phoenix Logistics Portal</td>
+                <td>Development</td>
+                <td>2024-08-12</td>
+                <td>7</td>
+                <td><span class="badge ongoing">Logged</span></td>
+              </tr>
+              <tr>
+                <td>Neha Joshi</td>
+                <td>Phoenix Logistics Portal</td>
+                <td>Development</td>
+                <td>2024-08-13</td>
+                <td>7</td>
+                <td><span class="badge ongoing">Logged</span></td>
+              </tr>
+              <tr>
+                <td>Neha Joshi</td>
+                <td>Phoenix Logistics Portal</td>
+                <td>Development</td>
+                <td>2024-08-14</td>
+                <td>7</td>
+                <td><span class="badge ongoing">Logged</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mt-6 grid">
+        <aside class="card">
+          <h3 style="margin-top:0">Insights</h3>
+          <p class="text-muted">Personal utilization and top projects for the selected range.</p>
+          <ul>
+            <li>Utilization: 62%</li>
+            <li>Top Project: Acme Website Revamp</li>
+          </ul>
+        </aside>
+      </section>
+    </div>
+    <footer class="app-footer">© 2024 I Knowledge Factory Pvt. Ltd. — All Rights Reserved.</footer>
+  </div>
+</div>
+</body>
+</html>

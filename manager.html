@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PM / Department — IKF Project Livetracker</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary">
+    <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
+    <nav>
+      <a href="admin.html"><span>Dashboard</span></a>
+      <a class="is-active" href="manager.html"><span>PM / Dept</span></a>
+      <a href="projects.html"><span>Projects</span></a>
+      <a href="timesheets.html"><span>Timesheets</span></a>
+      <a href="reports.html"><span>Reports</span></a>
+      <a href="resources.html"><span>Resources</span></a>
+      <a href="settings.html"><span>Settings</span></a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="app-header" role="banner">
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">PM / Department Dashboard</h1>
+        <span class="chip">Dept: Website</span>
+      </div>
+    </header>
+    <div class="app-content" id="main">
+      <nav class="breadcrumbs">Home / PM / Dept</nav>
+
+      <section class="grid grid-3 mt-6">
+        <div class="card kpi"><span class="label">Active Projects</span><span class="value">4</span></div>
+        <div class="card kpi"><span class="label">Approvals Pending</span><span class="value">2</span></div>
+        <div class="card kpi"><span class="label">Avg Progress</span><span class="value">54%</span></div>
+      </section>
+
+      <section class="card mt-6">
+        <h2 style="margin-top:0">Website Department</h2>
+        <table class="table">
+          <thead><tr><th>Project</th><th>Stage</th><th>Owner</th><th>Status</th><th>Progress</th></tr></thead>
+          <tbody>
+            <tr><td>Acme Website Revamp</td><td>Content Writing</td><td>Riya Kapoor</td><td><span class="badge ongoing">In Progress</span></td><td>48%</td></tr>
+            <tr><td>Orchid eCommerce Launch</td><td>Design</td><td>Karan Shah</td><td><span class="badge onhold">Client Hold</span></td><td>32%</td></tr>
+            <tr><td>IKF Marketing Site Refresh</td><td>Design</td><td>Karan Shah</td><td><span class="badge ongoing">In Progress</span></td><td>61%</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <footer class="app-footer">© 2024 I Knowledge Factory Pvt. Ltd. — All Rights Reserved.</footer>
+  </div>
+</div>
+</body>
+</html>

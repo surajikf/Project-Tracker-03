@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — IKF Project Livetracker</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary">
+    <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
+    <nav>
+      <a href="admin.html"><span>Dashboard</span></a>
+      <a class="is-active" href="projects.html"><span>Projects</span></a>
+      <a href="timesheets.html"><span>Timesheets</span></a>
+      <a href="reports.html"><span>Reports</span></a>
+      <a href="resources.html"><span>Resources</span></a>
+      <a href="clients.html"><span>Clients</span></a>
+      <a href="settings.html"><span>Settings</span></a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="app-header" role="banner">
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Projects</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <a class="btn" href="assets/csv/projects.csv" download>Export CSV</a>
+      </div>
+    </header>
+    <div class="app-content" id="main">
+      <nav class="breadcrumbs">Home / Projects</nav>
+
+      <section class="card mt-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex gap-2">
+            <a class="btn small ghost" href="#filter-ongoing" title="Show Ongoing">Ongoing</a>
+            <a class="btn small ghost" href="#filter-onhold" title="Show On Hold">On Hold</a>
+            <a class="btn small ghost" href="#filter-completed" title="Show Completed">Completed</a>
+            <a class="btn small" href="#" title="Clear filters">Clear</a>
+          </div>
+          <div class="flex gap-2">
+            <span class="chip">Sort: Progress</span>
+            <span class="chip">Dept: Website</span>
+          </div>
+        </div>
+        <span id="filter-ongoing"></span>
+        <span id="filter-onhold"></span>
+        <span id="filter-completed"></span>
+        <table class="table projects-table" aria-describedby="projects-caption">
+          <caption id="projects-caption" class="sr-only">Projects list</caption>
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Client</th>
+              <th>PM</th>
+              <th>Status</th>
+              <th>Progress</th>
+              <th>Due</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-status="ongoing">
+              <td><a href="project-details.html">Acme Website Revamp</a></td>
+              <td>Acme Corp</td>
+              <td>Priya Nair</td>
+              <td><span class="badge ongoing">Ongoing</span></td>
+              <td>
+                <div class="progress"><div class="bar"><span style="--w:48%"></span></div><span class="label">48%</span></div>
+              </td>
+              <td>2024-10-30</td>
+            </tr>
+            <tr data-status="onhold">
+              <td><a href="project-details.html">Orchid eCommerce Launch</a></td>
+              <td>Orchid Spa</td>
+              <td>Priya Nair</td>
+              <td><span class="badge onhold hold-client">On Hold</span></td>
+              <td>
+                <div class="progress"><div class="bar"><span style="--w:32%"></span></div><span class="label">32%</span></div>
+              </td>
+              <td>2024-11-15</td>
+            </tr>
+            <tr data-status="ongoing">
+              <td><a href="project-details.html">Phoenix Logistics Portal</a></td>
+              <td>Phoenix Logistics</td>
+              <td>Arjun Mehta</td>
+              <td><span class="badge ongoing">Ongoing</span></td>
+              <td>
+                <div class="progress"><div class="bar"><span style="--w:76%"></span></div><span class="label">76%</span></div>
+              </td>
+              <td>2024-09-20</td>
+            </tr>
+            <tr data-status="completed">
+              <td><a href="project-details.html">Vista Realty Corporate Site</a></td>
+              <td>Vista Realty</td>
+              <td>Priya Nair</td>
+              <td><span class="badge completed">Completed</span></td>
+              <td>
+                <div class="progress"><div class="bar"><span style="--w:100%"></span></div><span class="label">100%</span></div>
+              </td>
+              <td>2024-05-30</td>
+            </tr>
+            <tr data-status="ongoing">
+              <td><a href="project-details.html">BlueWave Foods Microsite</a></td>
+              <td>BlueWave Foods</td>
+              <td>Arjun Mehta</td>
+              <td><span class="badge ongoing">Ongoing</span></td>
+              <td>
+                <div class="progress"><div class="bar"><span style="--w:22%"></span></div><span class="label">22%</span></div>
+              </td>
+              <td>2024-12-10</td>
+            </tr>
+            <tr data-status="ongoing">
+              <td><a href="project-details.html">IKF Marketing Site Refresh</a></td>
+              <td>Internal</td>
+              <td>Priya Nair</td>
+              <td><span class="badge ongoing">Ongoing</span></td>
+              <td>
+                <div class="progress"><div class="bar"><span style="--w:61%"></span></div><span class="label">61%</span></div>
+              </td>
+              <td>2024-10-05</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <footer class="app-footer">© 2024 I Knowledge Factory Pvt. Ltd. — All Rights Reserved.</footer>
+  </div>
+</div>
+</body>
+</html>

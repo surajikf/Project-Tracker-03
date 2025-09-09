@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client Portal — IKF Project Livetracker</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+.card-approve { position: relative; }
+.card-approve input { position: absolute; left: -9999px; }
+.card-approve label { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); cursor: pointer; }
+.card-approve input:checked + label { background: rgba(16,185,129,0.12); color: var(--brand-emerald); border-color: var(--brand-emerald); }
+.card-approve input:checked ~ .activity { display: block; }
+.activity { display: none; margin-top: 8px; color: var(--slate-700); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary">
+    <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
+    <nav>
+      <a href="admin.html"><span>Dashboard</span></a>
+      <a href="projects.html"><span>Projects</span></a>
+      <a href="timesheets.html"><span>Timesheets</span></a>
+      <a href="reports.html"><span>Reports</span></a>
+      <a href="resources.html"><span>Resources</span></a>
+      <a class="is-active" href="client.html"><span>Client</span></a>
+      <a href="settings.html"><span>Settings</span></a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="app-header" role="banner">
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Client Portal</h1>
+        <span class="chip">Acme Corp</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a class="btn ghost" href="index.html">Switch Role</a>
+      </div>
+    </header>
+    <div class="app-content" id="main">
+      <nav class="breadcrumbs">Home / Client</nav>
+
+      <section class="grid grid-3 mt-6">
+        <article class="card card-approve">
+          <h3 style="margin-top:0">Acme Website Revamp</h3>
+          <div class="progress"><div class="bar"><span style="--w:48%"></span></div><span class="label">48%</span></div>
+          <p class="text-muted">Current Stage: Content Writing</p>
+          <input id="ap1" type="checkbox"> <label for="ap1">Approve “Content Outline”</label>
+          <div class="activity">Activity: Client approved “Content Outline”.</div>
+        </article>
+        <article class="card card-approve">
+          <h3 style="margin-top:0">Orchid eCommerce Launch</h3>
+          <div class="progress"><div class="bar"><span style="--w:32%"></span></div><span class="label">32%</span></div>
+          <p class="text-muted">Hold: Client</p>
+          <input id="ap2" type="checkbox"> <label for="ap2">Approve “Design Concept A”</label>
+          <div class="activity">Activity: Client approved “Design Concept A”.</div>
+        </article>
+        <article class="card card-approve">
+          <h3 style="margin-top:0">Vista Realty Corporate Site</h3>
+          <div class="progress"><div class="bar"><span style="--w:100%"></span></div><span class="label">100%</span></div>
+          <p class="text-muted">Completed</p>
+          <input id="ap3" type="checkbox" checked> <label for="ap3">Approve “Final QA”</label>
+          <div class="activity">Activity: Approval recorded previously.</div>
+        </article>
+      </section>
+      <section class="card mt-6">
+        <h3 style="margin-top:0">Gentle Reminder</h3>
+        <p>Approvals pending on Orchid eCommerce Launch. This is a demo-only banner.</p>
+      </section>
+    </div>
+    <footer class="app-footer">© 2024 I Knowledge Factory Pvt. Ltd. — All Rights Reserved.</footer>
+  </div>
+</div>
+</body>
+</html>

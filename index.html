@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IKF Project Livetracker — Role Select</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app" style="grid-template-columns: 1fr;">
+  <main id="main" class="app-content" style="padding-top: 40px; max-width: 1080px; margin: 0 auto;">
+    <header class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-3">
+        <img src="assets/img/ikf-logo.svg" alt="IKF" width="44" height="28">
+        <div>
+          <h1 style="margin:0; font-size: 28px;">IKF Project Livetracker</h1>
+          <p class="text-muted" style="margin:0;">Choose a role to explore the demo</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a class="btn ghost" href="#tour">What’s in this demo?</a>
+      </div>
+    </header>
+
+    <section class="grid grid-2">
+      <div class="card">
+        <h2 style="margin-top:0">Select a role</h2>
+        <div class="role-grid mt-4">
+          <a class="role-card" href="admin.html">
+            <h3>Admin</h3>
+            <p>Full visibility across projects and teams.</p>
+            <span class="chip"><span class="dot teal"></span>All Projects</span>
+          </a>
+          <a class="role-card" href="manager.html">
+            <h3>PM / Dept Head</h3>
+            <p>Department view, actions & workflow triggers.</p>
+            <span class="chip"><span class="dot saffron"></span>Scoped</span>
+          </a>
+          <a class="role-card" href="team.html">
+            <h3>Team Member</h3>
+            <p>Assigned tasks, resources and timesheets.</p>
+            <span class="chip"><span class="dot emerald"></span>My Work</span>
+          </a>
+          <a class="role-card" href="client.html">
+            <h3>Client</h3>
+            <p>Project status, deliverables approvals, activity.</p>
+            <span class="chip"><span class="dot teal"></span>Read-only</span>
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <h2 style="margin-top:0">Demo phases</h2>
+        <ul>
+          <li><strong>Phase 1</strong>: Internal Portal</li>
+          <li><strong>Phase 2</strong>: Timesheet & Reporting</li>
+          <li><strong>Phase 3</strong>: Client Portal</li>
+        </ul>
+        <div class="mt-6">
+          <a class="btn primary" href="admin.html">Enter as Admin</a>
+          <a class="btn" href="projects.html">Browse Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="app-footer mt-6">© 2024 I Knowledge Factory Pvt. Ltd. — All Rights Reserved.</footer>
+  </main>
+</div>
+
+<!-- CSS-only Tour Modal -->
+<section id="tour" class="overlay" aria-labelledby="tour-title" role="dialog" aria-modal="true">
+  <div class="modal card" style="position:relative;">
+    <a class="btn small ghost close" href="#">Close</a>
+    <h2 id="tour-title" style="margin-top:0">What’s in this demo?</h2>
+    <div class="grid">
+      <div id="step1" class="tab-panel is-active">
+        <p><strong>1/3</strong> Internal Portal: dashboards, projects, stages, resources.</p>
+      </div>
+      <div id="step2" class="tab-panel">
+        <p><strong>2/3</strong> Timesheets & Reports: static entries, charts, CSV exports.</p>
+      </div>
+      <div id="step3" class="tab-panel">
+        <p><strong>3/3</strong> Client Portal: approvals and activity simulation.</p>
+      </div>
+    </div>
+    <div class="flex items-center justify-between mt-4">
+      <div class="steps">
+        <span class="step is-active"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+      </div>
+      <div class="flex gap-2">
+        <a class="btn small ghost" href="#">Skip</a>
+        <a class="btn small primary" href="#">Continue</a>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

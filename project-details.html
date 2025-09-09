@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Details — IKF Project Livetracker</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary">
+    <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
+    <nav>
+      <a href="admin.html"><span>Dashboard</span></a>
+      <a class="is-active" href="projects.html"><span>Projects</span></a>
+      <a href="timesheets.html"><span>Timesheets</span></a>
+      <a href="reports.html"><span>Reports</span></a>
+      <a href="resources.html"><span>Resources</span></a>
+      <a href="clients.html"><span>Clients</span></a>
+      <a href="settings.html"><span>Settings</span></a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="app-header" role="banner">
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Acme Website Revamp</h1>
+        <span class="badge ongoing">Ongoing</span>
+        <span class="chip">Client: Acme Corp</span>
+        <span class="chip">PM: Priya Nair</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a class="btn" href="assets/csv/projects.csv" download>Export CSV</a>
+        <a class="btn ghost" href="projects.html">Back</a>
+      </div>
+    </header>
+    <div class="app-content" id="main">
+      <nav class="breadcrumbs">Projects / Acme Website Revamp</nav>
+
+      <input id="toggle-design" type="checkbox" class="sr-only">
+
+      <section class="card overview mt-6">
+        <div class="flex items-center justify-between">
+          <h2 style="margin:0">Overview</h2>
+          <label class="design-toggle" for="toggle-design" aria-describedby="design-help"><span aria-hidden="true" class="chip">Mark “Design” as On</span></label>
+        </div>
+        <p id="design-help" class="text-muted">Toggling “Design” simulates completion and adjusts overall progress from 48% to 68% (CSS-only).</p>
+        <div class="grid grid-3 mt-4">
+          <div class="kpi">
+            <span class="label">Budgeted Hours</span>
+            <span class="value">240</span>
+          </div>
+          <div class="kpi">
+            <span class="label">Logged Hours</span>
+            <span class="value">10</span>
+          </div>
+          <div class="kpi">
+            <span class="label">Days to Go</span>
+            <span class="value">52</span>
+          </div>
+        </div>
+        <div class="progress progress-acme mt-6" aria-label="Overall progress">
+          <div class="bar">
+            <span class="value-48" style="--w:48%"></span>
+            <span class="value-68" style="--w:68%"></span>
+          </div>
+          <div class="label">Overall <span class="val-48">48%</span><span class="val-68" style="display:none;">68%</span></div>
+        </div>
+      </section>
+
+      <nav class="tabs mt-6">
+        <a href="#tab-overview" aria-current="page">Overview</a>
+        <a href="#tab-stages">Stages</a>
+        <a href="#tab-team">Team</a>
+        <a href="#tab-tasks">Tasks</a>
+        <a href="#resources">Resources</a>
+        <a href="#tab-activity">Activity</a>
+      </nav>
+
+      <section id="tab-overview" class="tab-panel is-active">
+        <div class="empty">Use the tabs to explore project details.</div>
+      </section>
+
+      <section id="tab-stages" class="tab-panel">
+        <div class="card">
+          <h3 style="margin-top:0">Stages (weighted)</h3>
+          <ul>
+            <li>Handshake Meeting — 5% — On</li>
+            <li>Sitemap — 5% — Closed</li>
+            <li>Data Gathering — 5% — In Progress</li>
+            <li>Content Writing — 15% — In Progress</li>
+            <li>Design — 20% — <span class="text-muted">toggle in Overview</span></li>
+            <li>Development — 25% — Open</li>
+            <li>QA & Testing — 15% — Open</li>
+            <li>Tech Support / Go Live — 10% — Open</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="tab-team" class="tab-panel">
+        <div class="card">
+          <h3 style="margin-top:0">Team</h3>
+          <ul>
+            <li>Priya Nair — PM</li>
+            <li>Arjun Mehta — BA</li>
+            <li>Riya Kapoor — Content</li>
+            <li>Karan Shah — Design</li>
+            <li>Neha Joshi — Dev</li>
+            <li>Amit Kulkarni — QA</li>
+            <li>Sana Iqbal — Tech Support</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="tab-tasks" class="tab-panel">
+        <div class="card">
+          <h3 style="margin-top:0">Tasks</h3>
+          <ul>
+            <li>Sitemap approval — Due 2024-08-20 — Owner: BA</li>
+            <li>Content outline — Due 2024-08-25 — Owner: Content</li>
+            <li>Homepage concept — Due 2024-08-28 — Owner: Design</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="resources" class="tab-panel">
+        <div class="card">
+          <h3 style="margin-top:0">Resources</h3>
+          <ul>
+            <li><a href="#res1">Sitemap Doc (Drive)</a></li>
+            <li><a href="#res2">Content Folder (Drive)</a></li>
+            <li><a href="#res3">Design Assets (Drive)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="tab-activity" class="tab-panel">
+        <div class="card">
+          <h3 style="margin-top:0">Activity</h3>
+          <ol>
+            <li>2024-07-03 — Stage “Sitemap” closed</li>
+            <li>2024-07-10 — Content Writing started</li>
+            <li>2024-08-01 — Client shared brand assets</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Resource Modals (CSS-only) -->
+      <section id="res1" class="overlay" aria-label="Sitemap Doc">
+        <div class="modal card" style="position:relative;">
+          <a class="btn small ghost close" href="#resources">Close</a>
+          <h3 style="margin-top:0">Sitemap Doc</h3>
+          <p>Access controlled via Google Drive (demo).</p>
+        </div>
+      </section>
+      <section id="res2" class="overlay" aria-label="Content Folder">
+        <div class="modal card" style="position:relative;">
+          <a class="btn small ghost close" href="#resources">Close</a>
+          <h3 style="margin-top:0">Content Folder</h3>
+          <p>Access controlled via Google Drive (demo).</p>
+        </div>
+      </section>
+      <section id="res3" class="overlay" aria-label="Design Assets">
+        <div class="modal card" style="position:relative;">
+          <a class="btn small ghost close" href="#resources">Close</a>
+          <h3 style="margin-top:0">Design Assets</h3>
+          <p>Access controlled via Google Drive (demo).</p>
+        </div>
+      </section>
+    </div>
+    <footer class="app-footer">© 2024 I Knowledge Factory Pvt. Ltd. — All Rights Reserved.</footer>
+  </div>
+</div>
+</body>
+</html>
