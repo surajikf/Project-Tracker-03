@@ -7,7 +7,7 @@
 <link rel="icon" href="assets/img/favicon.svg">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body class="reports-page">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="app">
   <aside class="sidebar" aria-label="Primary">
@@ -26,6 +26,8 @@
     <header class="app-header" role="banner">
       <div class="flex items-center gap-3">
         <h1 style="margin:0; font-size: 22px;">Reports</h1>
+        <span class="chip">Period: This Month</span>
+        <span class="chip">Data: Static Demo</span>
       </div>
       <div class="flex items-center gap-2">
         <a class="btn" href="assets/csv/reports.csv" download>Export CSV</a>
@@ -35,81 +37,181 @@
       <nav class="breadcrumbs">Home / Reports</nav>
 
       <nav class="tabs mt-6">
-        <a href="#tab-project" aria-current="page">By Project</a>
+        <a href="#tab-project" aria-current="page">By Project <span class="badge ongoing">6</span></a>
         <a href="#tab-dept">By Department</a>
         <a href="#tab-user">By User</a>
         <a href="#tab-stage">By Stage</a>
       </nav>
 
-      <section id="tab-project" class="tab-panel is-active">
-        <div class="grid grid-2">
+      <section id="tab-project" class="tab-panel is-active stack-lg">
+        <div class="grid grid-3 gap-8">
           <div class="card">
-            <h3 style="margin-top:0">Project Health</h3>
-            <svg viewBox="0 0 120 120" role="img" aria-label="Health donut"><circle cx="60" cy="60" r="46" fill="#fff" stroke="#E2E8F0" stroke-width="20"/><circle cx="60" cy="60" r="46" fill="transparent" stroke="#10B981" stroke-width="20" stroke-dasharray="288 0" stroke-dashoffset="0"/><circle cx="60" cy="60" r="46" fill="transparent" stroke="#00BFA6" stroke-width="20" stroke-dasharray="115.2 172.8" stroke-dashoffset="-288"/><circle cx="60" cy="60" r="46" fill="transparent" stroke="#F59E0B" stroke-width="20" stroke-dasharray="57.6 230.4" stroke-dashoffset="-403.2"/></svg>
-            <div class="mt-4">
-              <span class="dot emerald"></span>Completed (1) — <span class="dot teal"></span>Ongoing (4) — <span class="dot saffron"></span>On Hold (1)
+            <div class="flex items-center justify-between">
+              <h3 style="margin-top:0">Project Health</h3>
+              <div class="legend">
+                <span><span class="dot emerald"></span>Completed</span>
+                <span><span class="dot teal"></span>Ongoing</span>
+                <span><span class="dot saffron"></span>On Hold</span>
+              </div>
+            </div>
+            <svg viewBox="0 0 160 160" role="img" aria-label="Health donut" class="mt-4">
+              <circle cx="80" cy="80" r="58" fill="#fff" stroke="#E2E8F0" stroke-width="22"/>
+              <circle cx="80" cy="80" r="58" fill="transparent" stroke="#10B981" stroke-width="22" stroke-dasharray="288 0" stroke-dashoffset="0"/>
+              <circle cx="80" cy="80" r="58" fill="transparent" stroke="#00BFA6" stroke-width="22" stroke-dasharray="115.2 172.8" stroke-dashoffset="-288"/>
+              <circle cx="80" cy="80" r="58" fill="transparent" stroke="#F59E0B" stroke-width="22" stroke-dasharray="57.6 230.4" stroke-dashoffset="-403.2"/>
+              <text x="80" y="85" text-anchor="middle" font-size="16" fill="#334155" font-weight="700">6 Projects</text>
+            </svg>
+          </div>
+
+          <div class="card kpi" style="gap:10px;">
+            <h3 style="margin-top:0">Summary KPIs</h3>
+            <div class="grid grid-2 mt-4">
+              <div>
+                <div class="label">Total Projects</div>
+                <div class="value">6</div>
+              </div>
+              <div>
+                <div class="label">Avg Progress</div>
+                <div class="value">56%</div>
+              </div>
+              <div>
+                <div class="label">Approvals Pending</div>
+                <div class="value">2</div>
+              </div>
+              <div>
+                <div class="label">On Hold</div>
+                <div class="value" style="color:#F59E0B;">1</div>
+              </div>
             </div>
           </div>
+
           <div class="card">
-            <h3 style="margin-top:0">Summary KPIs</h3>
-            <ul>
-              <li>Total Projects: 6</li>
-              <li>Avg Progress: 56%</li>
-              <li>Approvals Pending: 2</li>
+            <div class="flex items-center justify-between">
+              <h3 style="margin-top:0">Completions Trend</h3>
+              <span class="chip">Last 6 weeks</span>
+            </div>
+            <svg viewBox="0 0 320 120" role="img" aria-label="Completions per week" class="mt-4">
+              <polyline fill="none" stroke="#00BFA6" stroke-width="3" points="10,90 60,70 110,75 160,60 210,55 260,30 310,25"/>
+              <circle cx="260" cy="30" r="3" fill="#00BFA6"/>
+              <circle cx="310" cy="25" r="3" fill="#00BFA6"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="flex items-center justify-between">
+            <h3 style="margin-top:0">Projects Table</h3>
+            <a class="btn small" href="assets/csv/reports.csv" download>Export CSV</a>
+          </div>
+          <table class="table mt-4">
+            <thead><tr><th>Project</th><th>Status</th><th>Progress</th><th>Budgeted</th><th>Logged</th></tr></thead>
+            <tbody>
+              <tr><td>Acme Website Revamp</td><td><span class="badge ongoing">Ongoing</span></td><td>48%</td><td>240</td><td>10</td></tr>
+              <tr><td>Orchid eCommerce Launch</td><td><span class="badge onhold">On Hold</span></td><td>32%</td><td>180</td><td>8</td></tr>
+              <tr><td>Phoenix Logistics Portal</td><td><span class="badge ongoing">Ongoing</span></td><td>76%</td><td>320</td><td>21</td></tr>
+              <tr><td>Vista Realty Corporate Site</td><td><span class="badge completed">Completed</span></td><td>100%</td><td>150</td><td>150</td></tr>
+              <tr><td>BlueWave Foods Microsite</td><td><span class="badge ongoing">Ongoing</span></td><td>22%</td><td>160</td><td>5</td></tr>
+              <tr><td>IKF Marketing Site Refresh</td><td><span class="badge ongoing">Ongoing</span></td><td>61%</td><td>200</td><td>12</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="tab-dept" class="tab-panel stack-lg">
+        <div class="grid grid-2 gap-8">
+          <div class="card">
+            <div class="flex items-center justify-between">
+              <h3 style="margin-top:0">Department Utilization</h3>
+              <span class="chip">Design & Development</span>
+            </div>
+            <svg viewBox="0 0 360 160" role="img" aria-label="Utilization bars" class="mt-4">
+              <rect x="20" y="30" width="260" height="18" fill="#E2E8F0" rx="9"/>
+              <rect x="20" y="30" width="238" height="18" fill="#00BFA6" rx="9"/>
+              <text x="290" y="43" font-size="12" fill="#334155">Design 68%</text>
+              <rect x="20" y="80" width="260" height="18" fill="#E2E8F0" rx="9"/>
+              <rect x="20" y="80" width="250" height="18" fill="#10B981" rx="9"/>
+              <text x="290" y="93" font-size="12" fill="#334155">Development 74%</text>
+            </svg>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0">Summary</h3>
+            <ul class="mt-4">
+              <li><span class="chip"><span class="dot teal"></span>Design</span> Utilization 68%</li>
+              <li><span class="chip"><span class="dot emerald"></span>Development</span> Utilization 74%</li>
+              <li><span class="chip"><span class="dot saffron"></span>Content</span> Utilization 52% (demo)</li>
             </ul>
           </div>
         </div>
-        <div class="card mt-6">
-          <h3 style="margin-top:0">Table</h3>
-          <table class="table">
-            <thead><tr><th>Project</th><th>Status</th><th>Progress</th><th>Budgeted</th><th>Logged</th></tr></thead>
-            <tbody>
-              <tr><td>Acme Website Revamp</td><td>Ongoing</td><td>48%</td><td>240</td><td>10</td></tr>
-              <tr><td>Orchid eCommerce Launch</td><td>On Hold</td><td>32%</td><td>180</td><td>8</td></tr>
-              <tr><td>Phoenix Logistics Portal</td><td>Ongoing</td><td>76%</td><td>320</td><td>21</td></tr>
-              <tr><td>Vista Realty Corporate Site</td><td>Completed</td><td>100%</td><td>150</td><td>150</td></tr>
-            </tbody>
-          </table>
+      </section>
+
+      <section id="tab-user" class="tab-panel stack-lg">
+        <div class="grid grid-2 gap-8">
+          <div class="card">
+            <h3 style="margin-top:0">User Leaderboard</h3>
+            <table class="table mt-4">
+              <thead><tr><th>User</th><th>Hours</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Neha Joshi</td><td>28</td><td><span class="badge ongoing">Top</span></td></tr>
+                <tr><td>Riya Kapoor</td><td>17</td><td><span class="badge ongoing">Active</span></td></tr>
+                <tr><td>Karan Shah</td><td>10</td><td><span class="badge onhold">Design</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card">
+            <div class="flex items-center justify-between">
+              <h3 style="margin-top:0">Weekly Heatmap</h3>
+              <span class="chip">Mon–Fri</span>
+            </div>
+            <svg viewBox="0 0 260 120" role="img" aria-label="Timesheet heatmap" class="mt-4">
+              <g transform="translate(20,20)">
+                <text x="-12" y="12" font-size="10" fill="#64748B">Mon</text>
+                <text x="-12" y="36" font-size="10" fill="#64748B">Tue</text>
+                <text x="-12" y="60" font-size="10" fill="#64748B">Wed</text>
+                <text x="-12" y="84" font-size="10" fill="#64748B">Thu</text>
+                <text x="-12" y="108" font-size="10" fill="#64748B">Fri</text>
+                <rect x="20" y="4" width="20" height="20" rx="4" fill="#10B981" opacity="0.8"/>
+                <rect x="44" y="4" width="20" height="20" rx="4" fill="#E2E8F0"/>
+                <rect x="68" y="4" width="20" height="20" rx="4" fill="#10B981" opacity="0.9"/>
+                <rect x="92" y="4" width="20" height="20" rx="4" fill="#00BFA6" opacity="0.7"/>
+                <rect x="116" y="4" width="20" height="20" rx="4" fill="#E2E8F0"/>
+                <rect x="20" y="28" width="20" height="20" rx="4" fill="#00BFA6" opacity="0.5"/>
+                <rect x="44" y="28" width="20" height="20" rx="4" fill="#00BFA6" opacity="0.8"/>
+                <rect x="68" y="28" width="20" height="20" rx="4" fill="#10B981" opacity="0.9"/>
+                <rect x="92" y="28" width="20" height="20" rx="4" fill="#E2E8F0"/>
+                <rect x="116" y="28" width="20" height="20" rx="4" fill="#E2E8F0"/>
+                <rect x="20" y="52" width="20" height="20" rx="4" fill="#00BFA6" opacity="0.7"/>
+                <rect x="44" y="52" width="20" height="20" rx="4" fill="#E2E8F0"/>
+                <rect x="68" y="52" width="20" height="20" rx="4" fill="#10B981" opacity="0.9"/>
+                <rect x="92" y="52" width="20" height="20" rx="4" fill="#E2E8F0"/>
+                <rect x="116" y="52" width="20" height="20" rx="4" fill="#E2E8F0"/>
+                <rect x="20" y="76" width="20" height="20" rx="4" fill="#00BFA6" opacity="0.6"/>
+                <rect x="44" y="76" width="20" height="20" rx="4" fill="#E2E8F0"/>
+                <rect x="68" y="76" width="20" height="20" rx="4" fill="#00BFA6" opacity="0.7"/>
+                <rect x="92" y="76" width="20" height="20" rx="4" fill="#E2E8F0"/>
+                <rect x="116" y="76" width="20" height="20" rx="4" fill="#E2E8F0"/>
+                <rect x="20" y="100" width="20" height="20" rx="4" fill="#00BFA6" opacity="0.5"/>
+                <rect x="44" y="100" width="20" height="20" rx="4" fill="#00BFA6" opacity="0.5"/>
+                <rect x="68" y="100" width="20" height="20" rx="4" fill="#00BFA6" opacity="0.6"/>
+                <rect x="92" y="100" width="20" height="20" rx="4" fill="#E2E8F0"/>
+                <rect x="116" y="100" width="20" height="20" rx="4" fill="#E2E8F0"/>
+              </g>
+            </svg>
+          </div>
         </div>
       </section>
 
-      <section id="tab-dept" class="tab-panel">
+      <section id="tab-stage" class="tab-panel stack-lg">
         <div class="card">
-          <h3 style="margin-top:0">Department Utilization</h3>
-          <svg viewBox="0 0 320 140" role="img" aria-label="Utilization bars">
-            <rect x="20" y="20" width="220" height="16" fill="#E2E8F0" rx="8"/>
-            <rect x="20" y="20" width="204" height="16" fill="#00BFA6" rx="8"/>
-            <text x="250" y="32" font-size="12" fill="#334155">Design 68%</text>
-            <rect x="20" y="60" width="220" height="16" fill="#E2E8F0" rx="8"/>
-            <rect x="20" y="60" width="236" height="16" fill="#10B981" rx="8"/>
-            <text x="250" y="72" font-size="12" fill="#334155">Development 74%</text>
-          </svg>
-        </div>
-      </section>
-
-      <section id="tab-user" class="tab-panel">
-        <div class="card">
-          <h3 style="margin-top:0">User Leaderboard</h3>
-          <table class="table">
-            <thead><tr><th>User</th><th>Hours</th></tr></thead>
-            <tbody>
-              <tr><td>Neha Joshi</td><td>21</td></tr>
-              <tr><td>Riya Kapoor</td><td>10</td></tr>
-              <tr><td>Karan Shah</td><td>8</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="tab-stage" class="tab-panel">
-        <div class="card">
-          <h3 style="margin-top:0">Stage Distribution</h3>
-          <svg viewBox="0 0 320 160" role="img" aria-label="Stage distribution">
-            <rect x="20" y="30" width="40" height="80" fill="#00BFA6"/>
-            <rect x="70" y="40" width="40" height="70" fill="#10B981"/>
-            <rect x="120" y="10" width="40" height="100" fill="#F59E0B"/>
-            <rect x="170" y="50" width="40" height="60" fill="#0A2540"/>
-            <rect x="220" y="35" width="40" height="75" fill="#EF4444"/>
+          <div class="flex items-center justify-between">
+            <h3 style="margin-top:0">Stage Distribution</h3>
+            <span class="chip">Weighted by hours</span>
+          </div>
+          <svg viewBox="0 0 360 180" role="img" aria-label="Stage distribution" class="mt-4">
+            <rect x="30" y="40" width="44" height="100" fill="#00BFA6" rx="6"/>
+            <rect x="90" y="50" width="44" height="90" fill="#10B981" rx="6"/>
+            <rect x="150" y="20" width="44" height="120" fill="#F59E0B" rx="6"/>
+            <rect x="210" y="60" width="44" height="80" fill="#0A2540" rx="6"/>
+            <rect x="270" y="45" width="44" height="95" fill="#EF4444" rx="6"/>
           </svg>
           <div class="mt-4"><span class="dot teal"></span>Design <span class="dot emerald"></span>Development <span class="dot saffron"></span>Content <span class="dot"></span>QA <span class="dot rose"></span>Support</div>
         </div>

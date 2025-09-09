@@ -44,6 +44,16 @@
   --space-8: 32px;
   --space-10: 40px;
   --space-12: 48px;
+
+  /* Typography scale and families (local/system only) */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "DM Sans", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --fs-xs: 12px; /* captions */
+  --fs-sm: 14px; /* meta */
+  --fs-md: 16px; /* base */
+  --fs-lg: 18px; /* h3 */
+  --fs-xl: 22px; /* h2 */
+  --fs-2xl: 28px; /* h1 */
 }
 
 /* Typography and base reset */
@@ -56,9 +66,25 @@ body {
     radial-gradient(1200px 600px at 10% -10%, #F8FAFC, transparent 50%),
     radial-gradient(800px 400px at 120% 0%, #F1F5F9, transparent 40%),
     var(--bg);
-  font-family: "Inter", "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: var(--font-sans);
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0 0 var(--space-3);
+  color: var(--slate-900);
+}
+h1 { font-size: var(--fs-2xl); font-weight: 800; }
+h2 { font-size: var(--fs-xl); font-weight: 800; }
+h3 { font-size: var(--fs-lg); font-weight: 700; }
+small { font-size: var(--fs-sm); color: var(--slate-500); }
+
 img, svg { display: block; max-width: 100%; }
 img { height: auto; }
 svg { height: auto; }
@@ -178,7 +204,7 @@ a { color: var(--brand-primary); text-decoration: none; }
 .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: var(--slate-300); }
 .kpi { display: grid; gap: 4px; }
 .kpi .label { color: var(--slate-500); font-size: 12px; letter-spacing: .02em; text-transform: uppercase; }
-.kpi .value { font-size: 28px; font-weight: 800; }
+.kpi .value { font-size: 28px; font-weight: 800; font-family: var(--font-display); }
 
 /* Table */
 .table {
@@ -187,10 +213,10 @@ a { color: var(--brand-primary); text-decoration: none; }
 .table thead th {
   position: sticky; top: 0;
   background: linear-gradient(180deg, #F8FAFC, #F1F5F9); color: var(--slate-700);
-  text-align: left; padding: 12px 14px; font-size: 12px; text-transform: uppercase; letter-spacing: .04em;
+  text-align: left; padding: 14px 16px; font-size: 12px; text-transform: uppercase; letter-spacing: .04em;
   border-bottom: 1px solid var(--border);
 }
-.table tbody td { padding: 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.table tbody td { padding: 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
 .table tbody tr:nth-child(even) { background: #fff; }
 .table tbody tr:hover { background: #fbfdfd; }
 
@@ -219,9 +245,9 @@ a { color: var(--brand-primary); text-decoration: none; }
 .overlay:target { display: flex; }
 
 /* Details-as-drawer */
-details.drawer { position: relative; }
-details.drawer[open] .drawer-panel { transform: translateX(0); }
-.drawer-panel {
+ details.drawer { position: relative; }
+ details.drawer[open] .drawer-panel { transform: translateX(0); }
+ .drawer-panel {
   position: fixed; right: 0; top: 0; bottom: 0; width: min(420px, 90vw);
   background: var(--white); border-left: 1px solid var(--border); box-shadow: var(--shadow-lg);
   padding: var(--space-6); transform: translateX(100%); transition: transform .24s ease;
@@ -232,7 +258,7 @@ details.drawer[open] .drawer-panel { transform: translateX(0); }
 .role-grid { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 .role-card { display: grid; gap: var(--space-3); padding: var(--space-6); border-radius: var(--radius-xl); border: 1px solid var(--border); background: var(--white); box-shadow: var(--shadow-md); transition: transform .18s ease, box-shadow .18s ease; }
 .role-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-.role-card h3 { margin: 0; font-size: 18px; }
+.role-card h3 { margin: 0; font-size: var(--fs-lg); font-family: var(--font-display); }
 .role-card p { margin: 0; color: var(--slate-700); }
 
 /* Status filter (anchor-target technique) */
@@ -262,7 +288,7 @@ details.drawer[open] .drawer-panel { transform: translateX(0); }
 .dot.rose { background: var(--brand-rose); }
 
 /* Helper: visually hidden but space reserved label */
-.vis-label { font-size: 12px; color: var(--slate-500); }
+.vis-label { font-size: var(--fs-sm); color: var(--slate-500); }
 
 /* Page-specific: Project Details progress toggle for Design */
 .design-toggle { display: inline-flex; align-items: center; gap: 8px; }
@@ -285,3 +311,32 @@ details.drawer[open] .drawer-panel { transform: translateX(0); }
 /* Accessibility helpers */
 .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 .skip-link:focus { position: static; width: auto; height: auto; padding: 6px 10px; background: var(--brand-teal); color: #05322a; border-radius: 6px; }
+
+/* Spacing & layout utilities (additions) */
+.stack { display: grid; gap: var(--space-6); }
+.stack-lg { display: grid; gap: var(--space-8); }
+.gap-8 { gap: var(--space-8); }
+.mt-8 { margin-top: var(--space-8); }
+.legend { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; color: var(--slate-700); }
+.pill-group { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Slightly roomier tables */
+.table thead th { padding: 14px 16px; }
+.table tbody td { padding: 16px; }
+
+.reports-page .app-content { padding: var(--space-8); }
+.reports-page .tabs { margin-bottom: var(--space-8); }
+.reports-page .grid { gap: var(--space-8); }
+.reports-page .card { padding: var(--space-8); }
+.reports-page .table thead th { padding: 16px 18px; }
+.reports-page .table tbody td { padding: 18px; }
+
+.form { display: grid; gap: var(--space-4); }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 700; font-size: 14px; color: var(--slate-700); }
+.input, .select, .textarea { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--white); }
+.textarea { min-height: 100px; }
+.wizard { display: grid; gap: var(--space-6); }
+.wizard-steps { display: flex; gap: 8px; flex-wrap: wrap; }
+.wizard-steps .step { padding: 8px 10px; border-radius: 999px; background: var(--slate-100); font-weight: 700; color: var(--slate-700); }
+.wizard-steps .step.is-active { background: var(--brand-teal); color: #062a21; }

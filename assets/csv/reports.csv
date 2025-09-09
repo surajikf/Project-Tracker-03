@@ -1,7 +1,19 @@
 Report,Entity,Metric,Value,Period
+By Project,Acme Website Revamp,Budgeted Hours,240,2024-M08
 By Project,Acme Website Revamp,Logged Hours,10,2024-W33
+By Project,Orchid eCommerce Launch,Budgeted Hours,180,2024-M08
 By Project,Orchid eCommerce Launch,Logged Hours,8,2024-W33
-By Department,Design,Utilization %,68,2024-W33
-By Department,Development,Utilization %,74,2024-W33
+By Project,Phoenix Logistics Portal,Budgeted Hours,320,2024-M08
+By Project,Phoenix Logistics Portal,Logged Hours,21,2024-W33
+By Project,Vista Realty Corporate Site,Budgeted Hours,150,2024-M05
+By Project,Vista Realty Corporate Site,Logged Hours,150,2024-M05
+By Project,BlueWave Foods Microsite,Budgeted Hours,160,2024-M08
+By Project,BlueWave Foods Microsite,Logged Hours,5,2024-W33
+By Project,IKF Marketing Site Refresh,Budgeted Hours,200,2024-M08
+By Project,IKF Marketing Site Refresh,Logged Hours,12,2024-W33
+By Department,Design,Utilization %,68,2024-M08
+By Department,Development,Utilization %,74,2024-M08
+By Department,Content,Utilization %,52,2024-M08
+By User,Neha Joshi,Hours,21,2024-W33
 By User,Riya Kapoor,Hours,10,2024-W33
-By Stage,Design,Hours,8,2024-W33
+By User,Karan Shah,Hours,8,2024-W33

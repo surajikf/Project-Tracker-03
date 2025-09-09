@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Project — IKF Project Livetracker</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary">
+    <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
+    <nav>
+      <a href="admin.html"><span>Dashboard</span></a>
+      <a href="projects.html"><span>Projects</span></a>
+      <a href="timesheets.html"><span>Timesheets</span></a>
+      <a href="reports.html"><span>Reports</span></a>
+      <a href="resources.html"><span>Resources</span></a>
+      <a href="clients.html"><span>Clients</span></a>
+      <a href="settings.html"><span>Settings</span></a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="app-header" role="banner">
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Create New Project</h1>
+        <span class="chip">Static Wizard</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a class="btn ghost" href="projects.html">Cancel</a>
+      </div>
+    </header>
+    <div class="app-content" id="main">
+      <nav class="breadcrumbs">Projects / New Project</nav>
+
+      <section class="card wizard">
+        <div class="wizard-steps">
+          <a class="step is-active" href="#step-basics">1. Basics</a>
+          <a class="step" href="#step-team">2. Team</a>
+          <a class="step" href="#step-stages">3. Stages</a>
+          <a class="step" href="#step-resources">4. Resources</a>
+        </div>
+
+        <form class="form" aria-labelledby="form-title">
+          <h2 id="form-title" class="sr-only">New Project</h2>
+
+          <section id="step-basics" class="tab-panel is-active">
+            <div class="grid grid-2">
+              <div class="field"><label for="pname">Project Name</label><input id="pname" class="input" value="New Client Website" aria-required="true"></div>
+              <div class="field"><label for="client">Client</label><input id="client" class="input" value="Acme Corp"></div>
+              <div class="field"><label for="pm">Project Manager</label><input id="pm" class="input" value="Priya Nair"></div>
+              <div class="field"><label for="dept">Department</label><select id="dept" class="select"><option>Website</option><option>Marketing</option></select></div>
+              <div class="field"><label for="due">Due Date</label><input id="due" class="input" type="date" value="2024-11-30"></div>
+              <div class="field"><label for="status">Status</label><select id="status" class="select"><option>Ongoing</option><option>On Hold</option><option>Completed</option></select></div>
+            </div>
+            <div class="mt-6 flex items-center justify-between">
+              <span class="text-muted">Step 1 of 4</span>
+              <a class="btn teal" href="#step-team">Next: Team</a>
+            </div>
+          </section>
+
+          <section id="step-team" class="tab-panel">
+            <div class="grid grid-3">
+              <div class="card">
+                <h3 style="margin-top:0">BA</h3>
+                <label><input type="checkbox"> Arjun Mehta</label>
+              </div>
+              <div class="card">
+                <h3 style="margin-top:0">Content</h3>
+                <label><input type="checkbox" checked> Riya Kapoor</label>
+              </div>
+              <div class="card">
+                <h3 style="margin-top:0">Design</h3>
+                <label><input type="checkbox" checked> Karan Shah</label>
+              </div>
+              <div class="card">
+                <h3 style="margin-top:0">Development</h3>
+                <label><input type="checkbox" checked> Neha Joshi</label>
+              </div>
+              <div class="card">
+                <h3 style="margin-top:0">QA</h3>
+                <label><input type="checkbox"> Amit Kulkarni</label>
+              </div>
+            </div>
+            <div class="mt-6 flex items-center justify-between">
+              <a class="btn ghost" href="#step-basics">Back</a>
+              <a class="btn teal" href="#step-stages">Next: Stages</a>
+            </div>
+          </section>
+
+          <section id="step-stages" class="tab-panel">
+            <p class="text-muted">Set initial status for each weighted stage (static demo).</p>
+            <div class="grid grid-2">
+              <label class="chip"><input type="checkbox" checked> Handshake Meeting — 5%</label>
+              <label class="chip"><input type="checkbox" checked> Sitemap — 5%</label>
+              <label class="chip"><input type="checkbox"> Data Gathering — 5%</label>
+              <label class="chip"><input type="checkbox"> Content Writing — 15%</label>
+              <label class="chip"><input type="checkbox"> Design — 20%</label>
+              <label class="chip"><input type="checkbox"> Development — 25%</label>
+              <label class="chip"><input type="checkbox"> QA & Testing — 15%</label>
+              <label class="chip"><input type="checkbox"> Tech Support — 10%</label>
+            </div>
+            <div class="mt-6 flex items-center justify-between">
+              <a class="btn ghost" href="#step-team">Back</a>
+              <a class="btn teal" href="#step-resources">Next: Resources</a>
+            </div>
+          </section>
+
+          <section id="step-resources" class="tab-panel">
+            <div class="field"><label for="res1">Sitemap Doc (Drive URL)</label><input id="res1" class="input" value="https://drive.google.com/..." readonly></div>
+            <div class="field"><label for="res2">Content Folder (Drive URL)</label><input id="res2" class="input" value="https://drive.google.com/..." readonly></div>
+            <div class="field"><label for="notes">Notes</label><textarea id="notes" class="textarea">Kickoff scheduled for next week.</textarea></div>
+            <div class="mt-6 flex items-center justify-between">
+              <a class="btn ghost" href="#step-stages">Back</a>
+              <a class="btn primary" href="project-details.html">Create Project</a>
+            </div>
+          </section>
+        </form>
+      </section>
+    </div>
+    <footer class="app-footer">© 2024 I Knowledge Factory Pvt. Ltd. — All Rights Reserved.</footer>
+  </div>
+</div>
+</body>
+</html>
