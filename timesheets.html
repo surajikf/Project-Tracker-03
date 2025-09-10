@@ -29,6 +29,7 @@
         <span class="chip">TIMESHEET V2 — Track Your Time, Effortlessly.</span>
       </div>
       <div class="flex items-center gap-2">
+        <a class="btn" href="#tab-my">Add Timesheet</a>
         <span class="chip">02:53:52 hrs</span>
         <a class="btn" href="assets/csv/timesheets.csv" download>Export CSV</a>
       </div>
@@ -126,12 +127,52 @@
               <a class="filter-chip" href="#ts-date-2024-08-16">2024-08-16</a>
             </div>
           </div>
+          
+          <div class="grid grid-3 mt-4" aria-label="Leaderboard">
+            <div class="card kpi-card">
+              <div class="flex items-center gap-3">
+                <span class="avatar" aria-hidden="true">NJ</span>
+                <div>
+                  <strong>Neha Joshi</strong>
+                  <div class="text-muted">Development</div>
+                </div>
+                <span class="spacer"></span>
+                <span class="chip" aria-label="Total hours">28h</span>
+              </div>
+              <div class="progress mt-4"><div class="bar"><span style="--w:100%"></span></div><div class="label">Utilization</div></div>
+            </div>
+            <div class="card kpi-card">
+              <div class="flex items-center gap-3">
+                <span class="avatar" aria-hidden="true">RK</span>
+                <div>
+                  <strong>Riya Kapoor</strong>
+                  <div class="text-muted">Content</div>
+                </div>
+                <span class="spacer"></span>
+                <span class="chip" aria-label="Total hours">17h</span>
+              </div>
+              <div class="progress mt-4"><div class="bar"><span style="--w:61%"></span></div><div class="label">Utilization</div></div>
+            </div>
+            <div class="card kpi-card">
+              <div class="flex items-center gap-3">
+                <span class="avatar" aria-hidden="true">KS</span>
+                <div>
+                  <strong>Karan Shah</strong>
+                  <div class="text-muted">Design</div>
+                </div>
+                <span class="spacer"></span>
+                <span class="chip" aria-label="Total hours">10h</span>
+              </div>
+              <div class="progress mt-4"><div class="bar"><span style="--w:36%"></span></div><div class="label">Utilization</div></div>
+            </div>
+          </div>
+          
           <span id="ts-all"></span>
           <span id="ts-proj-acme"></span><span id="ts-proj-orchid"></span><span id="ts-proj-phoenix"></span><span id="ts-proj-vista"></span><span id="ts-proj-bluewave"></span><span id="ts-proj-ikf"></span>
           <span id="ts-user-riya"></span><span id="ts-user-karan"></span><span id="ts-user-neha"></span><span id="ts-user-amit"></span><span id="ts-user-sana"></span>
           <span id="ts-phase-content"></span><span id="ts-phase-design"></span><span id="ts-phase-development"></span><span id="ts-phase-qa"></span><span id="ts-phase-support"></span>
           <span id="ts-date-2024-08-12"></span><span id="ts-date-2024-08-13"></span><span id="ts-date-2024-08-14"></span><span id="ts-date-2024-08-15"></span><span id="ts-date-2024-08-16"></span>
-          <table class="table ts-table" aria-label="Admin view">
+          <table class="table ts-table compact" aria-label="Admin view">
             <thead>
               <tr>
                 <th>User</th>
