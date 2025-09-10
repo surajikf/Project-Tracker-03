@@ -399,8 +399,11 @@ a { color: var(--brand-primary); text-decoration: none; }
 
 .reports-page .app-content { padding: var(--space-8); }
 .reports-page .tabs { margin-bottom: var(--space-8); }
-.reports-page .grid { gap: var(--space-8); }
+.reports-page .grid { gap: var(--space-8); align-items: start; }
 .reports-page .card { padding: var(--space-8); }
+.project-report { scroll-margin-top: 84px; }
+.reports-page .legend { display: flex; gap: 12px; color: var(--slate-700); font-size: 14px; }
+.reports-page .legend .dot { margin-right: 6px; }
 .reports-page .table thead th { padding: 16px 18px; }
 .reports-page .table tbody td { padding: 18px; }
 
