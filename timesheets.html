@@ -45,10 +45,16 @@
       <section id="tab-my" class="tab-panel is-active">
         <div class="card">
           <h2 style="margin-top:0">This Week</h2>
-          <table class="table compact" aria-label="My weekly timesheet">
+          <div class="ts-kpis mt-4">
+            <article class="kpi-card"><div class="kpi"><div class="label">Week Total</div><div class="value">17 hrs</div></div></article>
+            <article class="kpi-card"><div class="kpi"><div class="label">Projects</div><div class="value">2</div></div></article>
+            <article class="kpi-card"><div class="kpi"><div class="label">Avg / Day</div><div class="value">3.4 hrs</div></div></article>
+          </div>
+          <div class="ts-legend mt-4"><span><span class="dot teal"></span>Logged</span><span><span class="dot saffron"></span>Pending</span><span><span class="dot emerald"></span>Approved</span></div>
+          <table class="table sticky compact" aria-label="My weekly timesheet">
             <thead>
               <tr>
-                <th>Task</th>
+                <th class="sticky-col">Task</th>
                 <th>Project</th>
                 <th>Mon</th>
                 <th>Tue</th>
@@ -60,7 +66,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>Content Writing</td>
+                <td class="sticky-col">Content Writing</td>
                 <td>Acme Website Revamp</td>
                 <td>6</td>
                 <td>2</td>
@@ -70,7 +76,7 @@
                 <td>12</td>
               </tr>
               <tr>
-                <td>Content Updates</td>
+                <td class="sticky-col">Content Updates</td>
                 <td>IKF Marketing Site Refresh</td>
                 <td>0</td>
                 <td>0</td>
@@ -80,6 +86,9 @@
                 <td>5</td>
               </tr>
             </tbody>
+            <tfoot>
+              <tr><td class="sticky-col">Totals</td><td></td><td></td><td></td><td></td><td></td><td></td><td>17</td></tr>
+            </tfoot>
           </table>
           <div class="mt-4 text-right"><strong>Week Total: 17 hrs</strong></div>
           <div class="mobile-actionbar mt-4"><a class="btn small" href="assets/csv/timesheets.csv" download>Export CSV</a><a class="btn small ghost" href="#">Clear</a></div>
@@ -172,10 +181,10 @@
           <span id="ts-user-riya"></span><span id="ts-user-karan"></span><span id="ts-user-neha"></span><span id="ts-user-amit"></span><span id="ts-user-sana"></span>
           <span id="ts-phase-content"></span><span id="ts-phase-design"></span><span id="ts-phase-development"></span><span id="ts-phase-qa"></span><span id="ts-phase-support"></span>
           <span id="ts-date-2024-08-12"></span><span id="ts-date-2024-08-13"></span><span id="ts-date-2024-08-14"></span><span id="ts-date-2024-08-15"></span><span id="ts-date-2024-08-16"></span>
-          <table class="table ts-table compact" aria-label="Admin view">
+          <table class="table ts-table compact sticky" aria-label="Admin view">
             <thead>
               <tr>
-                <th>User</th>
+                <th class="sticky-col">User</th>
                 <th>Project</th>
                 <th>Stage</th>
                 <th>Date</th>
@@ -185,7 +194,7 @@
             </thead>
             <tbody>
               <tr data-user="riya" data-project="acme" data-phase="content" data-date="2024-08-12">
-                <td>Riya Kapoor</td>
+                <td class="sticky-col">Riya Kapoor</td>
                 <td>Acme Website Revamp</td>
                 <td>Content Writing</td>
                 <td>2024-08-12</td>
@@ -193,7 +202,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="riya" data-project="acme" data-phase="content" data-date="2024-08-13">
-                <td>Riya Kapoor</td>
+                <td class="sticky-col">Riya Kapoor</td>
                 <td>Acme Website Revamp</td>
                 <td>Content Writing</td>
                 <td>2024-08-13</td>
@@ -201,7 +210,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="riya" data-project="acme" data-phase="content" data-date="2024-08-14">
-                <td>Riya Kapoor</td>
+                <td class="sticky-col">Riya Kapoor</td>
                 <td>Acme Website Revamp</td>
                 <td>Content Writing</td>
                 <td>2024-08-14</td>
@@ -209,7 +218,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="riya" data-project="ikf" data-phase="content" data-date="2024-08-15">
-                <td>Riya Kapoor</td>
+                <td class="sticky-col">Riya Kapoor</td>
                 <td>IKF Marketing Site Refresh</td>
                 <td>Content Updates</td>
                 <td>2024-08-15</td>
@@ -217,7 +226,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="riya" data-project="ikf" data-phase="content" data-date="2024-08-16">
-                <td>Riya Kapoor</td>
+                <td class="sticky-col">Riya Kapoor</td>
                 <td>IKF Marketing Site Refresh</td>
                 <td>Content Updates</td>
                 <td>2024-08-16</td>
@@ -225,7 +234,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="karan" data-project="orchid" data-phase="design" data-date="2024-08-13">
-                <td>Karan Shah</td>
+                <td class="sticky-col">Karan Shah</td>
                 <td>Orchid eCommerce Launch</td>
                 <td>Design</td>
                 <td>2024-08-13</td>
@@ -233,7 +242,7 @@
                 <td><span class="badge onhold">Pending</span></td>
               </tr>
               <tr data-user="karan" data-project="orchid" data-phase="design" data-date="2024-08-15">
-                <td>Karan Shah</td>
+                <td class="sticky-col">Karan Shah</td>
                 <td>Orchid eCommerce Launch</td>
                 <td>Design</td>
                 <td>2024-08-15</td>
@@ -241,7 +250,7 @@
                 <td><span class="badge onhold">Pending</span></td>
               </tr>
               <tr data-user="karan" data-project="ikf" data-phase="design" data-date="2024-08-16">
-                <td>Karan Shah</td>
+                <td class="sticky-col">Karan Shah</td>
                 <td>IKF Marketing Site Refresh</td>
                 <td>Design</td>
                 <td>2024-08-16</td>
@@ -249,7 +258,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="neha" data-project="phoenix" data-phase="development" data-date="2024-08-12">
-                <td>Neha Joshi</td>
+                <td class="sticky-col">Neha Joshi</td>
                 <td>Phoenix Logistics Portal</td>
                 <td>Development</td>
                 <td>2024-08-12</td>
@@ -257,7 +266,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="neha" data-project="phoenix" data-phase="development" data-date="2024-08-13">
-                <td>Neha Joshi</td>
+                <td class="sticky-col">Neha Joshi</td>
                 <td>Phoenix Logistics Portal</td>
                 <td>Development</td>
                 <td>2024-08-13</td>
@@ -265,7 +274,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="neha" data-project="phoenix" data-phase="development" data-date="2024-08-14">
-                <td>Neha Joshi</td>
+                <td class="sticky-col">Neha Joshi</td>
                 <td>Phoenix Logistics Portal</td>
                 <td>Development</td>
                 <td>2024-08-14</td>
@@ -273,7 +282,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="neha" data-project="bluewave" data-phase="development" data-date="2024-08-15">
-                <td>Neha Joshi</td>
+                <td class="sticky-col">Neha Joshi</td>
                 <td>BlueWave Foods Microsite</td>
                 <td>Development</td>
                 <td>2024-08-15</td>
@@ -281,7 +290,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="neha" data-project="bluewave" data-phase="development" data-date="2024-08-16">
-                <td>Neha Joshi</td>
+                <td class="sticky-col">Neha Joshi</td>
                 <td>BlueWave Foods Microsite</td>
                 <td>Development</td>
                 <td>2024-08-16</td>
@@ -289,7 +298,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="amit" data-project="vista" data-phase="qa" data-date="2024-08-12">
-                <td>Amit Kulkarni</td>
+                <td class="sticky-col">Amit Kulkarni</td>
                 <td>Vista Realty Corporate Site</td>
                 <td>QA & Testing</td>
                 <td>2024-08-12</td>
@@ -297,7 +306,7 @@
                 <td><span class="badge completed">Approved</span></td>
               </tr>
               <tr data-user="amit" data-project="vista" data-phase="qa" data-date="2024-08-13">
-                <td>Amit Kulkarni</td>
+                <td class="sticky-col">Amit Kulkarni</td>
                 <td>Vista Realty Corporate Site</td>
                 <td>QA & Testing</td>
                 <td>2024-08-13</td>
@@ -305,7 +314,7 @@
                 <td><span class="badge completed">Approved</span></td>
               </tr>
               <tr data-user="amit" data-project="phoenix" data-phase="qa" data-date="2024-08-14">
-                <td>Amit Kulkarni</td>
+                <td class="sticky-col">Amit Kulkarni</td>
                 <td>Phoenix Logistics Portal</td>
                 <td>QA & Testing</td>
                 <td>2024-08-14</td>
@@ -313,7 +322,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="amit" data-project="acme" data-phase="qa" data-date="2024-08-15">
-                <td>Amit Kulkarni</td>
+                <td class="sticky-col">Amit Kulkarni</td>
                 <td>Acme Website Revamp</td>
                 <td>QA & Testing</td>
                 <td>2024-08-15</td>
@@ -321,7 +330,7 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
               <tr data-user="sana" data-project="acme" data-phase="support" data-date="2024-08-16">
-                <td>Sana Iqbal</td>
+                <td class="sticky-col">Sana Iqbal</td>
                 <td>Acme Website Revamp</td>
                 <td>Tech Support</td>
                 <td>2024-08-16</td>
@@ -329,6 +338,9 @@
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
             </tbody>
+            <tfoot>
+              <tr><td class="sticky-col">Totals</td><td></td><td></td><td></td><td>71</td><td></td></tr>
+            </tfoot>
           </table>
         </div>
       </section>

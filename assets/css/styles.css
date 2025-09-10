@@ -213,9 +213,13 @@ a { color: var(--brand-primary); text-decoration: none; }
   text-align: left; padding: 14px 16px; font-size: 12px; text-transform: uppercase; letter-spacing: .04em;
   border-bottom: 1px solid var(--border);
 }
+.table.sticky thead th { position: sticky; top: 0; z-index: 5; }
+.table .sticky-col { position: sticky; left: 0; z-index: 4; background: var(--white); }
+.table.sticky .sticky-col { background: var(--white); box-shadow: 1px 0 0 0 var(--border); }
 .table tbody td { padding: 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
 .table tbody tr:nth-child(even) { background: #fff; }
 .table tbody tr:hover { background: #fbfdfd; }
+.table tfoot td { padding: 14px 16px; font-weight: 800; color: var(--slate-700); background: #f8fafc; border-top: 1px solid var(--border); }
 
 /* Progress */
 .progress { display: grid; gap: 6px; min-width: 160px; }
@@ -780,6 +784,12 @@ a { color: var(--brand-primary); text-decoration: none; }
   font-weight: 700;
   color: var(--slate-900);
 }
+
+/* Timesheet page extras */
+.ts-kpis { display: grid; gap: var(--space-4); grid-template-columns: repeat(3, minmax(0,1fr)); }
+.ts-kpis .kpi-card .value { font-size: 24px; }
+.ts-legend { display: flex; gap: 12px; color: var(--slate-700); font-size: 14px; }
+.ts-legend .dot { margin-right: 6px; }
 
 /* Resource Links */
 .resource-list {
