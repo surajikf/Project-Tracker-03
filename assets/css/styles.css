@@ -262,6 +262,11 @@ a { color: var(--brand-primary); text-decoration: none; }
 #filter-ongoing:target ~ .projects-table tr[data-status]:not([data-status="ongoing"]) { display: none; }
 #filter-onhold:target ~ .projects-table tr[data-status]:not([data-status="onhold"]) { display: none; }
 #filter-completed:target ~ .projects-table tr[data-status]:not([data-status="completed"]) { display: none; }
+/* Department filter (anchor-target technique) */
+#dept-all:target ~ .projects-table tr[data-dept] { display: table-row; }
+#dept-website:target ~ .projects-table tr[data-dept]:not([data-dept="website"]) { display: none; }
+#dept-marketing:target ~ .projects-table tr[data-dept]:not([data-dept="marketing"]) { display: none; }
+#dept-sales:target ~ .projects-table tr[data-dept]:not([data-dept="sales"]) { display: none; }
 
 /* Responsive */
 @media (max-width: 1024px) {

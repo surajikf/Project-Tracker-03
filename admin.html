@@ -62,16 +62,28 @@
       <section class="card mt-6">
         <div class="flex items-center justify-between mb-4">
           <h2 style="margin:0">Projects</h2>
-          <div class="filter-chips">
-            <a class="filter-chip" href="#filter-ongoing">Ongoing</a>
-            <a class="filter-chip" href="#filter-onhold">On Hold</a>
-            <a class="filter-chip" href="#filter-completed">Completed</a>
+          <div class="flex items-center gap-4">
+            <div class="filter-chips" aria-label="Status filters">
+              <a class="filter-chip" href="#filter-ongoing">Ongoing</a>
+              <a class="filter-chip" href="#filter-onhold">On Hold</a>
+              <a class="filter-chip" href="#filter-completed">Completed</a>
+            </div>
+            <div class="filter-chips" aria-label="Department filters">
+              <a class="filter-chip" href="#dept-all">All Depts</a>
+              <a class="filter-chip" href="#dept-website">Website</a>
+              <a class="filter-chip" href="#dept-marketing">Marketing</a>
+              <a class="filter-chip" href="#dept-sales">Sales</a>
+            </div>
             <a class="btn small" href="projects.html" data-tooltip="View full table">Open Full List</a>
           </div>
         </div>
         <span id="filter-ongoing"></span>
         <span id="filter-onhold"></span>
         <span id="filter-completed"></span>
+        <span id="dept-all"></span>
+        <span id="dept-website"></span>
+        <span id="dept-marketing"></span>
+        <span id="dept-sales"></span>
         <table class="table compact projects-table" aria-describedby="projects-caption">
           <caption id="projects-caption" class="sr-only">Projects table</caption>
           <thead>
@@ -79,6 +91,7 @@
               <th>Project</th>
               <th>Client</th>
               <th>PM</th>
+              <th>Dept</th>
               <th>Status</th>
               <th>Progress</th>
               <th>Due</th>
@@ -86,10 +99,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr data-status="ongoing">
+            <tr data-status="ongoing" data-dept="website">
               <td><a href="project-details.html">Acme Website Revamp</a></td>
               <td>Acme Corp</td>
               <td>Priya Nair</td>
+              <td><span class="chip">Website</span></td>
               <td><span class="badge ongoing">Ongoing</span></td>
               <td>
                 <div class="progress">
@@ -100,10 +114,11 @@
               <td>2024-10-30</td>
               <td class="text-right"><a class="btn small" href="project-details.html">Open</a></td>
             </tr>
-            <tr data-status="onhold">
+            <tr data-status="onhold" data-dept="website">
               <td><a href="project-details.html">Orchid eCommerce Launch</a></td>
               <td>Orchid Spa</td>
               <td>Priya Nair</td>
+              <td><span class="chip">Website</span></td>
               <td><span class="badge onhold hold-client">On Hold</span></td>
               <td>
                 <div class="progress">
@@ -114,10 +129,11 @@
               <td>2024-11-15</td>
               <td class="text-right"><a class="btn small" href="project-details.html">Open</a></td>
             </tr>
-            <tr data-status="ongoing">
+            <tr data-status="ongoing" data-dept="website">
               <td><a href="project-details.html">Phoenix Logistics Portal</a></td>
               <td>Phoenix Logistics</td>
               <td>Arjun Mehta</td>
+              <td><span class="chip">Website</span></td>
               <td><span class="badge ongoing">Ongoing</span></td>
               <td>
                 <div class="progress">
@@ -128,10 +144,11 @@
               <td>2024-09-20</td>
               <td class="text-right"><a class="btn small" href="project-details.html">Open</a></td>
             </tr>
-            <tr data-status="completed">
+            <tr data-status="completed" data-dept="website">
               <td><a href="project-details.html">Vista Realty Corporate Site</a></td>
               <td>Vista Realty</td>
               <td>Priya Nair</td>
+              <td><span class="chip">Website</span></td>
               <td><span class="badge completed">Completed</span></td>
               <td>
                 <div class="progress">
@@ -142,10 +159,11 @@
               <td>2024-05-30</td>
               <td class="text-right"><a class="btn small" href="project-details.html">Open</a></td>
             </tr>
-            <tr data-status="ongoing">
+            <tr data-status="ongoing" data-dept="website">
               <td><a href="project-details.html">BlueWave Foods Microsite</a></td>
               <td>BlueWave Foods</td>
               <td>Arjun Mehta</td>
+              <td><span class="chip">Website</span></td>
               <td><span class="badge ongoing">Ongoing</span></td>
               <td>
                 <div class="progress">
@@ -156,10 +174,11 @@
               <td>2024-12-10</td>
               <td class="text-right"><a class="btn small" href="project-details.html">Open</a></td>
             </tr>
-            <tr data-status="ongoing">
+            <tr data-status="ongoing" data-dept="marketing">
               <td><a href="project-details.html">IKF Marketing Site Refresh</a></td>
               <td>Internal</td>
               <td>Priya Nair</td>
+              <td><span class="chip">Marketing</span></td>
               <td><span class="badge ongoing">Ongoing</span></td>
               <td>
                 <div class="progress">
