@@ -43,7 +43,11 @@
       <section class="card overview mt-6">
         <div class="flex items-center justify-between">
           <h2 style="margin:0">Overview</h2>
-          <label class="design-toggle" for="toggle-design" aria-describedby="design-help"><span aria-hidden="true" class="chip">Mark “Design” as On</span></label>
+          <label class="design-toggle" for="toggle-design" aria-describedby="design-help" aria-label="Toggle Design stage">
+            <span class="switch" aria-hidden="true"></span>
+            <span class="text-off">Design Off</span>
+            <span class="text-on">Design On</span>
+          </label>
         </div>
         <p id="design-help" class="text-muted">Toggling “Design” simulates completion and adjusts overall progress from 48% to 68% (CSS-only).</p>
         <div class="grid grid-3 mt-4">
