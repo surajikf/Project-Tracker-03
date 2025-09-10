@@ -13,7 +13,7 @@
   <aside class="sidebar" aria-label="Primary">
     <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
     <nav>
-      <a class="is-active" href="admin.html"><span>Dashboard</span></a>
+      <a class="is-active" aria-current="page" href="admin.html"><span>Dashboard</span></a>
       <a href="projects.html"><span>Projects</span></a>
       <a href="timesheets.html"><span>Timesheets</span></a>
       <a href="reports.html"><span>Reports</span></a>
@@ -38,34 +38,40 @@
       <nav class="breadcrumbs">Home / Dashboard</nav>
 
       <section class="grid grid-3 mt-6">
-        <div class="card kpi">
-          <span class="label">Total Projects</span>
-          <span class="value">6</span>
-        </div>
-        <div class="card kpi">
-          <span class="label">Ongoing</span>
-          <span class="value">4</span>
-        </div>
-        <div class="card kpi">
-          <span class="label">On Hold</span>
-          <span class="value">1</span>
-        </div>
+        <article class="kpi-card" aria-label="Total projects">
+          <h3 style="margin:0 0 6px;">Total Projects</h3>
+          <div class="kpi"><span class="value">6</span></div>
+          <svg class="sparkline" viewBox="0 0 60 30" aria-hidden="true"><polyline fill="none" stroke="#00BFA6" stroke-width="2" points="0,22 10,20 20,18 30,16 40,14 50,10 60,8"/></svg>
+          <span class="delta positive" data-tooltip="Week over week">+8% WoW</span>
+        </article>
+        <article class="kpi-card" aria-label="Ongoing">
+          <h3 style="margin:0 0 6px;">Ongoing</h3>
+          <div class="kpi"><span class="value">4</span></div>
+          <svg class="sparkline" viewBox="0 0 60 30" aria-hidden="true"><polyline fill="none" stroke="#10B981" stroke-width="2" points="0,24 10,24 20,22 30,20 40,18 50,16 60,14"/></svg>
+          <span class="delta positive">Stable</span>
+        </article>
+        <article class="kpi-card" aria-label="On Hold">
+          <h3 style="margin:0 0 6px;">On Hold</h3>
+          <div class="kpi"><span class="value" style="color:#F59E0B;">1</span></div>
+          <svg class="sparkline" viewBox="0 0 60 30" aria-hidden="true"><polyline fill="none" stroke="#F59E0B" stroke-width="2" points="0,8 10,9 20,10 30,11 40,12 50,13 60,14"/></svg>
+          <span class="delta negative">Watch</span>
+        </article>
       </section>
 
       <section class="card mt-6">
         <div class="flex items-center justify-between mb-4">
           <h2 style="margin:0">Projects</h2>
-          <div class="flex gap-2">
-            <a class="btn small ghost" href="#filter-ongoing">Ongoing</a>
-            <a class="btn small ghost" href="#filter-onhold">On Hold</a>
-            <a class="btn small ghost" href="#filter-completed">Completed</a>
-            <a class="btn small" href="projects.html">Open Full List</a>
+          <div class="filter-chips">
+            <a class="filter-chip" href="#filter-ongoing">Ongoing</a>
+            <a class="filter-chip" href="#filter-onhold">On Hold</a>
+            <a class="filter-chip" href="#filter-completed">Completed</a>
+            <a class="btn small" href="projects.html" data-tooltip="View full table">Open Full List</a>
           </div>
         </div>
         <span id="filter-ongoing"></span>
         <span id="filter-onhold"></span>
         <span id="filter-completed"></span>
-        <table class="table projects-table" aria-describedby="projects-caption">
+        <table class="table compact projects-table" aria-describedby="projects-caption">
           <caption id="projects-caption" class="sr-only">Projects table</caption>
           <thead>
             <tr>

@@ -1010,3 +1010,63 @@ a { color: var(--brand-primary); text-decoration: none; }
     background: #f0f0f0 !important;
   }
 }
+
+/* Smart UI/UX Enhancements */
+
+/* Tooltips: apply to any element with data-tooltip */
+[data-tooltip] { position: relative; }
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%; bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  background: var(--slate-900);
+  color: var(--white);
+  padding: 6px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 1;
+  box-shadow: var(--shadow-sm);
+  opacity: 0; pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease;
+}
+[data-tooltip]:hover::after, [data-tooltip]:focus-visible::after {
+  opacity: 1; transform: translateX(-50%) translateY(-2px);
+}
+
+/* Skeleton loaders */
+.skeleton { position: relative; overflow: hidden; background: #eaeff5; border-radius: 6px; color: transparent; }
+.skeleton::after {
+  content: ""; position: absolute; inset: 0; transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  animation: skeleton 1.2s ease-in-out infinite;
+}
+@keyframes skeleton { 100% { transform: translateX(100%); } }
+.skeleton.text { height: 12px; }
+.skeleton.title { height: 18px; }
+.skeleton.block { height: 120px; }
+
+/* Compact density for tables */
+.table.compact thead th { padding: 10px 12px; }
+.table.compact tbody td { padding: 10px 12px; }
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Dark theme (opt-in: add class .theme-dark to <body>) */
+.theme-dark {
+  --bg: #0F172A;
+  --text: #F1F5F9;
+  --muted: #CBD5E1;
+  --border: #1F2937;
+  --focus: #3fe0cc;
+}
+.theme-dark body, body.theme-dark { background: var(--bg); color: var(--text); }
+.theme-dark .card { background: #0b1222; border-color: var(--border); }
+.theme-dark .sidebar { background: #0b1222; border-color: var(--border); }
+.theme-dark .table thead th { background: #0b1324; color: var(--text); border-bottom-color: var(--border); }
+.theme-dark .btn { background: #0b1324; color: var(--text); border-color: var(--border); }
+.theme-dark .btn.primary { background: linear-gradient(180deg, #123, #0A2540); }
