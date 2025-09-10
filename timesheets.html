@@ -88,39 +88,43 @@
       <section id="tab-admin" class="tab-panel">
         <div class="card">
           <h2 style="margin-top:0">By User</h2>
-          <div class="filter-chips mb-4" aria-label="Timesheet filters">
-            <span class="chip">Project:</span>
-            <a class="filter-chip" href="#ts-all">All</a>
-            <a class="filter-chip" href="#ts-proj-acme">Acme</a>
-            <a class="filter-chip" href="#ts-proj-orchid">Orchid</a>
-            <a class="filter-chip" href="#ts-proj-phoenix">Phoenix</a>
-            <a class="filter-chip" href="#ts-proj-vista">Vista</a>
-            <a class="filter-chip" href="#ts-proj-bluewave">BlueWave</a>
-            <a class="filter-chip" href="#ts-proj-ikf">IKF</a>
-          </div>
-          <div class="filter-chips mb-4" aria-label="Employee filters">
-            <span class="chip">Employee:</span>
-            <a class="filter-chip" href="#ts-user-riya">Riya</a>
-            <a class="filter-chip" href="#ts-user-karan">Karan</a>
-            <a class="filter-chip" href="#ts-user-neha">Neha</a>
-            <a class="filter-chip" href="#ts-user-amit">Amit</a>
-            <a class="filter-chip" href="#ts-user-sana">Sana</a>
-          </div>
-          <div class="filter-chips mb-4" aria-label="Phase filters">
-            <span class="chip">Phase:</span>
-            <a class="filter-chip" href="#ts-phase-content">Content</a>
-            <a class="filter-chip" href="#ts-phase-design">Design</a>
-            <a class="filter-chip" href="#ts-phase-development">Development</a>
-            <a class="filter-chip" href="#ts-phase-qa">QA</a>
-            <a class="filter-chip" href="#ts-phase-support">Support</a>
-          </div>
-          <div class="filter-chips mb-4" aria-label="Date filters">
-            <span class="chip">Date:</span>
-            <a class="filter-chip" href="#ts-date-2024-08-12">2024-08-12</a>
-            <a class="filter-chip" href="#ts-date-2024-08-13">2024-08-13</a>
-            <a class="filter-chip" href="#ts-date-2024-08-14">2024-08-14</a>
-            <a class="filter-chip" href="#ts-date-2024-08-15">2024-08-15</a>
-            <a class="filter-chip" href="#ts-date-2024-08-16">2024-08-16</a>
+          <div class="ts-filters">
+            <div class="row" aria-label="Timesheet filters">
+              <span class="title">Project</span>
+              <a class="filter-chip" href="#ts-all">All</a>
+              <a class="filter-chip" href="#ts-proj-acme">Acme</a>
+              <a class="filter-chip" href="#ts-proj-orchid">Orchid</a>
+              <a class="filter-chip" href="#ts-proj-phoenix">Phoenix</a>
+              <a class="filter-chip" href="#ts-proj-vista">Vista</a>
+              <a class="filter-chip" href="#ts-proj-bluewave">BlueWave</a>
+              <a class="filter-chip" href="#ts-proj-ikf">IKF</a>
+              <span class="spacer"></span>
+              <a class="btn small ghost" href="#ts-all">Clear</a>
+            </div>
+            <div class="row" aria-label="Employee filters">
+              <span class="title">Employee</span>
+              <a class="filter-chip" href="#ts-user-riya">Riya</a>
+              <a class="filter-chip" href="#ts-user-karan">Karan</a>
+              <a class="filter-chip" href="#ts-user-neha">Neha</a>
+              <a class="filter-chip" href="#ts-user-amit">Amit</a>
+              <a class="filter-chip" href="#ts-user-sana">Sana</a>
+            </div>
+            <div class="row" aria-label="Phase filters">
+              <span class="title">Phase</span>
+              <a class="filter-chip" href="#ts-phase-content">Content</a>
+              <a class="filter-chip" href="#ts-phase-design">Design</a>
+              <a class="filter-chip" href="#ts-phase-development">Development</a>
+              <a class="filter-chip" href="#ts-phase-qa">QA</a>
+              <a class="filter-chip" href="#ts-phase-support">Support</a>
+            </div>
+            <div class="row" aria-label="Date filters">
+              <span class="title">Date</span>
+              <a class="filter-chip" href="#ts-date-2024-08-12">2024-08-12</a>
+              <a class="filter-chip" href="#ts-date-2024-08-13">2024-08-13</a>
+              <a class="filter-chip" href="#ts-date-2024-08-14">2024-08-14</a>
+              <a class="filter-chip" href="#ts-date-2024-08-15">2024-08-15</a>
+              <a class="filter-chip" href="#ts-date-2024-08-16">2024-08-16</a>
+            </div>
           </div>
           <span id="ts-all"></span>
           <span id="ts-proj-acme"></span><span id="ts-proj-orchid"></span><span id="ts-proj-phoenix"></span><span id="ts-proj-vista"></span><span id="ts-proj-bluewave"></span><span id="ts-proj-ikf"></span>
