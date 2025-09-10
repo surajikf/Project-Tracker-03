@@ -44,6 +44,15 @@
       </nav>
 
       <section id="tab-project" class="tab-panel is-active stack-lg">
+        <div class="filter-chips" aria-label="Select project">
+          <a class="filter-chip" href="#proj-acme">Acme Website Revamp</a>
+          <a class="filter-chip" href="#proj-orchid">Orchid eCommerce Launch</a>
+          <a class="filter-chip" href="#proj-phoenix">Phoenix Logistics Portal</a>
+          <a class="filter-chip" href="#proj-vista">Vista Realty Corporate Site</a>
+          <a class="filter-chip" href="#proj-bluewave">BlueWave Foods Microsite</a>
+          <a class="filter-chip" href="#proj-ikf">IKF Marketing Site Refresh</a>
+        </div>
+
         <div class="grid grid-3 gap-8">
           <div class="card">
             <div class="flex items-center justify-between">
@@ -115,6 +124,124 @@
             </tbody>
           </table>
         </div>
+
+        <!-- Individual Project Reports (CSS-only target sections) -->
+        <section id="proj-acme" class="card project-report" aria-label="Acme Website Revamp — Project Report">
+          <div class="flex items-center justify-between">
+            <h3 style="margin-top:0">Acme Website Revamp — Project Report</h3>
+            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+          </div>
+          <div class="grid grid-3 mt-4">
+            <div class="kpi-mini"><span class="label">Status</span><span class="value">Ongoing</span></div>
+            <div class="kpi-mini"><span class="label">Progress</span><span class="value">48%</span></div>
+            <div class="kpi-mini"><span class="label">Due</span><span class="value">2024-10-30</span></div>
+            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">240</span></div>
+            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">10</span></div>
+            <div class="kpi-mini"><span class="label">PM</span><span class="value">Priya Nair</span></div>
+          </div>
+          <div class="chart-container mt-4">
+            <div class="chart-title">Budget vs Actual</div>
+            <svg viewBox="0 0 360 120" role="img" aria-label="Budget vs Actual">
+              <rect x="30" y="30" width="260" height="18" fill="#E2E8F0" rx="9"/>
+              <rect x="30" y="30" width="10.8%" height="18" fill="#00BFA6" rx="9"/>
+              <text x="300" y="44" font-size="12" fill="#334155">10 / 240 hrs</text>
+            </svg>
+          </div>
+          <table class="table compact mt-4" aria-label="Timesheet entries">
+            <thead><tr><th>User</th><th>Stage</th><th>Date</th><th>Hours</th></tr></thead>
+            <tbody>
+              <tr><td>Riya Kapoor</td><td>Content Writing</td><td>2024-08-12</td><td>6</td></tr>
+              <tr><td>Riya Kapoor</td><td>Content Writing</td><td>2024-08-13</td><td>2</td></tr>
+              <tr><td>Riya Kapoor</td><td>Content Writing</td><td>2024-08-14</td><td>4</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="proj-orchid" class="card project-report" aria-label="Orchid eCommerce Launch — Project Report">
+          <div class="flex items-center justify-between">
+            <h3 style="margin-top:0">Orchid eCommerce Launch — Project Report</h3>
+            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+          </div>
+          <div class="grid grid-3 mt-4">
+            <div class="kpi-mini"><span class="label">Status</span><span class="value">On Hold</span></div>
+            <div class="kpi-mini"><span class="label">Progress</span><span class="value">32%</span></div>
+            <div class="kpi-mini"><span class="label">Hold</span><span class="value">Client</span></div>
+            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">180</span></div>
+            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">8</span></div>
+            <div class="kpi-mini"><span class="label">PM</span><span class="value">Priya Nair</span></div>
+          </div>
+          <table class="table compact mt-4" aria-label="Timesheet entries">
+            <thead><tr><th>User</th><th>Stage</th><th>Date</th><th>Hours</th></tr></thead>
+            <tbody>
+              <tr><td>Karan Shah</td><td>Design</td><td>2024-08-13</td><td>5</td></tr>
+              <tr><td>Karan Shah</td><td>Design</td><td>2024-08-15</td><td>3</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="proj-phoenix" class="card project-report" aria-label="Phoenix Logistics Portal — Project Report">
+          <div class="flex items-center justify-between">
+            <h3 style="margin-top:0">Phoenix Logistics Portal — Project Report</h3>
+            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+          </div>
+          <div class="grid grid-3 mt-4">
+            <div class="kpi-mini"><span class="label">Status</span><span class="value">Ongoing</span></div>
+            <div class="kpi-mini"><span class="label">Progress</span><span class="value">76%</span></div>
+            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">320</span></div>
+            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">21</span></div>
+            <div class="kpi-mini"><span class="label">PM</span><span class="value">Arjun Mehta</span></div>
+          </div>
+          <table class="table compact mt-4" aria-label="Timesheet entries">
+            <thead><tr><th>User</th><th>Stage</th><th>Date</th><th>Hours</th></tr></thead>
+            <tbody>
+              <tr><td>Neha Joshi</td><td>Development</td><td>2024-08-12</td><td>7</td></tr>
+              <tr><td>Neha Joshi</td><td>Development</td><td>2024-08-13</td><td>7</td></tr>
+              <tr><td>Neha Joshi</td><td>Development</td><td>2024-08-14</td><td>7</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="proj-vista" class="card project-report" aria-label="Vista Realty Corporate Site — Project Report">
+          <div class="flex items-center justify-between">
+            <h3 style="margin-top:0">Vista Realty Corporate Site — Project Report</h3>
+            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+          </div>
+          <div class="grid grid-3 mt-4">
+            <div class="kpi-mini"><span class="label">Status</span><span class="value">Completed</span></div>
+            <div class="kpi-mini"><span class="label">Progress</span><span class="value">100%</span></div>
+            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">150</span></div>
+            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">150</span></div>
+            <div class="kpi-mini"><span class="label">PM</span><span class="value">Priya Nair</span></div>
+          </div>
+        </section>
+
+        <section id="proj-bluewave" class="card project-report" aria-label="BlueWave Foods Microsite — Project Report">
+          <div class="flex items-center justify-between">
+            <h3 style="margin-top:0">BlueWave Foods Microsite — Project Report</h3>
+            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+          </div>
+          <div class="grid grid-3 mt-4">
+            <div class="kpi-mini"><span class="label">Status</span><span class="value">Ongoing</span></div>
+            <div class="kpi-mini"><span class="label">Progress</span><span class="value">22%</span></div>
+            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">160</span></div>
+            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">5</span></div>
+            <div class="kpi-mini"><span class="label">PM</span><span class="value">Arjun Mehta</span></div>
+          </div>
+        </section>
+
+        <section id="proj-ikf" class="card project-report" aria-label="IKF Marketing Site Refresh — Project Report">
+          <div class="flex items-center justify-between">
+            <h3 style="margin-top:0">IKF Marketing Site Refresh — Project Report</h3>
+            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+          </div>
+          <div class="grid grid-3 mt-4">
+            <div class="kpi-mini"><span class="label">Status</span><span class="value">Ongoing</span></div>
+            <div class="kpi-mini"><span class="label">Progress</span><span class="value">61%</span></div>
+            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">200</span></div>
+            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">12</span></div>
+            <div class="kpi-mini"><span class="label">PM</span><span class="value">Priya Nair</span></div>
+          </div>
+        </section>
       </section>
 
       <section id="tab-dept" class="tab-panel stack-lg">
