@@ -6,18 +6,18 @@
 */
 
 :root {
-  --brand-primary: #0A2540;
-  --brand-teal: #00BFA6;
-  --brand-saffron: #F59E0B;
-  --brand-emerald: #10B981;
-  --brand-rose: #EF4444;
+  --brand-primary: #1e293b;
+  --brand-teal: #0891b2;
+  --brand-saffron: #d97706;
+  --brand-emerald: #059669;
+  --brand-rose: #dc2626;
 
-  --slate-900: #0F172A;
+  --slate-900: #0f172a;
   --slate-700: #334155;
-  --slate-500: #64748B;
-  --slate-300: #CBD5E1;
-  --slate-200: #E2E8F0;
-  --slate-100: #F1F5F9;
+  --slate-500: #64748b;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f8fafc;
   --white: #FFFFFF;
 
   --bg: var(--white);
@@ -26,14 +26,14 @@
   --border: var(--slate-200);
   --focus: var(--brand-teal);
 
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
-  --shadow-md: 0 6px 16px rgba(2,6,23,0.12);
-  --shadow-lg: 0 12px 30px rgba(2,6,23,0.16);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+  --shadow-lg: 0 8px 25px rgba(0,0,0,0.2);
 
   --space-1: 4px;
   --space-2: 8px;
@@ -62,12 +62,9 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   color: var(--text);
-  background:
-    radial-gradient(1200px 600px at 10% -10%, #F8FAFC, transparent 50%),
-    radial-gradient(800px 400px at 120% 0%, #F1F5F9, transparent 40%),
-    var(--bg);
+  background: var(--bg);
   font-family: var(--font-sans);
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -169,16 +166,16 @@ a { color: var(--brand-primary); text-decoration: none; }
 /* Buttons */
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border);
-  background: var(--white); color: var(--slate-900); font-weight: 700; box-shadow: var(--shadow-sm);
-  transition: transform .12s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+  padding: 10px 16px; border-radius: var(--radius-md); border: 1px solid var(--border);
+  background: var(--white); color: var(--slate-900); font-weight: 600; box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s ease, background .2s ease, border-color .2s ease;
 }
-.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); background: #fff; border-color: var(--slate-300); }
-.btn:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
-.btn.primary { background: linear-gradient(180deg, #0A2f57, #0A2540); color: var(--white); border-color: #0A2b4f; }
-.btn.teal { background: linear-gradient(180deg, #1de1cc, #00BFA6); color: #062a21; border-color: #12c7b1; }
+.btn:hover { box-shadow: var(--shadow-md); background: #fff; border-color: var(--slate-300); }
+.btn:active { box-shadow: var(--shadow-sm); }
+.btn.primary { background: var(--brand-primary); color: var(--white); border-color: var(--brand-primary); }
+.btn.teal { background: var(--brand-teal); color: var(--white); border-color: var(--brand-teal); }
 .btn.ghost { background: transparent; border-color: var(--border); color: var(--slate-700); }
-.btn.small { padding: 6px 10px; border-radius: 8px; font-size: 14px; }
+.btn.small { padding: 8px 12px; border-radius: var(--radius-sm); font-size: 14px; }
 
 /* Chips & Badges */
 .chip {
@@ -196,12 +193,12 @@ a { color: var(--brand-primary); text-decoration: none; }
 .card {
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   padding: var(--space-6);
-  box-shadow: var(--shadow-md);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s ease, border-color .2s ease;
 }
-.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: var(--slate-300); }
+.card:hover { box-shadow: var(--shadow-md); border-color: var(--slate-300); }
 .kpi { display: grid; gap: 4px; }
 .kpi .label { color: var(--slate-500); font-size: 12px; letter-spacing: .02em; text-transform: uppercase; }
 .kpi .value { font-size: 28px; font-weight: 800; font-family: var(--font-display); }
@@ -518,18 +515,17 @@ a { color: var(--brand-primary); text-decoration: none; }
 
 /* KPI Cards with Sparklines */
 .kpi-card {
-  background: linear-gradient(135deg, var(--white) 0%, #f8fafc 100%);
+  background: var(--white);
   border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   padding: var(--space-6);
   box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
   position: relative;
   overflow: hidden;
 }
 
 .kpi-card:hover {
-  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   border-color: var(--slate-300);
 }
@@ -842,6 +838,34 @@ a { color: var(--brand-primary); text-decoration: none; }
   margin-bottom: 4px;
 }
 
+/* Project hero + mini KPIs */
+.project-hero {
+  display: grid;
+  gap: var(--space-4);
+}
+.project-hero .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.kpi-mini {
+  display: grid;
+  gap: 2px;
+}
+.kpi-mini .label { color: var(--slate-500); font-size: 12px; text-transform: uppercase; letter-spacing: .02em; }
+.kpi-mini .value { font-weight: 800; font-size: 20px; font-family: var(--font-display); }
+.progress.lg .bar { height: 14px; }
+.progress.lg .label { font-size: 14px; }
+
+/* Segmented control */
+.seg { display: inline-flex; border: 1px solid var(--border); background: var(--slate-100); border-radius: 999px; padding: 4px; gap: 4px; }
+.seg a { padding: 6px 10px; border-radius: 999px; color: var(--slate-700); font-weight: 700; text-decoration: none; }
+.seg a[aria-current="true"] { background: var(--white); color: var(--brand-primary); box-shadow: var(--shadow-sm); }
+
+/* Tab badge */
+.tab-badge { display: inline-block; min-width: 18px; padding: 0 6px; height: 18px; border-radius: 999px; font-size: 12px; line-height: 18px; background: var(--slate-100); color: var(--slate-700); text-align: center; font-weight: 700; }
+
 /* Filter Chips */
 .filter-chips {
   display: flex;
@@ -905,16 +929,15 @@ a { color: var(--brand-primary); text-decoration: none; }
 .client-project-card {
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   padding: var(--space-6);
   box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
   position: relative;
   overflow: hidden;
 }
 
 .client-project-card:hover {
-  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   border-color: var(--slate-300);
 }

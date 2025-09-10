@@ -24,11 +24,27 @@
   </aside>
   <div class="main">
     <header class="app-header" role="banner">
-      <div class="flex items-center gap-3">
-        <h1 style="margin:0; font-size: 22px;">Acme Website Revamp</h1>
-        <span class="badge ongoing">Ongoing</span>
-        <span class="chip">Client: Acme Corp</span>
-        <span class="chip">PM: Priya Nair</span>
+      <div class="project-hero w-full">
+        <div class="header">
+          <div class="flex items-center gap-3">
+            <h1 style="margin:0; font-size: 22px;">Acme Website Revamp</h1>
+            <span class="badge ongoing">Ongoing</span>
+            <span class="chip">Client: Acme Corp</span>
+            <span class="chip">PM: Priya Nair</span>
+          </div>
+          <div class="seg" role="tablist" aria-label="View">
+            <a href="#tab-overview" aria-current="true">Overview</a>
+            <a href="#tab-stages">Stages</a>
+            <a href="#resources">Resources</a>
+          </div>
+        </div>
+        <div class="progress lg mt-2" aria-label="Overall progress">
+          <div class="bar">
+            <span class="value-48" style="--w:48%"></span>
+            <span class="value-68" style="--w:68%"></span>
+          </div>
+          <div class="label">Overall <span class="val-48">48%</span><span class="val-68" style="display:none;">68%</span></div>
+        </div>
       </div>
       <div class="flex items-center gap-2">
         <a class="btn" href="assets/csv/projects.csv" download>Export CSV</a>
@@ -80,25 +96,37 @@
         <a href="#tab-tasks">Tasks</a>
         <a href="#resources">Resources</a>
         <a href="#tab-activity">Activity</a>
+        <a href="#tab-approvals">Approvals <span class="tab-badge">2</span></a>
       </nav>
 
       <section id="tab-overview" class="tab-panel is-active">
-        <div class="empty">Use the tabs to explore project details.</div>
+        <div class="grid grid-3 mt-4">
+          <div class="card">
+            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">240</span></div>
+          </div>
+          <div class="card">
+            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">10</span></div>
+          </div>
+          <div class="card">
+            <div class="kpi-mini"><span class="label">Days to Go</span><span class="value">52</span></div>
+          </div>
+        </div>
       </section>
 
       <section id="tab-stages" class="tab-panel">
         <div class="card">
           <h3 style="margin-top:0">Stages (weighted)</h3>
-          <ul>
-            <li>Handshake Meeting — 5% — On</li>
-            <li>Sitemap — 5% — Closed</li>
-            <li>Data Gathering — 5% — In Progress</li>
-            <li>Content Writing — 15% — In Progress</li>
-            <li>Design — 20% — <span class="text-muted">toggle in Overview</span></li>
-            <li>Development — 25% — Open</li>
-            <li>QA & Testing — 15% — Open</li>
-            <li>Tech Support / Go Live — 10% — Open</li>
-          </ul>
+          <div class="stage-stepper mt-4">
+            <div class="stage-item completed"><div class="stage-circle">1</div><div class="stage-label">Handshake</div><div class="stage-weight">5%</div></div>
+            <div class="stage-item completed"><div class="stage-circle">2</div><div class="stage-label">Sitemap</div><div class="stage-weight">5%</div></div>
+            <div class="stage-item current"><div class="stage-circle">3</div><div class="stage-label">Data</div><div class="stage-weight">5%</div></div>
+            <div class="stage-item"><div class="stage-circle">4</div><div class="stage-label">Content</div><div class="stage-weight">15%</div></div>
+            <div class="stage-item"><div class="stage-circle">5</div><div class="stage-label">Design</div><div class="stage-weight">20%</div></div>
+            <div class="stage-item"><div class="stage-circle">6</div><div class="stage-label">Dev</div><div class="stage-weight">25%</div></div>
+            <div class="stage-item"><div class="stage-circle">7</div><div class="stage-label">QA</div><div class="stage-weight">15%</div></div>
+            <div class="stage-item"><div class="stage-circle">8</div><div class="stage-label">Go Live</div><div class="stage-weight">10%</div></div>
+          </div>
+          <p class="text-muted">Design toggles in Overview to simulate progress recalculation.</p>
         </div>
       </section>
 
@@ -131,22 +159,48 @@
       <section id="resources" class="tab-panel">
         <div class="card">
           <h3 style="margin-top:0">Resources</h3>
-          <ul>
-            <li><a href="#res1">Sitemap Doc (Drive)</a></li>
-            <li><a href="#res2">Content Folder (Drive)</a></li>
-            <li><a href="#res3">Design Assets (Drive)</a></li>
-          </ul>
+          <div class="resource-list mt-4">
+            <a class="resource-item" href="#res1"><span class="resource-icon doc">D</span><div><strong>Sitemap Doc</strong><div class="text-muted">🔒 Access via Drive</div></div></a>
+            <a class="resource-item" href="#res2"><span class="resource-icon folder">F</span><div><strong>Content Folder</strong><div class="text-muted">🔒 Access via Drive</div></div></a>
+            <a class="resource-item" href="#res3"><span class="resource-icon image">A</span><div><strong>Design Assets</strong><div class="text-muted">🔒 Access via Drive</div></div></a>
+          </div>
         </div>
       </section>
 
       <section id="tab-activity" class="tab-panel">
         <div class="card">
           <h3 style="margin-top:0">Activity</h3>
-          <ol>
-            <li>2024-07-03 — Stage “Sitemap” closed</li>
-            <li>2024-07-10 — Content Writing started</li>
-            <li>2024-08-01 — Client shared brand assets</li>
-          </ol>
+          <div class="timeline mt-4">
+            <div class="timeline-item complete"><div class="timeline-content"><div class="timeline-time">2024-07-03</div>Stage “Sitemap” closed</div></div>
+            <div class="timeline-item assign"><div class="timeline-content"><div class="timeline-time">2024-07-10</div>Content Writing started</div></div>
+            <div class="timeline-item approve"><div class="timeline-content"><div class="timeline-time">2024-08-01</div>Client shared brand assets</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-approvals" class="tab-panel">
+        <div class="card">
+          <h3 style="margin-top:0">Approvals</h3>
+          <div class="approval-item">
+            <div>
+              <strong>Content Outline</strong>
+              <div class="text-muted">Dependency: Client Hold</div>
+            </div>
+            <div class="approval-toggle">
+              <input id="ap-ok" type="checkbox">
+              <label for="ap-ok">Approve</label>
+            </div>
+          </div>
+          <div class="approval-item">
+            <div>
+              <strong>Design Concept A</strong>
+              <div class="text-muted">Dependency: —</div>
+            </div>
+            <div class="approval-toggle">
+              <input id="ap-rj" type="checkbox">
+              <label for="ap-rj">Approve</label>
+            </div>
+          </div>
         </div>
       </section>
 
