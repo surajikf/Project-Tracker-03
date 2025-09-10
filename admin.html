@@ -9,6 +9,7 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+<span id="comfy"></span><span id="dense"></span>
 <div class="app">
   <aside class="sidebar" aria-label="Primary">
     <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
@@ -29,8 +30,8 @@
         <span class="chip">Role: Admin</span>
       </div>
       <div class="flex items-center gap-2">
-        <a class="btn" href="new-project.html">New Project</a>
-        <a class="btn" href="assets/csv/projects.csv" download>Export CSV</a>
+        <a class="btn" href="new-project.html" data-tooltip="Start a static wizard">New Project</a>
+        <a class="btn" href="assets/csv/projects.csv" download data-tooltip="Downloads projects.csv">Export CSV</a>
         <a class="btn ghost" href="index.html#tour">Help</a>
       </div>
     </header>
@@ -172,6 +173,13 @@
           </tbody>
         </table>
       </section>
+
+      <!-- Mobile sticky actions (CSS-only) -->
+      <div class="mobile-actionbar">
+        <a class="btn small" href="#dense">Compact</a>
+        <a class="btn small" href="#comfy">Comfy</a>
+        <a class="btn small primary" href="projects.html">All Projects</a>
+      </div>
 
       <details class="drawer mt-6">
         <summary class="btn ghost">Bottlenecks & Risks</summary>

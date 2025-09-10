@@ -317,6 +317,25 @@ a { color: var(--brand-primary); text-decoration: none; }
   .btn.small { padding: 8px 12px; }
 }
 
+/* Density toggles via anchors (CSS-only) */
+#dense:target ~ .app .table thead th { padding: 10px 12px; }
+#dense:target ~ .app .table tbody td { padding: 10px 12px; }
+#dense:target ~ .app .btn.small { padding: 8px 10px; }
+#comfy:target ~ .app .table thead th { padding: 14px 16px; }
+#comfy:target ~ .app .table tbody td { padding: 16px; }
+#comfy:target ~ .app .btn.small { padding: 6px 10px; }
+
+/* Mobile sticky action bar */
+.mobile-actionbar { display: none; }
+@media (max-width: 768px) {
+  .mobile-actionbar {
+    position: sticky; bottom: 0; z-index: 25;
+    display: flex; gap: var(--space-2);
+    padding: var(--space-3); border-top: 1px solid var(--border);
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(6px);
+  }
+}
+
 /* Icon dots for legends */
 .dot { display: inline-block; width: 10px; height: 10px; border-radius: 999px; margin-right: 8px; }
 .dot.teal { background: var(--brand-teal); }
