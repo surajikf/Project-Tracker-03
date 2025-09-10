@@ -88,7 +88,46 @@
       <section id="tab-admin" class="tab-panel">
         <div class="card">
           <h2 style="margin-top:0">By User</h2>
-          <table class="table" aria-label="Admin view">
+          <div class="filter-chips mb-4" aria-label="Timesheet filters">
+            <span class="chip">Project:</span>
+            <a class="filter-chip" href="#ts-all">All</a>
+            <a class="filter-chip" href="#ts-proj-acme">Acme</a>
+            <a class="filter-chip" href="#ts-proj-orchid">Orchid</a>
+            <a class="filter-chip" href="#ts-proj-phoenix">Phoenix</a>
+            <a class="filter-chip" href="#ts-proj-vista">Vista</a>
+            <a class="filter-chip" href="#ts-proj-bluewave">BlueWave</a>
+            <a class="filter-chip" href="#ts-proj-ikf">IKF</a>
+          </div>
+          <div class="filter-chips mb-4" aria-label="Employee filters">
+            <span class="chip">Employee:</span>
+            <a class="filter-chip" href="#ts-user-riya">Riya</a>
+            <a class="filter-chip" href="#ts-user-karan">Karan</a>
+            <a class="filter-chip" href="#ts-user-neha">Neha</a>
+            <a class="filter-chip" href="#ts-user-amit">Amit</a>
+            <a class="filter-chip" href="#ts-user-sana">Sana</a>
+          </div>
+          <div class="filter-chips mb-4" aria-label="Phase filters">
+            <span class="chip">Phase:</span>
+            <a class="filter-chip" href="#ts-phase-content">Content</a>
+            <a class="filter-chip" href="#ts-phase-design">Design</a>
+            <a class="filter-chip" href="#ts-phase-development">Development</a>
+            <a class="filter-chip" href="#ts-phase-qa">QA</a>
+            <a class="filter-chip" href="#ts-phase-support">Support</a>
+          </div>
+          <div class="filter-chips mb-4" aria-label="Date filters">
+            <span class="chip">Date:</span>
+            <a class="filter-chip" href="#ts-date-2024-08-12">2024-08-12</a>
+            <a class="filter-chip" href="#ts-date-2024-08-13">2024-08-13</a>
+            <a class="filter-chip" href="#ts-date-2024-08-14">2024-08-14</a>
+            <a class="filter-chip" href="#ts-date-2024-08-15">2024-08-15</a>
+            <a class="filter-chip" href="#ts-date-2024-08-16">2024-08-16</a>
+          </div>
+          <span id="ts-all"></span>
+          <span id="ts-proj-acme"></span><span id="ts-proj-orchid"></span><span id="ts-proj-phoenix"></span><span id="ts-proj-vista"></span><span id="ts-proj-bluewave"></span><span id="ts-proj-ikf"></span>
+          <span id="ts-user-riya"></span><span id="ts-user-karan"></span><span id="ts-user-neha"></span><span id="ts-user-amit"></span><span id="ts-user-sana"></span>
+          <span id="ts-phase-content"></span><span id="ts-phase-design"></span><span id="ts-phase-development"></span><span id="ts-phase-qa"></span><span id="ts-phase-support"></span>
+          <span id="ts-date-2024-08-12"></span><span id="ts-date-2024-08-13"></span><span id="ts-date-2024-08-14"></span><span id="ts-date-2024-08-15"></span><span id="ts-date-2024-08-16"></span>
+          <table class="table ts-table" aria-label="Admin view">
             <thead>
               <tr>
                 <th>User</th>
@@ -100,7 +139,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr data-user="riya" data-project="acme" data-phase="content" data-date="2024-08-12">
                 <td>Riya Kapoor</td>
                 <td>Acme Website Revamp</td>
                 <td>Content Writing</td>
@@ -108,7 +147,7 @@
                 <td>6</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="riya" data-project="acme" data-phase="content" data-date="2024-08-13">
                 <td>Riya Kapoor</td>
                 <td>Acme Website Revamp</td>
                 <td>Content Writing</td>
@@ -116,7 +155,7 @@
                 <td>2</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="riya" data-project="acme" data-phase="content" data-date="2024-08-14">
                 <td>Riya Kapoor</td>
                 <td>Acme Website Revamp</td>
                 <td>Content Writing</td>
@@ -124,7 +163,7 @@
                 <td>4</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="riya" data-project="ikf" data-phase="content" data-date="2024-08-15">
                 <td>Riya Kapoor</td>
                 <td>IKF Marketing Site Refresh</td>
                 <td>Content Updates</td>
@@ -132,7 +171,7 @@
                 <td>3</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="riya" data-project="ikf" data-phase="content" data-date="2024-08-16">
                 <td>Riya Kapoor</td>
                 <td>IKF Marketing Site Refresh</td>
                 <td>Content Updates</td>
@@ -140,7 +179,7 @@
                 <td>2</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="karan" data-project="orchid" data-phase="design" data-date="2024-08-13">
                 <td>Karan Shah</td>
                 <td>Orchid eCommerce Launch</td>
                 <td>Design</td>
@@ -148,7 +187,7 @@
                 <td>5</td>
                 <td><span class="badge onhold">Pending</span></td>
               </tr>
-              <tr>
+              <tr data-user="karan" data-project="orchid" data-phase="design" data-date="2024-08-15">
                 <td>Karan Shah</td>
                 <td>Orchid eCommerce Launch</td>
                 <td>Design</td>
@@ -156,7 +195,7 @@
                 <td>3</td>
                 <td><span class="badge onhold">Pending</span></td>
               </tr>
-              <tr>
+              <tr data-user="karan" data-project="ikf" data-phase="design" data-date="2024-08-16">
                 <td>Karan Shah</td>
                 <td>IKF Marketing Site Refresh</td>
                 <td>Design</td>
@@ -164,7 +203,7 @@
                 <td>2</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="neha" data-project="phoenix" data-phase="development" data-date="2024-08-12">
                 <td>Neha Joshi</td>
                 <td>Phoenix Logistics Portal</td>
                 <td>Development</td>
@@ -172,7 +211,7 @@
                 <td>7</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="neha" data-project="phoenix" data-phase="development" data-date="2024-08-13">
                 <td>Neha Joshi</td>
                 <td>Phoenix Logistics Portal</td>
                 <td>Development</td>
@@ -180,7 +219,7 @@
                 <td>7</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="neha" data-project="phoenix" data-phase="development" data-date="2024-08-14">
                 <td>Neha Joshi</td>
                 <td>Phoenix Logistics Portal</td>
                 <td>Development</td>
@@ -188,7 +227,7 @@
                 <td>7</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="neha" data-project="bluewave" data-phase="development" data-date="2024-08-15">
                 <td>Neha Joshi</td>
                 <td>BlueWave Foods Microsite</td>
                 <td>Development</td>
@@ -196,7 +235,7 @@
                 <td>4</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="neha" data-project="bluewave" data-phase="development" data-date="2024-08-16">
                 <td>Neha Joshi</td>
                 <td>BlueWave Foods Microsite</td>
                 <td>Development</td>
@@ -204,7 +243,7 @@
                 <td>3</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="amit" data-project="vista" data-phase="qa" data-date="2024-08-12">
                 <td>Amit Kulkarni</td>
                 <td>Vista Realty Corporate Site</td>
                 <td>QA & Testing</td>
@@ -212,7 +251,7 @@
                 <td>3</td>
                 <td><span class="badge completed">Approved</span></td>
               </tr>
-              <tr>
+              <tr data-user="amit" data-project="vista" data-phase="qa" data-date="2024-08-13">
                 <td>Amit Kulkarni</td>
                 <td>Vista Realty Corporate Site</td>
                 <td>QA & Testing</td>
@@ -220,7 +259,7 @@
                 <td>4</td>
                 <td><span class="badge completed">Approved</span></td>
               </tr>
-              <tr>
+              <tr data-user="amit" data-project="phoenix" data-phase="qa" data-date="2024-08-14">
                 <td>Amit Kulkarni</td>
                 <td>Phoenix Logistics Portal</td>
                 <td>QA & Testing</td>
@@ -228,7 +267,7 @@
                 <td>5</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="amit" data-project="acme" data-phase="qa" data-date="2024-08-15">
                 <td>Amit Kulkarni</td>
                 <td>Acme Website Revamp</td>
                 <td>QA & Testing</td>
@@ -236,7 +275,7 @@
                 <td>2</td>
                 <td><span class="badge ongoing">Logged</span></td>
               </tr>
-              <tr>
+              <tr data-user="sana" data-project="acme" data-phase="support" data-date="2024-08-16">
                 <td>Sana Iqbal</td>
                 <td>Acme Website Revamp</td>
                 <td>Tech Support</td>

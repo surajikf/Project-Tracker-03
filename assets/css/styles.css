@@ -268,6 +268,34 @@ a { color: var(--brand-primary); text-decoration: none; }
 #dept-marketing:target ~ .projects-table tr[data-dept]:not([data-dept="marketing"]) { display: none; }
 #dept-sales:target ~ .projects-table tr[data-dept]:not([data-dept="sales"]) { display: none; }
 
+/* Timesheet filters (Admin/PM table) */
+#ts-all:target ~ .ts-table tbody tr { display: table-row; }
+/* By Project */
+#ts-proj-acme:target ~ .ts-table tbody tr[data-project]:not([data-project="acme"]) { display: none; }
+#ts-proj-orchid:target ~ .ts-table tbody tr[data-project]:not([data-project="orchid"]) { display: none; }
+#ts-proj-phoenix:target ~ .ts-table tbody tr[data-project]:not([data-project="phoenix"]) { display: none; }
+#ts-proj-vista:target ~ .ts-table tbody tr[data-project]:not([data-project="vista"]) { display: none; }
+#ts-proj-bluewave:target ~ .ts-table tbody tr[data-project]:not([data-project="bluewave"]) { display: none; }
+#ts-proj-ikf:target ~ .ts-table tbody tr[data-project]:not([data-project="ikf"]) { display: none; }
+/* By Employee */
+#ts-user-riya:target ~ .ts-table tbody tr[data-user]:not([data-user="riya"]) { display: none; }
+#ts-user-karan:target ~ .ts-table tbody tr[data-user]:not([data-user="karan"]) { display: none; }
+#ts-user-neha:target ~ .ts-table tbody tr[data-user]:not([data-user="neha"]) { display: none; }
+#ts-user-amit:target ~ .ts-table tbody tr[data-user]:not([data-user="amit"]) { display: none; }
+#ts-user-sana:target ~ .ts-table tbody tr[data-user]:not([data-user="sana"]) { display: none; }
+/* By Phase */
+#ts-phase-content:target ~ .ts-table tbody tr[data-phase]:not([data-phase="content"]) { display: none; }
+#ts-phase-design:target ~ .ts-table tbody tr[data-phase]:not([data-phase="design"]) { display: none; }
+#ts-phase-development:target ~ .ts-table tbody tr[data-phase]:not([data-phase="development"]) { display: none; }
+#ts-phase-qa:target ~ .ts-table tbody tr[data-phase]:not([data-phase="qa"]) { display: none; }
+#ts-phase-support:target ~ .ts-table tbody tr[data-phase]:not([data-phase="support"]) { display: none; }
+/* By Date (explicit demo dates) */
+#ts-date-2024-08-12:target ~ .ts-table tbody tr[data-date]:not([data-date="2024-08-12"]) { display: none; }
+#ts-date-2024-08-13:target ~ .ts-table tbody tr[data-date]:not([data-date="2024-08-13"]) { display: none; }
+#ts-date-2024-08-14:target ~ .ts-table tbody tr[data-date]:not([data-date="2024-08-14"]) { display: none; }
+#ts-date-2024-08-15:target ~ .ts-table tbody tr[data-date]:not([data-date="2024-08-15"]) { display: none; }
+#ts-date-2024-08-16:target ~ .ts-table tbody tr[data-date]:not([data-date="2024-08-16"]) { display: none; }
+
 /* Responsive */
 @media (max-width: 1024px) {
   .app { grid-template-columns: 72px 1fr; }
