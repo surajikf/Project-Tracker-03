@@ -36,20 +36,24 @@
     <div class="app-content" id="main">
       <nav class="breadcrumbs">Home / Projects</nav>
 
-      <section class="card mt-6">
-        <div class="flex items-center justify-between mb-4">
-          <div class="flex gap-2">
-            <a class="btn small ghost" href="#filter-ongoing" title="Show Ongoing">Ongoing</a>
-            <a class="btn small ghost" href="#filter-onhold" title="Show On Hold">On Hold</a>
-            <a class="btn small ghost" href="#filter-completed" title="Show Completed">Completed</a>
-            <a class="btn small" href="#" title="Clear filters">Clear</a>
-          </div>
-          <div class="flex gap-2">
-            <span class="chip">Sort: Progress</span>
-            <span class="chip">Dept: Website</span>
-            <span class="chip" data-tooltip="Toggle density via bottom bar">View</span>
-          </div>
+      <div class="ts-filters">
+        <div class="row" aria-label="Project filters">
+          <span class="title">Status</span>
+          <a class="filter-chip" href="#filter-ongoing" title="Show Ongoing">Ongoing</a>
+          <a class="filter-chip" href="#filter-onhold" title="Show On Hold">On Hold</a>
+          <a class="filter-chip" href="#filter-completed" title="Show Completed">Completed</a>
+          <span class="spacer"></span>
+          <a class="btn small ghost" href="#" title="Clear filters">Clear</a>
         </div>
+        <div class="row" aria-label="Sort & Dept">
+          <span class="title">View</span>
+          <span class="chip">Sort: Progress</span>
+          <span class="chip">Dept: Website</span>
+        </div>
+      </div>
+
+      <section class="card mt-6">
+        <div class="flex items-center justify-between mb-4"></div>
         <span id="filter-ongoing"></span>
         <span id="filter-onhold"></span>
         <span id="filter-completed"></span>
