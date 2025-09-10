@@ -842,6 +842,34 @@ a { color: var(--brand-primary); text-decoration: none; }
   margin-bottom: 4px;
 }
 
+/* Project hero + mini KPIs */
+.project-hero {
+  display: grid;
+  gap: var(--space-4);
+}
+.project-hero .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.kpi-mini {
+  display: grid;
+  gap: 2px;
+}
+.kpi-mini .label { color: var(--slate-500); font-size: 12px; text-transform: uppercase; letter-spacing: .02em; }
+.kpi-mini .value { font-weight: 800; font-size: 20px; font-family: var(--font-display); }
+.progress.lg .bar { height: 14px; }
+.progress.lg .label { font-size: 14px; }
+
+/* Segmented control */
+.seg { display: inline-flex; border: 1px solid var(--border); background: var(--slate-100); border-radius: 999px; padding: 4px; gap: 4px; }
+.seg a { padding: 6px 10px; border-radius: 999px; color: var(--slate-700); font-weight: 700; text-decoration: none; }
+.seg a[aria-current="true"] { background: var(--white); color: var(--brand-primary); box-shadow: var(--shadow-sm); }
+
+/* Tab badge */
+.tab-badge { display: inline-block; min-width: 18px; padding: 0 6px; height: 18px; border-radius: 999px; font-size: 12px; line-height: 18px; background: var(--slate-100); color: var(--slate-700); text-align: center; font-weight: 700; }
+
 /* Filter Chips */
 .filter-chips {
   display: flex;
