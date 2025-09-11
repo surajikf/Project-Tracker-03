@@ -3707,6 +3707,339 @@ a { color: var(--brand-primary); text-decoration: none; }
   }
 }
 
+/* Global Enhancements and Micro-interactions */
+:root {
+  --animation-duration: 0.3s;
+  --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --hover-scale: 1.02;
+  --focus-scale: 1.05;
+}
+
+/* Enhanced Button Interactions */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--animation-duration) var(--animation-easing);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Card Interactions */
+.card, .kpi-card, .project-card, .client-card, .team-member, .insight-card {
+  transition: all var(--animation-duration) var(--animation-easing);
+  position: relative;
+}
+
+.card:hover, .kpi-card:hover, .project-card:hover, .client-card:hover, .team-member:hover, .insight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Loading States and Skeleton Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Enhanced Focus States */
+.btn:focus-visible, .btn-icon:focus-visible, .filter-chip:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  transform: scale(var(--focus-scale));
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced Progress Bars */
+.progress-bar, .progress-bar-large {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  position: relative;
+  transition: width 0.8s var(--animation-easing);
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* Enhanced Badge Animations */
+.badge {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--animation-duration) var(--animation-easing);
+}
+
+.badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.badge:hover::before {
+  left: 100%;
+}
+
+/* Enhanced Table Interactions */
+.table tbody tr {
+  transition: all var(--animation-duration) var(--animation-easing);
+}
+
+.table tbody tr:hover {
+  background: var(--surface);
+  transform: scale(1.01);
+}
+
+/* Enhanced Modal Animations */
+.overlay {
+  animation: fadeIn 0.3s var(--animation-easing);
+}
+
+.modal, .modal-enhanced {
+  animation: slideIn 0.3s var(--animation-easing);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Enhanced Tab Interactions */
+.tabs a {
+  position: relative;
+  transition: all var(--animation-duration) var(--animation-easing);
+}
+
+.tabs a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width var(--animation-duration) var(--animation-easing);
+}
+
+.tabs a:hover::after {
+  width: 100%;
+}
+
+.tabs a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* Enhanced Filter Chip Interactions */
+.filter-chip {
+  position: relative;
+  transition: all var(--animation-duration) var(--animation-easing);
+}
+
+.filter-chip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--primary);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity var(--animation-duration) var(--animation-easing);
+}
+
+.filter-chip:hover::before {
+  opacity: 0.1;
+}
+
+.filter-chip.active::before {
+  opacity: 0.2;
+}
+
+/* Enhanced Avatar Animations */
+.avatar, .member-avatar {
+  transition: all var(--animation-duration) var(--animation-easing);
+}
+
+.avatar:hover, .member-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced Icon Animations */
+.btn-icon, .kpi-icon, .project-icon, .client-logo {
+  transition: all var(--animation-duration) var(--animation-easing);
+}
+
+.btn-icon:hover, .kpi-icon:hover, .project-icon:hover, .client-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Enhanced Status Indicators */
+.status-dot {
+  animation: pulse 2s infinite;
+}
+
+.status-dot.online {
+  animation: pulse 1.5s infinite;
+}
+
+/* Enhanced Form Interactions */
+input[type="checkbox"], input[type="radio"] {
+  transition: all var(--animation-duration) var(--animation-easing);
+}
+
+input[type="checkbox"]:checked, input[type="radio"]:checked {
+  transform: scale(1.1);
+}
+
+/* Enhanced Tooltip Animations */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 1000;
+  animation: fadeIn 0.2s var(--animation-easing);
+}
+
+[data-tooltip]:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  border: 4px solid transparent;
+  border-top-color: var(--text);
+  z-index: 1000;
+}
+
+/* Enhanced Loading States */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+/* Enhanced Scroll Indicators */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--surface);
+  z-index: 1000;
+}
+
+.scroll-indicator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primary);
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+/* Enhanced Mobile Interactions */
+@media (max-width: 768px) {
+  .btn:hover, .card:hover, .project-card:hover, .client-card:hover {
+    transform: none;
+  }
+  
+  .btn:active, .card:active, .project-card:active, .client-card:active {
+    transform: scale(0.98);
+  }
+}
+
 /* Print Styles */
 @media print {
   .sidebar,
