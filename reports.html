@@ -39,7 +39,16 @@
       <div class="ts-filters">
         <div class="row" aria-label="Report filters">
           <span class="title">Period</span>
-          <span class="chip">This Month</span>
+          <a class="filter-chip" href="#tab-project">This Month</a>
+          <a class="filter-chip" href="#tab-project">Last Month</a>
+          <a class="filter-chip" href="#tab-project">This Quarter</a>
+          <span class="spacer"></span>
+          <span class="title">Status</span>
+          <a class="filter-chip" href="#tab-project">All</a>
+          <a class="filter-chip" href="#tab-project">Ongoing</a>
+          <a class="filter-chip" href="#tab-project">On Hold</a>
+          <a class="filter-chip" href="#tab-project">Completed</a>
+          <span class="spacer"></span>
           <a class="btn small ghost" href="#tab-project">Reset</a>
         </div>
       </div>
@@ -52,7 +61,15 @@
       </nav>
 
       <section id="tab-project" class="tab-panel is-active stack-lg">
-        <div class="filter-chips" aria-label="Select project">
+        <!-- KPI summary -->
+        <div class="grid grid-4">
+          <article class="kpi-card"><div class="kpi"><div class="label">Total Projects</div><div class="value">6</div></div></article>
+          <article class="kpi-card"><div class="kpi"><div class="label">Avg Progress</div><div class="value">56%</div></div></article>
+          <article class="kpi-card"><div class="kpi"><div class="label">On Hold</div><div class="value" style="color:#d97706;">1</div></div></article>
+          <article class="kpi-card"><div class="kpi"><div class="label">Approvals Pending</div><div class="value">2</div></div></article>
+        </div>
+
+        <div class="filter-chips mt-6" aria-label="Quick project jump">
           <a class="filter-chip" href="#proj-acme">Acme Website Revamp</a>
           <a class="filter-chip" href="#proj-orchid">Orchid eCommerce Launch</a>
           <a class="filter-chip" href="#proj-phoenix">Phoenix Logistics Portal</a>
@@ -61,7 +78,7 @@
           <a class="filter-chip" href="#proj-ikf">IKF Marketing Site Refresh</a>
         </div>
 
-        <div class="grid grid-3 gap-8">
+        <div class="grid grid-3 gap-8 mt-6">
           <div class="card">
             <div class="flex items-center justify-between">
               <h3 style="margin-top:0">Project Health</h3>
@@ -81,25 +98,12 @@
           </div>
 
           <div class="card kpi" style="gap:10px;">
-            <h3 style="margin-top:0">Summary KPIs</h3>
-            <div class="grid grid-2 mt-4">
-              <div>
-                <div class="label">Total Projects</div>
-                <div class="value">6</div>
-              </div>
-              <div>
-                <div class="label">Avg Progress</div>
-                <div class="value">56%</div>
-              </div>
-              <div>
-                <div class="label">Approvals Pending</div>
-                <div class="value">2</div>
-              </div>
-              <div>
-                <div class="label">On Hold</div>
-                <div class="value" style="color:#F59E0B;">1</div>
-              </div>
-            </div>
+            <h3 style="margin-top:0">Highlights</h3>
+            <ul class="mt-4">
+              <li>Most active: Phoenix Logistics Portal</li>
+              <li>Pending approvals: Acme (Content), Orchid (Design)</li>
+              <li>On Hold: Orchid eCommerce Launch (Client)</li>
+            </ul>
           </div>
 
           <div class="card">
@@ -113,6 +117,31 @@
               <circle cx="310" cy="25" r="3" fill="#00BFA6"/>
             </svg>
           </div>
+        </div>
+
+        <!-- Project summaries grid -->
+        <div class="grid grid-3 mt-6">
+          <article class="client-project-card">
+            <div class="stage-badge">Ongoing</div>
+            <h3 style="margin-top:0">Acme Website Revamp</h3>
+            <div class="progress"><div class="bar"><span style="--w:48%"></span></div><div class="label">48%</div></div>
+            <div class="mt-2 text-muted">PM: Priya · Due: 2024-10-30</div>
+            <div class="mt-4"><a class="btn small" href="#proj-acme">Open Report</a></div>
+          </article>
+          <article class="client-project-card">
+            <div class="stage-badge">On Hold</div>
+            <h3 style="margin-top:0">Orchid eCommerce Launch</h3>
+            <div class="progress"><div class="bar"><span style="--w:32%"></span></div><div class="label">32%</div></div>
+            <div class="mt-2 text-muted">PM: Priya · Due: 2024-11-15</div>
+            <div class="mt-4"><a class="btn small" href="#proj-orchid">Open Report</a></div>
+          </article>
+          <article class="client-project-card">
+            <div class="stage-badge">Ongoing</div>
+            <h3 style="margin-top:0">Phoenix Logistics Portal</h3>
+            <div class="progress"><div class="bar"><span style="--w:76%"></span></div><div class="label">76%</div></div>
+            <div class="mt-2 text-muted">PM: Arjun · Due: 2024-09-20</div>
+            <div class="mt-4"><a class="btn small" href="#proj-phoenix">Open Report</a></div>
+          </article>
         </div>
 
         <div class="card">
