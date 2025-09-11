@@ -2594,6 +2594,350 @@ a { color: var(--brand-primary); text-decoration: none; }
   }
 }
 
+/* Enhanced Projects Page Styles */
+.projects-summary {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.projects-status {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 0.25rem;
+}
+
+.view-toggle .btn-icon {
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.view-toggle .btn-icon.active {
+  background: white;
+  color: var(--primary);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.projects-filters {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border-color: var(--primary);
+}
+
+.project-card.ongoing {
+  border-left: 4px solid var(--success);
+}
+
+.project-card.onhold {
+  border-left: 4px solid var(--warning);
+}
+
+.project-card.completed {
+  border-left: 4px solid var(--primary);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.project-icon {
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.project-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.project-priority {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.project-priority.high {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.project-priority.medium {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.project-priority.low {
+  background: #f0f9ff;
+  color: #1e40af;
+}
+
+.project-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.project-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.5rem 0;
+}
+
+.project-content h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-content h3 a:hover {
+  color: var(--primary);
+}
+
+.project-client {
+  color: var(--text-muted);
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.project-pm {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-pm .avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.project-pm span {
+  font-size: 0.875rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.project-progress {
+  margin-bottom: 1rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progress-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.progress-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--surface);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.project-due {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.due-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.due-date {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.project-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.alert-icon {
+  font-size: 1rem;
+}
+
+.alert-text {
+  font-size: 0.875rem;
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.project-success {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.success-icon {
+  font-size: 1rem;
+}
+
+.success-text {
+  font-size: 0.875rem;
+  color: #166534;
+  font-weight: 500;
+}
+
+.project-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.project-menu {
+  display: flex;
+  align-items: center;
+}
+
+/* CSS-only filtering for project cards */
+[id^="filter-"]:target ~ .projects-cards .project-card {
+  display: none;
+}
+
+[id="filter-ongoing"]:target ~ .projects-cards .project-card[data-status="ongoing"],
+[id="filter-onhold"]:target ~ .projects-cards .project-card[data-status="onhold"],
+[id="filter-completed"]:target ~ .projects-cards .project-card[data-status="completed"],
+[id="filter-all"]:target ~ .projects-cards .project-card {
+  display: block;
+}
+
+[id^="dept-"]:target ~ .projects-cards .project-card {
+  display: none;
+}
+
+[id="dept-website"]:target ~ .projects-cards .project-card[data-dept="website"],
+[id="dept-marketing"]:target ~ .projects-cards .project-card[data-dept="marketing"],
+[id="dept-sales"]:target ~ .projects-cards .project-card[data-dept="sales"],
+[id="dept-all"]:target ~ .projects-cards .project-card {
+  display: block;
+}
+
+/* Mobile Responsiveness for Projects Page */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .project-status {
+    align-items: flex-start;
+  }
+  
+  .project-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .project-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
 /* Print Styles */
 @media print {
   .sidebar,

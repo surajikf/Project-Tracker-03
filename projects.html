@@ -24,116 +24,353 @@
     </nav>
   </aside>
   <div class="main">
-    <header class="app-header" role="banner">
-      <div class="flex items-center gap-3">
-        <h1 style="margin:0; font-size: 22px;">Projects</h1>
-      </div>
-      <div class="flex items-center gap-2">
-        <a class="btn" href="new-project.html">New Project</a>
-        <a class="btn" href="timesheets.html#tab-my">Fill Timesheet</a>
-        <a class="btn" href="assets/csv/projects.csv" download>Export CSV</a>
+    <header class="app-header enhanced" role="banner">
+      <div class="header-content">
+        <div class="header-title">
+          <h1 style="margin:0; font-size: 28px;">Project Portfolio</h1>
+          <div class="header-meta">
+            <span class="projects-summary">6 active projects</span>
+            <span class="projects-status">4 ongoing, 1 on hold, 1 completed</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="quick-actions">
+            <a class="btn primary" href="new-project.html">
+              <span class="btn-icon">➕</span>
+              New Project
+            </a>
+            <a class="btn" href="timesheets.html#tab-my">
+              <span class="btn-icon">⏱️</span>
+              Fill Timesheet
+            </a>
+            <a class="btn" href="assets/csv/projects.csv" download>
+              <span class="btn-icon">📊</span>
+              Export CSV
+            </a>
+          </div>
+          <div class="view-toggle">
+            <a class="btn-icon active" href="#card-view" data-tooltip="Card View">⊞</a>
+            <a class="btn-icon" href="#table-view" data-tooltip="Table View">☰</a>
+          </div>
+        </div>
       </div>
     </header>
     <div class="app-content" id="main">
       <nav class="breadcrumbs">Home / Projects</nav>
 
-      <div class="ts-filters">
-        <div class="row" aria-label="Project filters">
-          <span class="title">Status</span>
-          <a class="filter-chip" href="#filter-ongoing" title="Show Ongoing">Ongoing</a>
-          <a class="filter-chip" href="#filter-onhold" title="Show On Hold">On Hold</a>
-          <a class="filter-chip" href="#filter-completed" title="Show Completed">Completed</a>
-          <span class="spacer"></span>
-          <a class="btn small ghost" href="#" title="Clear filters">Clear</a>
-        </div>
-        <div class="row" aria-label="Sort & Dept">
-          <span class="title">View</span>
-          <span class="chip">Sort: Progress</span>
-          <span class="chip">Dept: Website</span>
+      <!-- Enhanced Filters -->
+      <div class="projects-filters mt-6">
+        <div class="filter-toolbar">
+          <div class="filter-group">
+            <span class="filter-label">Status</span>
+            <div class="filter-chips">
+              <a class="filter-chip active" href="#filter-all">All</a>
+              <a class="filter-chip" href="#filter-ongoing">Ongoing</a>
+              <a class="filter-chip" href="#filter-onhold">On Hold</a>
+              <a class="filter-chip" href="#filter-completed">Completed</a>
+            </div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Department</span>
+            <div class="filter-chips">
+              <a class="filter-chip active" href="#dept-all">All Depts</a>
+              <a class="filter-chip" href="#dept-website">Website</a>
+              <a class="filter-chip" href="#dept-marketing">Marketing</a>
+              <a class="filter-chip" href="#dept-sales">Sales</a>
+            </div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Sort By</span>
+            <div class="filter-chips">
+              <a class="filter-chip active" href="#sort-progress">Progress</a>
+              <a class="filter-chip" href="#sort-due">Due Date</a>
+              <a class="filter-chip" href="#sort-name">Name</a>
+            </div>
+          </div>
+          <div class="filter-actions">
+            <a class="btn small ghost" href="#clear-filters">Clear All</a>
+          </div>
         </div>
       </div>
 
-      <section class="card mt-6">
-        <div class="flex items-center justify-between mb-4"></div>
-        <span id="filter-ongoing"></span>
-        <span id="filter-onhold"></span>
-        <span id="filter-completed"></span>
-        <table class="table compact projects-table" aria-describedby="projects-caption">
-          <caption id="projects-caption" class="sr-only">Projects list</caption>
-          <thead>
-            <tr>
-              <th>Project</th>
-              <th>Client</th>
-              <th>PM</th>
-              <th>Status</th>
-              <th>Progress</th>
-              <th>Due</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr data-status="ongoing">
-              <td><a href="project-details.html">Acme Website Revamp</a></td>
-              <td>Acme Corp</td>
-              <td>Priya Nair</td>
-              <td><span class="badge ongoing">Ongoing</span></td>
-              <td>
-                <div class="progress"><div class="bar"><span style="--w:48%"></span></div><span class="label">48%</span></div>
-              </td>
-              <td>2024-10-30</td>
-            </tr>
-            <tr data-status="onhold">
-              <td><a href="project-details.html">Orchid eCommerce Launch</a></td>
-              <td>Orchid Spa</td>
-              <td>Priya Nair</td>
-              <td><span class="badge onhold hold-client">On Hold</span></td>
-              <td>
-                <div class="progress"><div class="bar"><span style="--w:32%"></span></div><span class="label">32%</span></div>
-              </td>
-              <td>2024-11-15</td>
-            </tr>
-            <tr data-status="ongoing">
-              <td><a href="project-details.html">Phoenix Logistics Portal</a></td>
-              <td>Phoenix Logistics</td>
-              <td>Arjun Mehta</td>
-              <td><span class="badge ongoing">Ongoing</span></td>
-              <td>
-                <div class="progress"><div class="bar"><span style="--w:76%"></span></div><span class="label">76%</span></div>
-              </td>
-              <td>2024-09-20</td>
-            </tr>
-            <tr data-status="completed">
-              <td><a href="project-details.html">Vista Realty Corporate Site</a></td>
-              <td>Vista Realty</td>
-              <td>Priya Nair</td>
-              <td><span class="badge completed">Completed</span></td>
-              <td>
-                <div class="progress"><div class="bar"><span style="--w:100%"></span></div><span class="label">100%</span></div>
-              </td>
-              <td>2024-05-30</td>
-            </tr>
-            <tr data-status="ongoing">
-              <td><a href="project-details.html">BlueWave Foods Microsite</a></td>
-              <td>BlueWave Foods</td>
-              <td>Arjun Mehta</td>
-              <td><span class="badge ongoing">Ongoing</span></td>
-              <td>
-                <div class="progress"><div class="bar"><span style="--w:22%"></span></div><span class="label">22%</span></div>
-              </td>
-              <td>2024-12-10</td>
-            </tr>
-            <tr data-status="ongoing">
-              <td><a href="project-details.html">IKF Marketing Site Refresh</a></td>
-              <td>Internal</td>
-              <td>Priya Nair</td>
-              <td><span class="badge ongoing">Ongoing</span></td>
-              <td>
-                <div class="progress"><div class="bar"><span style="--w:61%"></span></div><span class="label">61%</span></div>
-              </td>
-              <td>2024-10-05</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Project Cards View -->
+      <section id="card-view" class="projects-cards mt-6">
+        <div class="projects-grid">
+          <article class="project-card ongoing" data-status="ongoing" data-dept="website">
+            <div class="project-header">
+              <div class="project-icon">🌐</div>
+              <div class="project-status">
+                <span class="badge ongoing">Ongoing</span>
+                <span class="project-priority high">High</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3><a href="project-details.html">Acme Website Revamp</a></h3>
+              <p class="project-client">Acme Corp</p>
+              <div class="project-meta">
+                <div class="project-pm">
+                  <div class="avatar">PN</div>
+                  <span>Priya Nair</span>
+                </div>
+                <div class="project-dept">
+                  <span class="chip">Website</span>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-header">
+                  <span class="progress-label">Progress</span>
+                  <span class="progress-value">48%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 48%"></div>
+                </div>
+              </div>
+              <div class="project-due">
+                <span class="due-label">Due:</span>
+                <span class="due-date">Oct 30, 2024</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="project-details.html" class="btn small">View Details</a>
+              <div class="project-menu">
+                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card onhold" data-status="onhold" data-dept="website">
+            <div class="project-header">
+              <div class="project-icon">🛒</div>
+              <div class="project-status">
+                <span class="badge onhold">On Hold</span>
+                <span class="project-priority medium">Medium</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3><a href="project-details.html">Orchid eCommerce Launch</a></h3>
+              <p class="project-client">Orchid Spa</p>
+              <div class="project-meta">
+                <div class="project-pm">
+                  <div class="avatar">PN</div>
+                  <span>Priya Nair</span>
+                </div>
+                <div class="project-dept">
+                  <span class="chip">Website</span>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-header">
+                  <span class="progress-label">Progress</span>
+                  <span class="progress-value">32%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 32%"></div>
+                </div>
+              </div>
+              <div class="project-due">
+                <span class="due-label">Due:</span>
+                <span class="due-date">Nov 15, 2024</span>
+              </div>
+              <div class="project-alert">
+                <span class="alert-icon">⚠️</span>
+                <span class="alert-text">Client hold on content review</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="project-details.html" class="btn small">View Details</a>
+              <div class="project-menu">
+                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card ongoing" data-status="ongoing" data-dept="website">
+            <div class="project-header">
+              <div class="project-icon">🚚</div>
+              <div class="project-status">
+                <span class="badge ongoing">Ongoing</span>
+                <span class="project-priority high">High</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3><a href="project-details.html">Phoenix Logistics Portal</a></h3>
+              <p class="project-client">Phoenix Logistics</p>
+              <div class="project-meta">
+                <div class="project-pm">
+                  <div class="avatar">AM</div>
+                  <span>Arjun Mehta</span>
+                </div>
+                <div class="project-dept">
+                  <span class="chip">Website</span>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-header">
+                  <span class="progress-label">Progress</span>
+                  <span class="progress-value">76%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 76%"></div>
+                </div>
+              </div>
+              <div class="project-due">
+                <span class="due-label">Due:</span>
+                <span class="due-date">Sep 20, 2024</span>
+              </div>
+              <div class="project-success">
+                <span class="success-icon">🎯</span>
+                <span class="success-text">Ahead of schedule</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="project-details.html" class="btn small">View Details</a>
+              <div class="project-menu">
+                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card completed" data-status="completed" data-dept="website">
+            <div class="project-header">
+              <div class="project-icon">🏢</div>
+              <div class="project-status">
+                <span class="badge completed">Completed</span>
+                <span class="project-priority low">Low</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3><a href="project-details.html">Vista Realty Corporate Site</a></h3>
+              <p class="project-client">Vista Realty</p>
+              <div class="project-meta">
+                <div class="project-pm">
+                  <div class="avatar">PN</div>
+                  <span>Priya Nair</span>
+                </div>
+                <div class="project-dept">
+                  <span class="chip">Website</span>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-header">
+                  <span class="progress-label">Progress</span>
+                  <span class="progress-value">100%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 100%"></div>
+                </div>
+              </div>
+              <div class="project-due">
+                <span class="due-label">Completed:</span>
+                <span class="due-date">May 30, 2024</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="project-details.html" class="btn small">View Details</a>
+              <div class="project-menu">
+                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card ongoing" data-status="ongoing" data-dept="website">
+            <div class="project-header">
+              <div class="project-icon">🍔</div>
+              <div class="project-status">
+                <span class="badge ongoing">Ongoing</span>
+                <span class="project-priority medium">Medium</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3><a href="project-details.html">BlueWave Foods Microsite</a></h3>
+              <p class="project-client">BlueWave Foods</p>
+              <div class="project-meta">
+                <div class="project-pm">
+                  <div class="avatar">AM</div>
+                  <span>Arjun Mehta</span>
+                </div>
+                <div class="project-dept">
+                  <span class="chip">Website</span>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-header">
+                  <span class="progress-label">Progress</span>
+                  <span class="progress-value">22%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 22%"></div>
+                </div>
+              </div>
+              <div class="project-due">
+                <span class="due-label">Due:</span>
+                <span class="due-date">Dec 10, 2024</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="project-details.html" class="btn small">View Details</a>
+              <div class="project-menu">
+                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card ongoing" data-status="ongoing" data-dept="marketing">
+            <div class="project-header">
+              <div class="project-icon">📈</div>
+              <div class="project-status">
+                <span class="badge ongoing">Ongoing</span>
+                <span class="project-priority medium">Medium</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3><a href="project-details.html">IKF Marketing Site Refresh</a></h3>
+              <p class="project-client">Internal</p>
+              <div class="project-meta">
+                <div class="project-pm">
+                  <div class="avatar">PN</div>
+                  <span>Priya Nair</span>
+                </div>
+                <div class="project-dept">
+                  <span class="chip">Marketing</span>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-header">
+                  <span class="progress-label">Progress</span>
+                  <span class="progress-value">61%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 61%"></div>
+                </div>
+              </div>
+              <div class="project-due">
+                <span class="due-label">Due:</span>
+                <span class="due-date">Oct 05, 2024</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="project-details.html" class="btn small">View Details</a>
+              <div class="project-menu">
+                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
+
+      <!-- Filter anchors for CSS-only functionality -->
+      <span id="filter-all"></span>
+      <span id="filter-ongoing"></span>
+      <span id="filter-onhold"></span>
+      <span id="filter-completed"></span>
+      <span id="dept-all"></span>
+      <span id="dept-website"></span>
+      <span id="dept-marketing"></span>
+      <span id="dept-sales"></span>
+      <span id="sort-progress"></span>
+      <span id="sort-due"></span>
+      <span id="sort-name"></span>
+      <span id="clear-filters"></span>
     </div>
     <footer class="app-footer">© 2024 I Knowledge Factory Pvt. Ltd. — All Rights Reserved.</footer>
   </div>
