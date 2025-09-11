@@ -23,32 +23,62 @@
     </nav>
   </aside>
   <div class="main">
-    <header class="app-header" role="banner">
-      <div class="project-hero w-full">
-        <div class="header">
-          <div class="flex items-center gap-3">
-            <h1 style="margin:0; font-size: 22px;">Acme Website Revamp</h1>
-            <span class="badge ongoing">Ongoing</span>
-            <span class="chip">Client: Acme Corp</span>
-            <span class="chip">PM: Priya Nair</span>
+    <header class="app-header enhanced project-header" role="banner">
+      <div class="project-hero-enhanced">
+        <div class="project-header-content">
+          <div class="project-title-section">
+            <div class="project-breadcrumb">
+              <a href="projects.html" class="breadcrumb-link">← Back to Projects</a>
+            </div>
+            <div class="project-title-group">
+              <h1 class="project-title">Acme Website Revamp</h1>
+              <div class="project-meta">
+                <span class="badge ongoing">Ongoing</span>
+                <span class="project-client">Acme Corp</span>
+                <span class="project-pm">PM: Priya Nair</span>
+                <span class="project-priority high">High Priority</span>
+              </div>
+            </div>
           </div>
-          <div class="seg" role="tablist" aria-label="View">
-            <a href="#tab-overview" aria-current="true">Overview</a>
-            <a href="#tab-stages">Stages</a>
-            <a href="#resources">Resources</a>
+          <div class="project-actions">
+            <div class="action-group">
+              <a class="btn primary" href="#edit-project" data-tooltip="Edit project details">
+                <span class="btn-icon">✏️</span>
+                Edit Project
+              </a>
+              <a class="btn" href="assets/csv/projects.csv" download data-tooltip="Export project data">
+                <span class="btn-icon">📊</span>
+                Export CSV
+              </a>
+            </div>
+            <div class="project-utilities">
+              <a class="btn-icon" href="#share-project" data-tooltip="Share project">🔗</a>
+              <a class="btn-icon" href="#project-settings" data-tooltip="Project settings">⚙️</a>
+            </div>
           </div>
         </div>
-        <div class="progress lg mt-2" aria-label="Overall progress">
-          <div class="bar">
-            <span class="value-48" style="--w:48%"></span>
-            <span class="value-68" style="--w:68%"></span>
+        
+        <div class="project-progress-section">
+          <div class="progress-header">
+            <h3>Project Progress</h3>
+            <div class="progress-stats">
+              <span class="progress-current">48%</span>
+              <span class="progress-target">Target: 100%</span>
+            </div>
           </div>
-          <div class="label">Overall <span class="val-48">48%</span><span class="val-68" style="display:none;">68%</span></div>
+          <div class="progress-visual">
+            <div class="progress-bar-large">
+              <div class="progress-fill" style="width: 48%"></div>
+            </div>
+            <div class="progress-labels">
+              <div class="progress-details">
+                <span class="logged">115 hours logged</span>
+                <span class="budgeted">240 hours budgeted</span>
+                <span class="percentage">48% complete</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="flex items-center gap-2">
-        <a class="btn" href="assets/csv/projects.csv" download>Export CSV</a>
-        <a class="btn ghost" href="projects.html">Back</a>
       </div>
     </header>
     <div class="app-content" id="main">
@@ -56,36 +86,69 @@
 
       <input id="toggle-design" type="checkbox" class="sr-only">
 
-      <section class="card overview mt-6">
-        <div class="flex items-center justify-between">
-          <h2 style="margin:0">Overview</h2>
-          <label class="design-toggle" for="toggle-design" aria-describedby="design-help" aria-label="Toggle Design stage">
-            <span class="switch" aria-hidden="true"></span>
-            <span class="text-off">Design Off</span>
-            <span class="text-on">Design On</span>
-          </label>
-        </div>
-        <p id="design-help" class="text-muted">Toggling “Design” simulates completion and adjusts overall progress from 48% to 68% (CSS-only).</p>
-        <div class="grid grid-3 mt-4">
-          <div class="kpi">
-            <span class="label">Budgeted Hours</span>
-            <span class="value">240</span>
-          </div>
-          <div class="kpi">
-            <span class="label">Logged Hours</span>
-            <span class="value">10</span>
-          </div>
-          <div class="kpi">
-            <span class="label">Days to Go</span>
-            <span class="value">52</span>
+      <!-- Enhanced Overview Section -->
+      <section class="overview-enhanced mt-6">
+        <div class="overview-header">
+          <h2>Project Overview</h2>
+          <div class="overview-actions">
+            <label class="design-toggle" for="toggle-design" aria-describedby="design-help" aria-label="Toggle Design stage">
+              <span class="switch" aria-hidden="true"></span>
+              <span class="text-off">Design Off</span>
+              <span class="text-on">Design On</span>
+            </label>
           </div>
         </div>
-        <div class="progress progress-acme mt-6" aria-label="Overall progress">
-          <div class="bar">
-            <span class="value-48" style="--w:48%"></span>
-            <span class="value-68" style="--w:68%"></span>
+        <p id="design-help" class="overview-help">Toggling "Design" simulates completion and adjusts overall progress from 48% to 68% (CSS-only).</p>
+        
+        <div class="kpi-grid-enhanced">
+          <div class="kpi-card-enhanced">
+            <div class="kpi-icon">⏱️</div>
+            <div class="kpi-content">
+              <span class="label">Budgeted Hours</span>
+              <span class="value">240</span>
+              <span class="subtitle">Total allocated</span>
+            </div>
           </div>
-          <div class="label">Overall <span class="val-48">48%</span><span class="val-68" style="display:none;">68%</span></div>
+          <div class="kpi-card-enhanced">
+            <div class="kpi-icon">📊</div>
+            <div class="kpi-content">
+              <span class="label">Logged Hours</span>
+              <span class="value">115</span>
+              <span class="subtitle">48% utilized</span>
+            </div>
+          </div>
+          <div class="kpi-card-enhanced">
+            <div class="kpi-icon">📅</div>
+            <div class="kpi-content">
+              <span class="label">Days to Go</span>
+              <span class="value">52</span>
+              <span class="subtitle">On track</span>
+            </div>
+          </div>
+          <div class="kpi-card-enhanced">
+            <div class="kpi-icon">👥</div>
+            <div class="kpi-content">
+              <span class="label">Team Size</span>
+              <span class="value">7</span>
+              <span class="subtitle">Active members</span>
+            </div>
+          </div>
+          <div class="kpi-card-enhanced">
+            <div class="kpi-icon">🎯</div>
+            <div class="kpi-content">
+              <span class="label">Completion</span>
+              <span class="value">48%</span>
+              <span class="subtitle">Ahead of schedule</span>
+            </div>
+          </div>
+          <div class="kpi-card-enhanced">
+            <div class="kpi-icon">💰</div>
+            <div class="kpi-content">
+              <span class="label">Budget Status</span>
+              <span class="value">On Track</span>
+              <span class="subtitle">Within limits</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -131,17 +194,129 @@
       </section>
 
       <section id="tab-team" class="tab-panel">
-        <div class="card">
-          <h3 style="margin-top:0">Team</h3>
-          <ul>
-            <li>Priya Nair — PM</li>
-            <li>Arjun Mehta — BA</li>
-            <li>Riya Kapoor — Content</li>
-            <li>Karan Shah — Design</li>
-            <li>Neha Joshi — Dev</li>
-            <li>Amit Kulkarni — QA</li>
-            <li>Sana Iqbal — Tech Support</li>
-          </ul>
+        <div class="team-section">
+          <div class="team-header">
+            <h3>Project Team</h3>
+            <div class="team-actions">
+              <a class="btn small" href="#add-member" data-tooltip="Add team member">
+                <span class="btn-icon">➕</span>
+                Add Member
+              </a>
+            </div>
+          </div>
+          <div class="team-grid">
+            <div class="team-member">
+              <div class="member-avatar">PN</div>
+              <div class="member-info">
+                <h4>Priya Nair</h4>
+                <p class="member-role">Project Manager</p>
+                <div class="member-status">
+                  <span class="status-dot online"></span>
+                  <span class="status-text">Online</span>
+                </div>
+              </div>
+              <div class="member-actions">
+                <a href="#" class="btn-icon" data-tooltip="Message">💬</a>
+                <a href="#" class="btn-icon" data-tooltip="View profile">👤</a>
+              </div>
+            </div>
+            
+            <div class="team-member">
+              <div class="member-avatar">AM</div>
+              <div class="member-info">
+                <h4>Arjun Mehta</h4>
+                <p class="member-role">Business Analyst</p>
+                <div class="member-status">
+                  <span class="status-dot away"></span>
+                  <span class="status-text">Away</span>
+                </div>
+              </div>
+              <div class="member-actions">
+                <a href="#" class="btn-icon" data-tooltip="Message">💬</a>
+                <a href="#" class="btn-icon" data-tooltip="View profile">👤</a>
+              </div>
+            </div>
+            
+            <div class="team-member">
+              <div class="member-avatar">RK</div>
+              <div class="member-info">
+                <h4>Riya Kapoor</h4>
+                <p class="member-role">Content Writer</p>
+                <div class="member-status">
+                  <span class="status-dot online"></span>
+                  <span class="status-text">Online</span>
+                </div>
+              </div>
+              <div class="member-actions">
+                <a href="#" class="btn-icon" data-tooltip="Message">💬</a>
+                <a href="#" class="btn-icon" data-tooltip="View profile">👤</a>
+              </div>
+            </div>
+            
+            <div class="team-member">
+              <div class="member-avatar">KS</div>
+              <div class="member-info">
+                <h4>Karan Shah</h4>
+                <p class="member-role">UI/UX Designer</p>
+                <div class="member-status">
+                  <span class="status-dot busy"></span>
+                  <span class="status-text">Busy</span>
+                </div>
+              </div>
+              <div class="member-actions">
+                <a href="#" class="btn-icon" data-tooltip="Message">💬</a>
+                <a href="#" class="btn-icon" data-tooltip="View profile">👤</a>
+              </div>
+            </div>
+            
+            <div class="team-member">
+              <div class="member-avatar">NJ</div>
+              <div class="member-info">
+                <h4>Neha Joshi</h4>
+                <p class="member-role">Frontend Developer</p>
+                <div class="member-status">
+                  <span class="status-dot online"></span>
+                  <span class="status-text">Online</span>
+                </div>
+              </div>
+              <div class="member-actions">
+                <a href="#" class="btn-icon" data-tooltip="Message">💬</a>
+                <a href="#" class="btn-icon" data-tooltip="View profile">👤</a>
+              </div>
+            </div>
+            
+            <div class="team-member">
+              <div class="member-avatar">AK</div>
+              <div class="member-info">
+                <h4>Amit Kulkarni</h4>
+                <p class="member-role">QA Engineer</p>
+                <div class="member-status">
+                  <span class="status-dot offline"></span>
+                  <span class="status-text">Offline</span>
+                </div>
+              </div>
+              <div class="member-actions">
+                <a href="#" class="btn-icon" data-tooltip="Message">💬</a>
+                <a href="#" class="btn-icon" data-tooltip="View profile">👤</a>
+              </div>
+            </div>
+            
+            <div class="team-member">
+              <div class="member-avatar">SI</div>
+              <div class="member-info">
+                <h4>Sana Iqbal</h4>
+                <p class="member-role">Tech Support</p>
+                <div class="member-status">
+                  <span class="status-dot online"></span>
+                  <span class="status-text">Online</span>
+                </div>
+              </div>
+              <div class="member-actions">
+                <a href="#" class="btn-icon" data-tooltip="Message">💬</a>
+                <a href="#" class="btn-icon" data-tooltip="View profile">👤</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
