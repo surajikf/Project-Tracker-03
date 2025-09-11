@@ -129,7 +129,7 @@ a { color: var(--brand-primary); text-decoration: none; }
   min-width: 0;
 }
 .app-header {
-  position: sticky; top: 0; z-index: 10;
+  position: sticky; top: 0; z-index: 40;
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--space-4);
   padding: var(--space-4) var(--space-6);
@@ -240,7 +240,7 @@ a { color: var(--brand-primary); text-decoration: none; }
 .tab-panel:target { display: block; }
 
 /* Anchor-target modal & overlays */
-.overlay { position: fixed; inset: 0; display: none; background: rgba(2,6,23,0.45); align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(4px); }
+.overlay { position: fixed; inset: 0; display: none; background: rgba(2,6,23,0.45); align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(4px); z-index: 100; }
 .overlay .modal { max-width: 720px; width: 100%; }
 .overlay .modal .close { position: absolute; right: 18px; top: 18px; }
 .overlay:target { display: flex; }
@@ -251,7 +251,7 @@ a { color: var(--brand-primary); text-decoration: none; }
  .drawer-panel {
   position: fixed; right: 0; top: 0; bottom: 0; width: min(420px, 90vw);
   background: var(--white); border-left: 1px solid var(--border); box-shadow: var(--shadow-lg);
-  padding: var(--space-6); transform: translateX(100%); transition: transform .24s ease;
+  padding: var(--space-6); transform: translateX(100%); transition: transform .24s ease; z-index: 90;
 }
 .drawer-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4); }
 
@@ -349,6 +349,11 @@ a { color: var(--brand-primary); text-decoration: none; }
 
   .table { display: block; max-width: 100%; overflow-x: auto; white-space: nowrap; }
   .btn.small { padding: 8px 12px; }
+
+  /* Keep header below the mobile topbar */
+  .app-header { top: 48px; }
+  /* Prevent mobile actionbar overlapping content */
+  .app-content { padding-bottom: 72px; }
 }
 
 /* Density toggles via anchors (CSS-only) */
@@ -434,6 +439,13 @@ a { color: var(--brand-primary); text-decoration: none; }
 .reports-page .grid { gap: var(--space-8); align-items: start; }
 .reports-page .card { padding: var(--space-8); }
 .project-report { scroll-margin-top: 84px; }
+.tabs { position: relative; z-index: 1; }
+/* Anchor targets spacing for sticky headers */
+[id^="tab-"] { scroll-margin-top: 84px; }
+[id^="proj-"] { scroll-margin-top: 84px; }
+[id^="ts-date-"] { scroll-margin-top: 84px; }
+[id^="filter-"] { scroll-margin-top: 84px; }
+[id^="dept-"] { scroll-margin-top: 84px; }
 .reports-page .legend { display: flex; gap: 12px; color: var(--slate-700); font-size: 14px; }
 .reports-page .legend .dot { margin-right: 6px; }
 .reports-page .table thead th { padding: 16px 18px; }
