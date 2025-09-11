@@ -163,120 +163,511 @@
         </div>
 
         <!-- Individual Project Reports (CSS-only target sections) -->
-        <section id="proj-acme" class="card project-report" aria-label="Acme Website Revamp — Project Report">
-          <div class="flex items-center justify-between">
-            <h3 style="margin-top:0">Acme Website Revamp — Project Report</h3>
-            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+        <section id="proj-acme" class="project-report-section" aria-label="Acme Website Revamp — Project Report">
+          <div class="project-report-header">
+            <div class="project-title-group">
+              <h2 class="project-title">Acme Website Revamp</h2>
+              <div class="project-meta">
+                <span class="badge ongoing">Ongoing</span>
+                <span class="project-pm">PM: Priya Nair</span>
+              </div>
+            </div>
+            <a class="btn small ghost" href="#tab-project">← Back to summary</a>
           </div>
-          <div class="grid grid-3 mt-4">
-            <div class="kpi-mini"><span class="label">Status</span><span class="value">Ongoing</span></div>
-            <div class="kpi-mini"><span class="label">Progress</span><span class="value">48%</span></div>
-            <div class="kpi-mini"><span class="label">Due</span><span class="value">2024-10-30</span></div>
-            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">240</span></div>
-            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">10</span></div>
-            <div class="kpi-mini"><span class="label">PM</span><span class="value">Priya Nair</span></div>
+          
+          <div class="project-kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-icon">📊</div>
+              <div class="kpi-content">
+                <div class="label">Progress</div>
+                <div class="value">48%</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">⏰</div>
+              <div class="kpi-content">
+                <div class="label">Due Date</div>
+                <div class="value">Oct 30, 2024</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">💰</div>
+              <div class="kpi-content">
+                <div class="label">Budgeted Hours</div>
+                <div class="value">240 hrs</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">⏱️</div>
+              <div class="kpi-content">
+                <div class="label">Logged Hours</div>
+                <div class="value">10 hrs</div>
+              </div>
+            </div>
           </div>
-          <div class="chart-container mt-4">
-            <div class="chart-title">Budget vs Actual</div>
-            <svg viewBox="0 0 360 120" role="img" aria-label="Budget vs Actual">
-              <rect x="30" y="30" width="260" height="18" fill="#E2E8F0" rx="9"/>
-              <rect x="30" y="30" width="11" height="18" fill="#00BFA6" rx="9"/>
-              <text x="300" y="44" font-size="12" fill="#334155">10 / 240 hrs</text>
-            </svg>
+
+          <div class="project-progress-section">
+            <h3>Budget vs Actual Hours</h3>
+            <div class="progress-visual">
+              <div class="progress-bar-large">
+                <div class="progress-fill" style="width: 4.2%"></div>
+              </div>
+              <div class="progress-labels">
+                <span class="logged">10 hrs logged</span>
+                <span class="budgeted">240 hrs budgeted</span>
+                <span class="percentage">4.2% utilized</span>
+              </div>
+            </div>
           </div>
-          <table class="table compact mt-4" aria-label="Timesheet entries">
-            <thead><tr><th>User</th><th>Stage</th><th>Date</th><th>Hours</th></tr></thead>
-            <tbody>
-              <tr><td>Riya Kapoor</td><td>Content Writing</td><td>2024-08-12</td><td>6</td></tr>
-              <tr><td>Riya Kapoor</td><td>Content Writing</td><td>2024-08-13</td><td>2</td></tr>
-              <tr><td>Riya Kapoor</td><td>Content Writing</td><td>2024-08-14</td><td>4</td></tr>
-            </tbody>
-          </table>
+
+          <div class="timesheet-section">
+            <h3>Recent Timesheet Entries</h3>
+            <div class="table-container">
+              <table class="table compact">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Stage</th>
+                    <th>Date</th>
+                    <th>Hours</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="user-info">
+                        <div class="avatar">RK</div>
+                        <span>Riya Kapoor</span>
+                      </div>
+                    </td>
+                    <td><span class="stage-badge">Content Writing</span></td>
+                    <td>Aug 12, 2024</td>
+                    <td><strong>6 hrs</strong></td>
+                    <td>Homepage content creation</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-info">
+                        <div class="avatar">RK</div>
+                        <span>Riya Kapoor</span>
+                      </div>
+                    </td>
+                    <td><span class="stage-badge">Content Writing</span></td>
+                    <td>Aug 13, 2024</td>
+                    <td><strong>2 hrs</strong></td>
+                    <td>About page content</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-info">
+                        <div class="avatar">RK</div>
+                        <span>Riya Kapoor</span>
+                      </div>
+                    </td>
+                    <td><span class="stage-badge">Content Writing</span></td>
+                    <td>Aug 14, 2024</td>
+                    <td><strong>4 hrs</strong></td>
+                    <td>Services page content</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </section>
 
-        <section id="proj-orchid" class="card project-report" aria-label="Orchid eCommerce Launch — Project Report">
-          <div class="flex items-center justify-between">
-            <h3 style="margin-top:0">Orchid eCommerce Launch — Project Report</h3>
-            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+        <section id="proj-orchid" class="project-report-section" aria-label="Orchid eCommerce Launch — Project Report">
+          <div class="project-report-header">
+            <div class="project-title-group">
+              <h2 class="project-title">Orchid eCommerce Launch</h2>
+              <div class="project-meta">
+                <span class="badge onhold">On Hold</span>
+                <span class="project-pm">PM: Priya Nair</span>
+              </div>
+            </div>
+            <a class="btn small ghost" href="#tab-project">← Back to summary</a>
           </div>
-          <div class="grid grid-3 mt-4">
-            <div class="kpi-mini"><span class="label">Status</span><span class="value">On Hold</span></div>
-            <div class="kpi-mini"><span class="label">Progress</span><span class="value">32%</span></div>
-            <div class="kpi-mini"><span class="label">Hold</span><span class="value">Client</span></div>
-            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">180</span></div>
-            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">8</span></div>
-            <div class="kpi-mini"><span class="label">PM</span><span class="value">Priya Nair</span></div>
+          
+          <div class="project-kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-icon">⏸️</div>
+              <div class="kpi-content">
+                <div class="label">Status</div>
+                <div class="value">On Hold</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">📊</div>
+              <div class="kpi-content">
+                <div class="label">Progress</div>
+                <div class="value">32%</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">⏰</div>
+              <div class="kpi-content">
+                <div class="label">Hold Reason</div>
+                <div class="value">Client</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">💰</div>
+              <div class="kpi-content">
+                <div class="label">Budgeted Hours</div>
+                <div class="value">180 hrs</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">⏱️</div>
+              <div class="kpi-content">
+                <div class="label">Logged Hours</div>
+                <div class="value">8 hrs</div>
+              </div>
+            </div>
           </div>
-          <table class="table compact mt-4" aria-label="Timesheet entries">
-            <thead><tr><th>User</th><th>Stage</th><th>Date</th><th>Hours</th></tr></thead>
-            <tbody>
-              <tr><td>Karan Shah</td><td>Design</td><td>2024-08-13</td><td>5</td></tr>
-              <tr><td>Karan Shah</td><td>Design</td><td>2024-08-15</td><td>3</td></tr>
-            </tbody>
-          </table>
+
+          <div class="project-progress-section">
+            <h3>Budget vs Actual Hours</h3>
+            <div class="progress-visual">
+              <div class="progress-bar-large">
+                <div class="progress-fill" style="width: 4.4%"></div>
+              </div>
+              <div class="progress-labels">
+                <span class="logged">8 hrs logged</span>
+                <span class="budgeted">180 hrs budgeted</span>
+                <span class="percentage">4.4% utilized</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timesheet-section">
+            <h3>Recent Timesheet Entries</h3>
+            <div class="table-container">
+              <table class="table compact">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Stage</th>
+                    <th>Date</th>
+                    <th>Hours</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="user-info">
+                        <div class="avatar">KS</div>
+                        <span>Karan Shah</span>
+                      </div>
+                    </td>
+                    <td><span class="stage-badge">Design</span></td>
+                    <td>Aug 13, 2024</td>
+                    <td><strong>5 hrs</strong></td>
+                    <td>Product page mockups</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-info">
+                        <div class="avatar">KS</div>
+                        <span>Karan Shah</span>
+                      </div>
+                    </td>
+                    <td><span class="stage-badge">Design</span></td>
+                    <td>Aug 15, 2024</td>
+                    <td><strong>3 hrs</strong></td>
+                    <td>Checkout flow design</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </section>
 
-        <section id="proj-phoenix" class="card project-report" aria-label="Phoenix Logistics Portal — Project Report">
-          <div class="flex items-center justify-between">
-            <h3 style="margin-top:0">Phoenix Logistics Portal — Project Report</h3>
-            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+        <section id="proj-phoenix" class="project-report-section" aria-label="Phoenix Logistics Portal — Project Report">
+          <div class="project-report-header">
+            <div class="project-title-group">
+              <h2 class="project-title">Phoenix Logistics Portal</h2>
+              <div class="project-meta">
+                <span class="badge ongoing">Ongoing</span>
+                <span class="project-pm">PM: Arjun Mehta</span>
+              </div>
+            </div>
+            <a class="btn small ghost" href="#tab-project">← Back to summary</a>
           </div>
-          <div class="grid grid-3 mt-4">
-            <div class="kpi-mini"><span class="label">Status</span><span class="value">Ongoing</span></div>
-            <div class="kpi-mini"><span class="label">Progress</span><span class="value">76%</span></div>
-            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">320</span></div>
-            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">21</span></div>
-            <div class="kpi-mini"><span class="label">PM</span><span class="value">Arjun Mehta</span></div>
+          
+          <div class="project-kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-icon">📊</div>
+              <div class="kpi-content">
+                <div class="label">Progress</div>
+                <div class="value">76%</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">⏰</div>
+              <div class="kpi-content">
+                <div class="label">Due Date</div>
+                <div class="value">Sep 20, 2024</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">💰</div>
+              <div class="kpi-content">
+                <div class="label">Budgeted Hours</div>
+                <div class="value">320 hrs</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">⏱️</div>
+              <div class="kpi-content">
+                <div class="label">Logged Hours</div>
+                <div class="value">21 hrs</div>
+              </div>
+            </div>
           </div>
-          <table class="table compact mt-4" aria-label="Timesheet entries">
-            <thead><tr><th>User</th><th>Stage</th><th>Date</th><th>Hours</th></tr></thead>
-            <tbody>
-              <tr><td>Neha Joshi</td><td>Development</td><td>2024-08-12</td><td>7</td></tr>
-              <tr><td>Neha Joshi</td><td>Development</td><td>2024-08-13</td><td>7</td></tr>
-              <tr><td>Neha Joshi</td><td>Development</td><td>2024-08-14</td><td>7</td></tr>
-            </tbody>
-          </table>
+
+          <div class="project-progress-section">
+            <h3>Budget vs Actual Hours</h3>
+            <div class="progress-visual">
+              <div class="progress-bar-large">
+                <div class="progress-fill" style="width: 6.6%"></div>
+              </div>
+              <div class="progress-labels">
+                <span class="logged">21 hrs logged</span>
+                <span class="budgeted">320 hrs budgeted</span>
+                <span class="percentage">6.6% utilized</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timesheet-section">
+            <h3>Recent Timesheet Entries</h3>
+            <div class="table-container">
+              <table class="table compact">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Stage</th>
+                    <th>Date</th>
+                    <th>Hours</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="user-info">
+                        <div class="avatar">NJ</div>
+                        <span>Neha Joshi</span>
+                      </div>
+                    </td>
+                    <td><span class="stage-badge">Development</span></td>
+                    <td>Aug 12, 2024</td>
+                    <td><strong>7 hrs</strong></td>
+                    <td>API integration</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-info">
+                        <div class="avatar">NJ</div>
+                        <span>Neha Joshi</span>
+                      </div>
+                    </td>
+                    <td><span class="stage-badge">Development</span></td>
+                    <td>Aug 13, 2024</td>
+                    <td><strong>7 hrs</strong></td>
+                    <td>Database optimization</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-info">
+                        <div class="avatar">NJ</div>
+                        <span>Neha Joshi</span>
+                      </div>
+                    </td>
+                    <td><span class="stage-badge">Development</span></td>
+                    <td>Aug 14, 2024</td>
+                    <td><strong>7 hrs</strong></td>
+                    <td>Frontend components</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </section>
 
-        <section id="proj-vista" class="card project-report" aria-label="Vista Realty Corporate Site — Project Report">
-          <div class="flex items-center justify-between">
-            <h3 style="margin-top:0">Vista Realty Corporate Site — Project Report</h3>
-            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+        <section id="proj-vista" class="project-report-section" aria-label="Vista Realty Corporate Site — Project Report">
+          <div class="project-report-header">
+            <div class="project-title-group">
+              <h2 class="project-title">Vista Realty Corporate Site</h2>
+              <div class="project-meta">
+                <span class="badge completed">Completed</span>
+                <span class="project-pm">PM: Priya Nair</span>
+              </div>
+            </div>
+            <a class="btn small ghost" href="#tab-project">← Back to summary</a>
           </div>
-          <div class="grid grid-3 mt-4">
-            <div class="kpi-mini"><span class="label">Status</span><span class="value">Completed</span></div>
-            <div class="kpi-mini"><span class="label">Progress</span><span class="value">100%</span></div>
-            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">150</span></div>
-            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">150</span></div>
-            <div class="kpi-mini"><span class="label">PM</span><span class="value">Priya Nair</span></div>
+          
+          <div class="project-kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-icon">✅</div>
+              <div class="kpi-content">
+                <div class="label">Status</div>
+                <div class="value">Completed</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">📊</div>
+              <div class="kpi-content">
+                <div class="label">Progress</div>
+                <div class="value">100%</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">💰</div>
+              <div class="kpi-content">
+                <div class="label">Budgeted Hours</div>
+                <div class="value">150 hrs</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">⏱️</div>
+              <div class="kpi-content">
+                <div class="label">Logged Hours</div>
+                <div class="value">150 hrs</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-progress-section">
+            <h3>Budget vs Actual Hours</h3>
+            <div class="progress-visual">
+              <div class="progress-bar-large">
+                <div class="progress-fill" style="width: 100%"></div>
+              </div>
+              <div class="progress-labels">
+                <span class="logged">150 hrs logged</span>
+                <span class="budgeted">150 hrs budgeted</span>
+                <span class="percentage">100% utilized</span>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section id="proj-bluewave" class="card project-report" aria-label="BlueWave Foods Microsite — Project Report">
-          <div class="flex items-center justify-between">
-            <h3 style="margin-top:0">BlueWave Foods Microsite — Project Report</h3>
-            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+        <section id="proj-bluewave" class="project-report-section" aria-label="BlueWave Foods Microsite — Project Report">
+          <div class="project-report-header">
+            <div class="project-title-group">
+              <h2 class="project-title">BlueWave Foods Microsite</h2>
+              <div class="project-meta">
+                <span class="badge ongoing">Ongoing</span>
+                <span class="project-pm">PM: Arjun Mehta</span>
+              </div>
+            </div>
+            <a class="btn small ghost" href="#tab-project">← Back to summary</a>
           </div>
-          <div class="grid grid-3 mt-4">
-            <div class="kpi-mini"><span class="label">Status</span><span class="value">Ongoing</span></div>
-            <div class="kpi-mini"><span class="label">Progress</span><span class="value">22%</span></div>
-            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">160</span></div>
-            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">5</span></div>
-            <div class="kpi-mini"><span class="label">PM</span><span class="value">Arjun Mehta</span></div>
+          
+          <div class="project-kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-icon">📊</div>
+              <div class="kpi-content">
+                <div class="label">Progress</div>
+                <div class="value">22%</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">⏰</div>
+              <div class="kpi-content">
+                <div class="label">Due Date</div>
+                <div class="value">TBD</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">💰</div>
+              <div class="kpi-content">
+                <div class="label">Budgeted Hours</div>
+                <div class="value">160 hrs</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">⏱️</div>
+              <div class="kpi-content">
+                <div class="label">Logged Hours</div>
+                <div class="value">5 hrs</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-progress-section">
+            <h3>Budget vs Actual Hours</h3>
+            <div class="progress-visual">
+              <div class="progress-bar-large">
+                <div class="progress-fill" style="width: 3.1%"></div>
+              </div>
+              <div class="progress-labels">
+                <span class="logged">5 hrs logged</span>
+                <span class="budgeted">160 hrs budgeted</span>
+                <span class="percentage">3.1% utilized</span>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section id="proj-ikf" class="card project-report" aria-label="IKF Marketing Site Refresh — Project Report">
-          <div class="flex items-center justify-between">
-            <h3 style="margin-top:0">IKF Marketing Site Refresh — Project Report</h3>
-            <a class="btn small ghost" href="#tab-project">Back to summary</a>
+        <section id="proj-ikf" class="project-report-section" aria-label="IKF Marketing Site Refresh — Project Report">
+          <div class="project-report-header">
+            <div class="project-title-group">
+              <h2 class="project-title">IKF Marketing Site Refresh</h2>
+              <div class="project-meta">
+                <span class="badge ongoing">Ongoing</span>
+                <span class="project-pm">PM: Priya Nair</span>
+              </div>
+            </div>
+            <a class="btn small ghost" href="#tab-project">← Back to summary</a>
           </div>
-          <div class="grid grid-3 mt-4">
-            <div class="kpi-mini"><span class="label">Status</span><span class="value">Ongoing</span></div>
-            <div class="kpi-mini"><span class="label">Progress</span><span class="value">61%</span></div>
-            <div class="kpi-mini"><span class="label">Budgeted Hours</span><span class="value">200</span></div>
-            <div class="kpi-mini"><span class="label">Logged Hours</span><span class="value">12</span></div>
-            <div class="kpi-mini"><span class="label">PM</span><span class="value">Priya Nair</span></div>
+          
+          <div class="project-kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-icon">📊</div>
+              <div class="kpi-content">
+                <div class="label">Progress</div>
+                <div class="value">61%</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">⏰</div>
+              <div class="kpi-content">
+                <div class="label">Due Date</div>
+                <div class="value">TBD</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">💰</div>
+              <div class="kpi-content">
+                <div class="label">Budgeted Hours</div>
+                <div class="value">200 hrs</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon">⏱️</div>
+              <div class="kpi-content">
+                <div class="label">Logged Hours</div>
+                <div class="value">12 hrs</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-progress-section">
+            <h3>Budget vs Actual Hours</h3>
+            <div class="progress-visual">
+              <div class="progress-bar-large">
+                <div class="progress-fill" style="width: 6%"></div>
+              </div>
+              <div class="progress-labels">
+                <span class="logged">12 hrs logged</span>
+                <span class="budgeted">200 hrs budgeted</span>
+                <span class="percentage">6% utilized</span>
+              </div>
+            </div>
           </div>
         </section>
       </section>
