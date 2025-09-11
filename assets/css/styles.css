@@ -6,48 +6,65 @@
 */
 
 :root {
-  --brand-primary: #1e293b;
-  --brand-teal: #0891b2;
-  --brand-saffron: #d97706;
-  --brand-emerald: #059669;
-  --brand-rose: #dc2626;
+  /* Jira Color Palette */
+  --brand-primary: #0052cc;
+  --brand-primary-dark: #003d99;
+  --brand-primary-light: #deebff;
+  --brand-primary-lighter: #f4f9ff;
+  --brand-secondary: #42526e;
+  --brand-secondary-light: #6b778c;
+  --brand-success: #00875a;
+  --brand-success-light: #e3fcef;
+  --brand-warning: #ff991f;
+  --brand-warning-light: #fff4e5;
+  --brand-error: #de350b;
+  --brand-error-light: #ffebe6;
+  --brand-info: #0065ff;
+  --brand-info-light: #e6f2ff;
 
-  --slate-900: #0f172a;
-  --slate-700: #334155;
-  --slate-500: #64748b;
-  --slate-300: #cbd5e1;
-  --slate-200: #e2e8f0;
-  --slate-100: #f8fafc;
+  /* Text Colors */
+  --slate-900: #172b4d;
+  --slate-700: #5e6c84;
+  --slate-500: #8993a4;
+  --slate-300: #dfe1e6;
+  --slate-200: #f4f5f7;
+  --slate-100: #fafbfc;
   --white: #FFFFFF;
 
   --bg: var(--white);
   --text: var(--slate-900);
   --muted: var(--slate-700);
-  --border: var(--slate-200);
-  --focus: var(--brand-teal);
+  --border: var(--slate-300);
+  --focus: var(--brand-primary);
 
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  /* Jira Border Radius */
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
 
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
-  --shadow-lg: 0 8px 25px rgba(0,0,0,0.2);
+  /* Jira Shadows */
+  --shadow-sm: 0 1px 1px rgba(9, 30, 66, 0.25);
+  --shadow-md: 0 2px 4px rgba(9, 30, 66, 0.15);
+  --shadow-lg: 0 4px 8px rgba(9, 30, 66, 0.15);
+  --shadow-xl: 0 8px 16px rgba(9, 30, 66, 0.15);
 
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-10: 40px;
-  --space-12: 48px;
+  /* Jira Spacing Scale */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 20px;
+  --space-8: 24px;
+  --space-10: 32px;
+  --space-12: 40px;
+  --space-16: 48px;
+  --space-20: 64px;
 
-  /* Typography scale and families (local/system only) */
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-display: "DM Sans", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  /* Jira Typography */
+  --font-sans: "Atlassian", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Atlassian", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --fs-xs: 12px; /* captions */
   --fs-sm: 14px; /* meta */
   --fs-md: 16px; /* base */
@@ -62,9 +79,11 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   color: var(--text);
-  background: var(--bg);
+  background: var(--slate-100);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  font-size: var(--fs-sm);
+  line-height: 1.4285714285714286;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -72,14 +91,43 @@ body {
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  margin: 0 0 var(--space-3);
-  color: var(--slate-900);
+  letter-spacing: -0.003em;
+  line-height: 1.25;
+  margin: 0 0 var(--space-4);
+  color: var(--text);
 }
-h1 { font-size: var(--fs-2xl); font-weight: 800; }
-h2 { font-size: var(--fs-xl); font-weight: 800; }
-h3 { font-size: var(--fs-lg); font-weight: 700; }
+h1 { 
+  font-size: 24px; 
+  font-weight: 600; 
+  line-height: 1.1666666666666667;
+}
+h2 { 
+  font-size: 20px; 
+  font-weight: 500; 
+  line-height: 1.2;
+}
+h3 { 
+  font-size: 16px; 
+  font-weight: 500; 
+  line-height: 1.25;
+}
+h4 { 
+  font-size: 14px; 
+  font-weight: 500; 
+  line-height: 1.2857142857142858;
+}
+h5 { 
+  font-size: 12px; 
+  font-weight: 600; 
+  line-height: 1.3333333333333333;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+h6 { 
+  font-size: 12px; 
+  font-weight: 500; 
+  line-height: 1.3333333333333333;
+}
 small { font-size: var(--fs-sm); color: var(--slate-500); }
 
 img, svg { display: block; max-width: 100%; }
@@ -99,26 +147,59 @@ a { color: var(--brand-primary); text-decoration: none; }
   grid-template-columns: 260px 1fr;
   min-height: 100vh;
 }
+/* Jira Sidebar Styles */
 .sidebar {
-  background: var(--slate-100);
+  background: var(--white);
   border-right: 1px solid var(--border);
-  padding: var(--space-6) var(--space-4);
+  padding: var(--space-5) var(--space-4);
+  min-height: 100vh;
 }
+
 .sidebar .logo {
-  display: flex; align-items: center; gap: var(--space-2);
-  margin-bottom: var(--space-6);
+  display: flex; 
+  align-items: center; 
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+  padding: var(--space-2) 0;
 }
-.sidebar nav { display: grid; gap: 6px; }
+
+.sidebar .logo strong {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.sidebar nav { 
+  display: grid; 
+  gap: var(--space-1); 
+}
+
 .sidebar nav a {
   position: relative;
-  display: flex; align-items: center; gap: var(--space-3);
-  padding: 10px 12px;
-  border-radius: var(--radius-md);
-  color: var(--slate-700);
-  transition: background .18s ease, color .18s ease;
+  display: flex; 
+  align-items: center; 
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  min-height: 32px;
 }
-.sidebar nav a:hover { background: var(--white); }
-.sidebar nav a.is-active { background: var(--brand-primary); color: var(--white); }
+
+.sidebar nav a:hover { 
+  background: var(--slate-100); 
+  color: var(--text);
+}
+
+.sidebar nav a.is-active { 
+  background: var(--brand-primary); 
+  color: var(--white); 
+  font-weight: 600;
+}
+
 .sidebar nav a.is-active::before {
   content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; border-radius: 2px; background: var(--brand-teal);
 }
@@ -128,18 +209,44 @@ a { color: var(--brand-primary); text-decoration: none; }
   grid-template-rows: auto 1fr auto;
   min-width: 0;
 }
+/* Jira App Header Styles */
 .app-header {
-  position: sticky; top: 0; z-index: 40;
-  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; 
+  top: 0; 
+  z-index: 40;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
   gap: var(--space-4);
-  padding: var(--space-4) var(--space-6);
-  background: rgba(255,255,255,0.8);
+  padding: var(--space-3) var(--space-5);
+  background: var(--white);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: saturate(140%) blur(6px);
+  min-height: 48px;
+  box-shadow: var(--shadow-sm);
 }
-.breadcrumbs { color: var(--slate-500); font-size: 14px; }
-.app-content { padding: var(--space-6); }
-.app-footer { padding: var(--space-6); color: var(--slate-500); border-top: 1px solid var(--border); background: var(--white); }
+/* Jira Breadcrumbs */
+.breadcrumbs { 
+  color: var(--muted); 
+  font-size: var(--fs-sm); 
+  font-weight: 500;
+  margin-bottom: var(--space-4);
+}
+
+/* Jira App Content */
+.app-content { 
+  padding: var(--space-5); 
+  background: var(--slate-100);
+  min-height: calc(100vh - 48px);
+}
+
+/* Jira App Footer */
+.app-footer { 
+  padding: var(--space-5); 
+  color: var(--muted); 
+  border-top: 1px solid var(--border); 
+  background: var(--white); 
+  font-size: var(--fs-sm);
+}
 
 /* Utilities */
 .container { max-width: 1200px; margin: 0 auto; }
@@ -164,77 +271,322 @@ a { color: var(--brand-primary); text-decoration: none; }
 .text-right { text-align: right; }
 
 /* Buttons */
+/* Jira Button Styles */
 .btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 10px 16px; border-radius: var(--radius-md); border: 1px solid var(--border);
-  background: var(--white); color: var(--slate-900); font-weight: 600; box-shadow: var(--shadow-sm);
-  transition: box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  display: inline-flex; 
+  align-items: center; 
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4); 
+  border-radius: var(--radius-md); 
+  border: 1px solid var(--border);
+  background: var(--white); 
+  color: var(--text); 
+  font-weight: 500; 
+  font-size: var(--fs-sm);
+  line-height: 1.4285714285714286;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  min-height: 32px;
+  justify-content: center;
 }
-.btn:hover { box-shadow: var(--shadow-md); background: #fff; border-color: var(--slate-300); }
-.btn:active { box-shadow: var(--shadow-sm); }
-.btn.primary { background: var(--brand-primary); color: var(--white); border-color: var(--brand-primary); }
-.btn.teal { background: var(--brand-teal); color: var(--white); border-color: var(--brand-teal); }
-.btn.ghost { background: transparent; border-color: var(--border); color: var(--slate-700); }
-.btn.small { padding: 8px 12px; border-radius: var(--radius-sm); font-size: 14px; }
 
-/* Chips & Badges */
-.chip {
-  display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px;
-  background: var(--slate-100); color: var(--slate-700); border-radius: 999px; font-weight: 600; font-size: 12px;
+.btn:hover { 
+  background: var(--slate-100); 
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-md);
 }
-.badge { display: inline-block; padding: 4px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; }
-.badge.ongoing { background: rgba(0,191,166,0.12); color: var(--brand-teal); }
-.badge.onhold { background: rgba(245,158,11,0.14); color: var(--brand-saffron); }
+
+.btn:active { 
+  background: var(--slate-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 2px var(--brand-primary-light);
+}
+
+.btn.primary { 
+  background: var(--brand-primary); 
+  color: var(--white); 
+  border-color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.btn.primary:hover { 
+  background: var(--brand-primary-dark); 
+  border-color: var(--brand-primary-dark);
+}
+
+.btn.primary:focus {
+  box-shadow: 0 0 0 2px var(--brand-primary-light);
+}
+
+.btn.secondary { 
+  background: var(--brand-secondary); 
+  color: var(--white); 
+  border-color: var(--brand-secondary);
+}
+
+.btn.ghost { 
+  background: transparent; 
+  border-color: var(--border); 
+  color: var(--muted);
+  box-shadow: none;
+}
+
+.btn.ghost:hover {
+  background: var(--slate-100);
+  color: var(--text);
+}
+
+.btn.small { 
+  padding: var(--space-1) var(--space-3); 
+  border-radius: var(--radius-sm); 
+  font-size: 12px;
+  min-height: 24px;
+}
+
+.btn.large { 
+  padding: var(--space-4) var(--space-6); 
+  border-radius: var(--radius-lg); 
+  font-size: var(--fs-md);
+  min-height: 40px;
+}
+
+/* Jira Chips & Badges */
+.chip {
+  display: inline-flex; 
+  align-items: center; 
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  background: var(--slate-200); 
+  color: var(--muted); 
+  border-radius: var(--radius-lg); 
+  font-weight: 500; 
+  font-size: 12px;
+  line-height: 1.3333333333333333;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.chip:hover {
+  background: var(--slate-300);
+  color: var(--text);
+}
+
+.badge { 
+  display: inline-block; 
+  padding: var(--space-1) var(--space-2); 
+  border-radius: var(--radius-lg); 
+  font-weight: 600; 
+  font-size: 11px;
+  line-height: 1.2727272727272727;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid transparent;
+}
+
+.badge.ongoing { 
+  background: var(--brand-success-light); 
+  color: var(--brand-success);
+  border-color: var(--brand-success-light);
+}
+
+.badge.onhold { 
+  background: var(--brand-warning-light); 
+  color: var(--brand-warning);
+  border-color: var(--brand-warning-light);
+}
 .badge.completed { background: rgba(16,185,129,0.14); color: var(--brand-emerald); }
 .badge.hold-client::before { content: "⏸"; margin-right: 6px; }
 .badge.hold-team::before { content: "⚠"; margin-right: 6px; }
 
 /* Cards */
+/* Jira Card Styles */
 .card {
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow .2s ease, border-color .2s ease;
+  transition: all var(--transition-fast);
+  position: relative;
 }
-.card:hover { box-shadow: var(--shadow-md); border-color: var(--slate-300); }
+
+.card:hover { 
+  box-shadow: var(--shadow-md); 
+  border-color: var(--brand-primary);
+  transform: translateY(-1px);
+}
+
+.card:focus-within {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 2px var(--brand-primary-light);
+}
 .kpi { display: grid; gap: 4px; }
 .kpi .label { color: var(--slate-500); font-size: 12px; letter-spacing: .02em; text-transform: uppercase; }
 .kpi .value { font-size: 28px; font-weight: 800; font-family: var(--font-display); }
 
 /* Table */
+/* Jira Table Styles */
 .table {
-  width: 100%; border-collapse: separate; border-spacing: 0; background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm);
+  width: 100%; 
+  border-collapse: separate; 
+  border-spacing: 0; 
+  background: var(--white); 
+  border: 1px solid var(--border); 
+  border-radius: var(--radius-md); 
+  overflow: hidden; 
+  box-shadow: var(--shadow-sm);
+  font-size: var(--fs-sm);
 }
+
 .table thead th {
-  position: sticky; top: 0;
-  background: linear-gradient(180deg, #F8FAFC, #F1F5F9); color: var(--slate-700);
-  text-align: left; padding: 14px 16px; font-size: 12px; text-transform: uppercase; letter-spacing: .04em;
+  position: sticky; 
+  top: 0;
+  background: var(--slate-100); 
+  color: var(--muted);
+  text-align: left; 
+  padding: var(--space-3) var(--space-4); 
+  font-size: 11px; 
+  font-weight: 600;
+  text-transform: uppercase; 
+  letter-spacing: 0.05em;
   border-bottom: 1px solid var(--border);
+  line-height: 1.2727272727272727;
 }
-.table.sticky thead th { position: sticky; top: 0; z-index: 5; }
-.table .sticky-col { position: sticky; left: 0; z-index: 4; background: var(--white); }
-.table.sticky .sticky-col { background: var(--white); box-shadow: 1px 0 0 0 var(--border); }
-.table tbody td { padding: 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
-.table tbody tr:nth-child(even) { background: #fff; }
-.table tbody tr:hover { background: #fbfdfd; }
-.table tfoot td { padding: 14px 16px; font-weight: 800; color: var(--slate-700); background: #f8fafc; border-top: 1px solid var(--border); }
+
+.table.sticky thead th { 
+  position: sticky; 
+  top: 0; 
+  z-index: 5; 
+}
+
+.table .sticky-col { 
+  position: sticky; 
+  left: 0; 
+  z-index: 4; 
+  background: var(--white); 
+}
+
+.table.sticky .sticky-col { 
+  background: var(--white); 
+  box-shadow: 1px 0 0 0 var(--border); 
+}
+
+.table tbody td { 
+  padding: var(--space-4); 
+  border-bottom: 1px solid var(--border); 
+  vertical-align: middle; 
+  color: var(--text);
+  line-height: 1.4285714285714286;
+}
+
+.table tbody tr:nth-child(even) { 
+  background: var(--white); 
+}
+
+.table tbody tr:hover { 
+  background: var(--slate-100); 
+}
+
+.table tbody tr:focus-within {
+  background: var(--brand-primary-lighter);
+}
+
+.table tfoot td { 
+  padding: var(--space-3) var(--space-4); 
+  font-weight: 600; 
+  color: var(--text); 
+  background: var(--slate-100); 
+  border-top: 1px solid var(--border); 
+  font-size: var(--fs-sm);
+}
 
 /* Progress */
-.progress { display: grid; gap: 6px; min-width: 160px; }
-.progress .bar {
-  position: relative; height: 10px; border-radius: 999px; background: linear-gradient(90deg, var(--slate-100), rgba(0,191,166,0.18));
-  overflow: hidden; border: 1px solid var(--slate-200);
+/* Jira Progress Styles */
+.progress { 
+  display: grid; 
+  gap: var(--space-2); 
+  min-width: 160px; 
 }
-.progress .bar > span { position: absolute; left: 0; top: 0; bottom: 0; width: var(--w, 0%); background: linear-gradient(90deg, rgba(0,191,166,0.85), #0cd3b9); border-radius: 999px; animation: progressGrow .8s ease-out both; }
-@keyframes progressGrow { from { width: 0; } to { width: var(--w, 0%); } }
-.progress .label { font-size: 12px; color: var(--slate-700); font-weight: 700; }
 
-/* Tabs via anchors */
-.tabs { display: flex; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid var(--border); margin-bottom: var(--space-6); }
-.tabs a { padding: 10px 12px; border-radius: 10px 10px 0 0; background: var(--slate-100); color: var(--slate-700); font-weight: 700; }
-.tabs a[aria-current="page"], .tabs a:focus-visible { background: var(--white); color: var(--brand-primary); border: 1px solid var(--border); border-bottom-color: var(--white); }
+.progress .bar {
+  position: relative; 
+  height: 8px; 
+  border-radius: var(--radius-sm); 
+  background: var(--slate-200);
+  overflow: hidden; 
+  border: 1px solid var(--border);
+}
+
+.progress .bar > span { 
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  bottom: 0; 
+  width: var(--w, 0%); 
+  background: var(--brand-primary); 
+  border-radius: var(--radius-sm); 
+  animation: progressGrow 0.8s ease-out both; 
+  transition: width 0.3s ease;
+}
+
+@keyframes progressGrow { 
+  from { width: 0; } 
+  to { width: var(--w, 0%); } 
+}
+
+.progress .label { 
+  font-size: 11px; 
+  color: var(--muted); 
+  font-weight: 600; 
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Jira Tabs Styles */
+.tabs { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: var(--space-1); 
+  border-bottom: 1px solid var(--border); 
+  margin-bottom: var(--space-5); 
+  padding: 0 var(--space-1);
+}
+
+.tabs a { 
+  padding: var(--space-2) var(--space-4); 
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0; 
+  background: transparent; 
+  color: var(--muted); 
+  font-weight: 500; 
+  font-size: var(--fs-sm);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+  border-bottom: none;
+  position: relative;
+}
+
+.tabs a:hover {
+  background: var(--slate-100);
+  color: var(--text);
+}
+
+.tabs a[aria-current="page"], 
+.tabs a:focus-visible { 
+  background: var(--white); 
+  color: var(--brand-primary); 
+  border-color: var(--border); 
+  border-bottom-color: var(--white);
+  font-weight: 600;
+  z-index: 1;
+}
 .tab-panel { display: none; }
 .tab-panel.is-active { display: block; }
 .tab-panel:target { display: block; }
