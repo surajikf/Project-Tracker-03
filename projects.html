@@ -24,34 +24,44 @@
     </nav>
   </aside>
   <div class="main">
-    <header class="app-header enhanced" role="banner">
-      <div class="header-content">
-        <div class="header-title">
-          <h1 style="margin:0; font-size: 28px;">Project Portfolio</h1>
-          <div class="header-meta">
-            <span class="projects-summary">6 active projects</span>
-            <span class="projects-status">4 ongoing, 1 on hold, 1 completed</span>
+    <header class="app-header" role="banner">
+      <div class="header-left">
+        <div class="page-title">
+          <h1>Project Portfolio</h1>
+          <div class="page-meta">
+            <span class="breadcrumb">Home / Projects</span>
           </div>
         </div>
+      </div>
+      <div class="header-right">
         <div class="header-actions">
-          <div class="quick-actions">
-            <a class="btn primary" href="new-project.html">
-              <span class="btn-icon">➕</span>
-              New Project
-            </a>
-            <a class="btn" href="timesheets.html#tab-my">
-              <span class="btn-icon">⏱️</span>
-              Fill Timesheet
-            </a>
-            <a class="btn" href="assets/csv/projects.csv" download>
-              <span class="btn-icon">📊</span>
-              Export CSV
-            </a>
+          <a class="btn primary" href="new-project.html">
+            <span class="btn-icon">➕</span>
+            New Project
+          </a>
+          <a class="btn" href="timesheets.html#tab-my">
+            <span class="btn-icon">⏱️</span>
+            Fill Timesheet
+          </a>
+          <a class="btn" href="assets/csv/projects.csv" download>
+            <span class="btn-icon">📊</span>
+            Export CSV
+          </a>
+        </div>
+        <div class="view-toggle">
+          <a class="btn-icon active" href="#card-view" data-tooltip="Card View">⊞</a>
+          <a class="btn-icon" href="#table-view" data-tooltip="Table View">☰</a>
+        </div>
+        <div class="header-utilities">
+          <div class="user-menu">
+            <div class="user-avatar">A</div>
+            <div class="user-info">
+              <div class="user-name">Administrator</div>
+              <div class="user-role">Admin</div>
+            </div>
           </div>
-          <div class="view-toggle">
-            <a class="btn-icon active" href="#card-view" data-tooltip="Card View">⊞</a>
-            <a class="btn-icon" href="#table-view" data-tooltip="Table View">☰</a>
-          </div>
+          <a class="btn-icon" href="#help" data-tooltip="Help">❓</a>
+          <a class="btn-icon" href="settings.html" data-tooltip="Settings">⚙️</a>
         </div>
       </div>
     </header>
@@ -360,9 +370,9 @@
 
       <!-- Filter anchors for CSS-only functionality -->
       <span id="filter-all"></span>
-      <span id="filter-ongoing"></span>
-      <span id="filter-onhold"></span>
-      <span id="filter-completed"></span>
+        <span id="filter-ongoing"></span>
+        <span id="filter-onhold"></span>
+        <span id="filter-completed"></span>
       <span id="dept-all"></span>
       <span id="dept-website"></span>
       <span id="dept-marketing"></span>
