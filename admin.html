@@ -24,58 +24,180 @@
     </nav>
   </aside>
   <div class="main">
-    <header class="app-header" role="banner">
-      <div class="flex items-center gap-3">
-        <h1 style="margin:0; font-size: 22px;">Admin Dashboard</h1>
-        <span class="chip">Role: Admin</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <a class="btn" href="new-project.html" data-tooltip="Start a static wizard">New Project</a>
-        <a class="btn" href="timesheets.html#tab-my" data-tooltip="Go to My Timesheet">Fill Timesheet</a>
-        <a class="btn" href="assets/csv/projects.csv" download data-tooltip="Downloads projects.csv">Export CSV</a>
-        <a class="btn ghost" href="index.html#tour">Help</a>
+    <header class="app-header enhanced" role="banner">
+      <div class="header-content">
+        <div class="header-title">
+          <h1 style="margin:0; font-size: 28px;">Admin Dashboard</h1>
+          <div class="header-meta">
+            <span class="role-badge">👑 Administrator</span>
+            <span class="status-indicator online">● Live</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="quick-actions">
+            <a class="btn primary" href="new-project.html" data-tooltip="Start a new project">
+              <span class="btn-icon">➕</span>
+              New Project
+            </a>
+            <a class="btn" href="timesheets.html#tab-my" data-tooltip="Fill your timesheet">
+              <span class="btn-icon">⏱️</span>
+              Fill Timesheet
+            </a>
+            <a class="btn" href="assets/csv/projects.csv" download data-tooltip="Export project data">
+              <span class="btn-icon">📊</span>
+              Export CSV
+            </a>
+          </div>
+          <div class="header-utilities">
+            <a class="btn-icon" href="index.html#tour" data-tooltip="Help & Tour">❓</a>
+            <a class="btn-icon" href="settings.html" data-tooltip="Settings">⚙️</a>
+          </div>
+        </div>
       </div>
     </header>
     <div class="app-content" id="main">
       <nav class="breadcrumbs">Home / Dashboard</nav>
 
-      <section class="grid grid-3 mt-6">
-        <article class="kpi-card" aria-label="Total projects">
-          <h3 style="margin:0 0 6px;">Total Projects</h3>
-          <div class="kpi"><span class="value">6</span></div>
-          <svg class="sparkline" viewBox="0 0 60 30" aria-hidden="true"><polyline fill="none" stroke="#00BFA6" stroke-width="2" points="0,22 10,20 20,18 30,16 40,14 50,10 60,8"/></svg>
-          <span class="delta positive" data-tooltip="Week over week">+8% WoW</span>
-        </article>
-        <article class="kpi-card" aria-label="Ongoing">
-          <h3 style="margin:0 0 6px;">Ongoing</h3>
-          <div class="kpi"><span class="value">4</span></div>
-          <svg class="sparkline" viewBox="0 0 60 30" aria-hidden="true"><polyline fill="none" stroke="#10B981" stroke-width="2" points="0,24 10,24 20,22 30,20 40,18 50,16 60,14"/></svg>
-          <span class="delta positive">Stable</span>
-        </article>
-        <article class="kpi-card" aria-label="On Hold">
-          <h3 style="margin:0 0 6px;">On Hold</h3>
-          <div class="kpi"><span class="value" style="color:#F59E0B;">1</span></div>
-          <svg class="sparkline" viewBox="0 0 60 30" aria-hidden="true"><polyline fill="none" stroke="#F59E0B" stroke-width="2" points="0,8 10,9 20,10 30,11 40,12 50,13 60,14"/></svg>
-          <span class="delta negative">Watch</span>
-        </article>
+      <!-- Enhanced KPI Section -->
+      <section class="kpi-section mt-6">
+        <div class="kpi-grid">
+          <article class="kpi-card-enhanced primary" aria-label="Total projects">
+            <div class="kpi-header">
+              <div class="kpi-icon">📊</div>
+              <div class="kpi-trend positive">+8%</div>
+            </div>
+            <div class="kpi-content">
+              <h3>Total Projects</h3>
+              <div class="kpi-value">6</div>
+              <div class="kpi-subtitle">Active across all departments</div>
+            </div>
+            <div class="kpi-chart">
+              <svg class="sparkline" viewBox="0 0 60 30" aria-hidden="true">
+                <polyline fill="none" stroke="currentColor" stroke-width="2" points="0,22 10,20 20,18 30,16 40,14 50,10 60,8"/>
+              </svg>
+            </div>
+          </article>
+          
+          <article class="kpi-card-enhanced success" aria-label="Ongoing projects">
+            <div class="kpi-header">
+              <div class="kpi-icon">🚀</div>
+              <div class="kpi-trend stable">Stable</div>
+            </div>
+            <div class="kpi-content">
+              <h3>Ongoing</h3>
+              <div class="kpi-value">4</div>
+              <div class="kpi-subtitle">Projects in progress</div>
+            </div>
+            <div class="kpi-chart">
+              <svg class="sparkline" viewBox="0 0 60 30" aria-hidden="true">
+                <polyline fill="none" stroke="currentColor" stroke-width="2" points="0,24 10,24 20,22 30,20 40,18 50,16 60,14"/>
+              </svg>
+            </div>
+          </article>
+          
+          <article class="kpi-card-enhanced warning" aria-label="On hold projects">
+            <div class="kpi-header">
+              <div class="kpi-icon">⏸️</div>
+              <div class="kpi-trend negative">Watch</div>
+            </div>
+            <div class="kpi-content">
+              <h3>On Hold</h3>
+              <div class="kpi-value">1</div>
+              <div class="kpi-subtitle">Requires attention</div>
+            </div>
+            <div class="kpi-chart">
+              <svg class="sparkline" viewBox="0 0 60 30" aria-hidden="true">
+                <polyline fill="none" stroke="currentColor" stroke-width="2" points="0,8 10,9 20,10 30,11 40,12 50,13 60,14"/>
+              </svg>
+            </div>
+          </article>
+        </div>
       </section>
 
-      <section class="card mt-6">
-        <div class="flex items-center justify-between mb-4">
-          <h2 style="margin:0">Projects</h2>
-          <div class="flex items-center gap-4">
-            <div class="filter-chips" aria-label="Status filters">
-              <a class="filter-chip" href="#filter-ongoing">Ongoing</a>
-              <a class="filter-chip" href="#filter-onhold">On Hold</a>
-              <a class="filter-chip" href="#filter-completed">Completed</a>
+      <!-- Smart Insights Section -->
+      <section class="insights-section mt-6">
+        <div class="insights-header">
+          <h2>Smart Insights</h2>
+          <div class="insights-actions">
+            <span class="insights-badge">AI-Powered</span>
+            <a class="btn small ghost" href="#insights">View All</a>
+          </div>
+        </div>
+        <div class="insights-grid">
+          <div class="insight-card priority">
+            <div class="insight-icon">⚠️</div>
+            <div class="insight-content">
+              <h4>High Priority Alert</h4>
+              <p>Orchid eCommerce project is on hold due to client content review delay. Consider reaching out to client.</p>
+              <div class="insight-actions">
+                <a href="project-details.html" class="btn small">View Project</a>
+                <a href="#" class="btn small ghost">Dismiss</a>
+              </div>
             </div>
-            <div class="filter-chips" aria-label="Department filters">
-              <a class="filter-chip" href="#dept-all">All Depts</a>
-              <a class="filter-chip" href="#dept-website">Website</a>
-              <a class="filter-chip" href="#dept-marketing">Marketing</a>
-              <a class="filter-chip" href="#dept-sales">Sales</a>
+          </div>
+          
+          <div class="insight-card success">
+            <div class="insight-icon">🎯</div>
+            <div class="insight-content">
+              <h4>Performance Boost</h4>
+              <p>Phoenix Logistics project is 76% complete and ahead of schedule. Great work by the development team!</p>
+              <div class="insight-actions">
+                <a href="project-details.html" class="btn small">View Project</a>
+                <a href="#" class="btn small ghost">Share</a>
+              </div>
             </div>
-            <a class="btn small" href="projects.html" data-tooltip="View full table">Open Full List</a>
+          </div>
+          
+          <div class="insight-card info">
+            <div class="insight-icon">📈</div>
+            <div class="insight-content">
+              <h4>Resource Optimization</h4>
+              <p>Team utilization is at 85%. Consider redistributing workload or taking on new projects.</p>
+              <div class="insight-actions">
+                <a href="reports.html" class="btn small">View Reports</a>
+                <a href="#" class="btn small ghost">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enhanced Projects Section -->
+      <section class="projects-section mt-6">
+        <div class="projects-header">
+          <div class="projects-title">
+            <h2>Project Portfolio</h2>
+            <div class="projects-meta">
+              <span class="projects-count">6 projects</span>
+              <span class="projects-status">4 ongoing, 1 on hold, 1 completed</span>
+            </div>
+          </div>
+          <div class="projects-actions">
+            <div class="filter-toolbar">
+              <div class="filter-group">
+                <span class="filter-label">Status</span>
+                <div class="filter-chips" aria-label="Status filters">
+                  <a class="filter-chip" href="#filter-ongoing">Ongoing</a>
+                  <a class="filter-chip" href="#filter-onhold">On Hold</a>
+                  <a class="filter-chip" href="#filter-completed">Completed</a>
+                </div>
+              </div>
+              <div class="filter-group">
+                <span class="filter-label">Department</span>
+                <div class="filter-chips" aria-label="Department filters">
+                  <a class="filter-chip" href="#dept-all">All Depts</a>
+                  <a class="filter-chip" href="#dept-website">Website</a>
+                  <a class="filter-chip" href="#dept-marketing">Marketing</a>
+                  <a class="filter-chip" href="#dept-sales">Sales</a>
+                </div>
+              </div>
+            </div>
+            <div class="projects-utilities">
+              <a class="btn small" href="projects.html" data-tooltip="View full table">
+                <span class="btn-icon">📋</span>
+                Full List
+              </a>
+            </div>
           </div>
         </div>
         <span id="filter-ongoing"></span>
