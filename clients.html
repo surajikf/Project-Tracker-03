@@ -18,310 +18,79 @@
       <a href="timesheets.html"><span>Timesheets</span></a>
       <a href="reports.html"><span>Reports</span></a>
       <a href="resources.html"><span>Resources</span></a>
-      <a class="is-active" aria-current="page" href="clients.html"><span>Clients</span></a>
+      <a class="is-active" href="clients.html"><span>Clients</span></a>
       <a href="settings.html"><span>Settings</span></a>
     </nav>
   </aside>
   <div class="main">
-    <header class="app-header enhanced" role="banner">
-      <div class="header-content">
-        <div class="header-title">
-          <h1 style="margin:0; font-size: 28px;">Client & Employee Directory</h1>
-          <div class="header-meta">
-            <span class="directory-stats">6 clients • 35 employees</span>
-            <span class="directory-status">Live Directory</span>
-          </div>
-        </div>
-        <div class="header-actions">
-          <div class="quick-actions">
-            <a class="btn primary" href="#add-client" data-tooltip="Add new client">
-              <span class="btn-icon">➕</span>
-              Add Client
-            </a>
-            <a class="btn" href="#add-employee" data-tooltip="Add new employee">
-              <span class="btn-icon">👤</span>
-              Add Employee
-            </a>
-            <a class="btn" href="assets/csv/clients.csv" download data-tooltip="Export directory data">
-              <span class="btn-icon">📊</span>
-              Export CSV
-            </a>
-          </div>
-          <div class="header-utilities">
-            <a class="btn-icon" href="index.html" data-tooltip="Switch role">🔄</a>
-            <a class="btn-icon" href="#directory-settings" data-tooltip="Directory settings">⚙️</a>
-          </div>
-        </div>
+    <header class="app-header" role="banner">
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Directory — Clients & Employees</h1>
+        <span class="chip">Static — Demo</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a class="btn ghost" href="index.html">Switch Role</a>
       </div>
     </header>
     <div class="app-content" id="main">
       <nav class="breadcrumbs">Home / Clients</nav>
 
-      <!-- Enhanced Client Companies Section -->
-      <section class="clients-section mt-6">
-        <div class="clients-header">
-          <h2>Client Companies</h2>
-          <div class="clients-filters">
-            <div class="filter-chips">
-              <a class="filter-chip active" href="#client-all">All</a>
-              <a class="filter-chip" href="#client-ongoing">Ongoing</a>
-              <a class="filter-chip" href="#client-onhold">On Hold</a>
-              <a class="filter-chip" href="#client-completed">Completed</a>
-            </div>
+      <section class="card mt-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 style="margin:0">Client Companies</h2>
+          <div class="flex gap-2">
+            <span class="chip"><span class="dot teal"></span>Ongoing</span>
+            <span class="chip"><span class="dot saffron"></span>On Hold</span>
+            <span class="chip"><span class="dot emerald"></span>Completed</span>
           </div>
         </div>
-        <div class="clients-grid">
-          <article class="client-card ongoing">
-            <div class="client-header">
-              <div class="client-logo">🏢</div>
-              <div class="client-status">
-                <span class="badge ongoing">Ongoing</span>
-                <span class="client-priority high">High</span>
-              </div>
-            </div>
-            <div class="client-content">
-              <h3>Acme Corp</h3>
-              <p class="client-industry">Technology • Enterprise</p>
-              <div class="client-progress">
-                <div class="progress-header">
-                  <span class="progress-label">Active Project</span>
-                  <span class="progress-value">48%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 48%"></div>
-                </div>
-                <p class="project-name">Acme Website Revamp</p>
-              </div>
-              <div class="client-meta">
-                <div class="client-contact">
-                  <span class="contact-label">Contact:</span>
-                  <span class="contact-info">John Smith</span>
-                </div>
-                <div class="client-since">
-                  <span class="since-label">Since:</span>
-                  <span class="since-date">Jan 2024</span>
-                </div>
-              </div>
-            </div>
-            <div class="client-actions">
-              <a href="projects.html" class="btn small">View Projects</a>
-              <div class="client-menu">
-                <a href="#" class="btn-icon" data-tooltip="Contact client">📞</a>
-                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
-              </div>
+        <div class="grid grid-3">
+          <article class="card">
+            <h3 style="margin-top:0; margin-bottom:6px;">Acme Corp</h3>
+            <div class="progress"><div class="bar"><span style="--w:48%"></span></div><span class="label">Acme Website Revamp — 48%</span></div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="badge ongoing">Ongoing</span>
+              <a class="btn small" href="projects.html">View Projects</a>
             </div>
           </article>
-
-          <article class="client-card onhold">
-            <div class="client-header">
-              <div class="client-logo">🌸</div>
-              <div class="client-status">
-                <span class="badge onhold">On Hold</span>
-                <span class="client-priority medium">Medium</span>
-              </div>
-            </div>
-            <div class="client-content">
-              <h3>Orchid Spa</h3>
-              <p class="client-industry">Wellness • eCommerce</p>
-              <div class="client-progress">
-                <div class="progress-header">
-                  <span class="progress-label">Active Project</span>
-                  <span class="progress-value">32%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 32%"></div>
-                </div>
-                <p class="project-name">Orchid eCommerce Launch</p>
-              </div>
-              <div class="client-alert">
-                <span class="alert-icon">⚠️</span>
-                <span class="alert-text">Client hold on content review</span>
-              </div>
-              <div class="client-meta">
-                <div class="client-contact">
-                  <span class="contact-label">Contact:</span>
-                  <span class="contact-info">Sarah Johnson</span>
-                </div>
-                <div class="client-since">
-                  <span class="since-label">Since:</span>
-                  <span class="since-date">Mar 2024</span>
-                </div>
-              </div>
-            </div>
-            <div class="client-actions">
-              <a href="projects.html" class="btn small">View Projects</a>
-              <div class="client-menu">
-                <a href="#" class="btn-icon" data-tooltip="Contact client">📞</a>
-                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
-              </div>
+          <article class="card">
+            <h3 style="margin-top:0; margin-bottom:6px;">Orchid Spa</h3>
+            <div class="progress"><div class="bar"><span style="--w:32%"></span></div><span class="label">Orchid eCommerce Launch — 32%</span></div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="badge onhold">On Hold</span>
+              <a class="btn small" href="projects.html">View Projects</a>
             </div>
           </article>
-
-          <article class="client-card ongoing">
-            <div class="client-header">
-              <div class="client-logo">🚚</div>
-              <div class="client-status">
-                <span class="badge ongoing">Ongoing</span>
-                <span class="client-priority high">High</span>
-              </div>
-            </div>
-            <div class="client-content">
-              <h3>Phoenix Logistics</h3>
-              <p class="client-industry">Logistics • B2B</p>
-              <div class="client-progress">
-                <div class="progress-header">
-                  <span class="progress-label">Active Project</span>
-                  <span class="progress-value">76%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 76%"></div>
-                </div>
-                <p class="project-name">Phoenix Logistics Portal</p>
-              </div>
-              <div class="client-success">
-                <span class="success-icon">🎯</span>
-                <span class="success-text">Ahead of schedule</span>
-              </div>
-              <div class="client-meta">
-                <div class="client-contact">
-                  <span class="contact-label">Contact:</span>
-                  <span class="contact-info">Mike Chen</span>
-                </div>
-                <div class="client-since">
-                  <span class="since-label">Since:</span>
-                  <span class="since-date">Feb 2024</span>
-                </div>
-              </div>
-            </div>
-            <div class="client-actions">
-              <a href="projects.html" class="btn small">View Projects</a>
-              <div class="client-menu">
-                <a href="#" class="btn-icon" data-tooltip="Contact client">📞</a>
-                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
-              </div>
+          <article class="card">
+            <h3 style="margin-top:0; margin-bottom:6px;">Phoenix Logistics</h3>
+            <div class="progress"><div class="bar"><span style="--w:76%"></span></div><span class="label">Phoenix Logistics Portal — 76%</span></div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="badge ongoing">Ongoing</span>
+              <a class="btn small" href="projects.html">View Projects</a>
             </div>
           </article>
-
-          <article class="client-card completed">
-            <div class="client-header">
-              <div class="client-logo">🏘️</div>
-              <div class="client-status">
-                <span class="badge completed">Completed</span>
-                <span class="client-priority low">Low</span>
-              </div>
-            </div>
-            <div class="client-content">
-              <h3>Vista Realty</h3>
-              <p class="client-industry">Real Estate • Corporate</p>
-              <div class="client-progress">
-                <div class="progress-header">
-                  <span class="progress-label">Last Project</span>
-                  <span class="progress-value">100%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 100%"></div>
-                </div>
-                <p class="project-name">Corporate Site</p>
-              </div>
-              <div class="client-meta">
-                <div class="client-contact">
-                  <span class="contact-label">Contact:</span>
-                  <span class="contact-info">David Wilson</span>
-                </div>
-                <div class="client-since">
-                  <span class="since-label">Since:</span>
-                  <span class="since-date">Dec 2023</span>
-                </div>
-              </div>
-            </div>
-            <div class="client-actions">
-              <a href="projects.html" class="btn small">View Projects</a>
-              <div class="client-menu">
-                <a href="#" class="btn-icon" data-tooltip="Contact client">📞</a>
-                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
-              </div>
+          <article class="card">
+            <h3 style="margin-top:0; margin-bottom:6px;">Vista Realty</h3>
+            <div class="progress"><div class="bar"><span style="--w:100%"></span></div><span class="label">Corporate Site — 100%</span></div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="badge completed">Completed</span>
+              <a class="btn small" href="projects.html">View Projects</a>
             </div>
           </article>
-
-          <article class="client-card ongoing">
-            <div class="client-header">
-              <div class="client-logo">🍔</div>
-              <div class="client-status">
-                <span class="badge ongoing">Ongoing</span>
-                <span class="client-priority medium">Medium</span>
-              </div>
-            </div>
-            <div class="client-content">
-              <h3>BlueWave Foods</h3>
-              <p class="client-industry">Food & Beverage • B2C</p>
-              <div class="client-progress">
-                <div class="progress-header">
-                  <span class="progress-label">Active Project</span>
-                  <span class="progress-value">22%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 22%"></div>
-                </div>
-                <p class="project-name">Microsite</p>
-              </div>
-              <div class="client-meta">
-                <div class="client-contact">
-                  <span class="contact-label">Contact:</span>
-                  <span class="contact-info">Lisa Brown</span>
-                </div>
-                <div class="client-since">
-                  <span class="since-label">Since:</span>
-                  <span class="since-date">Apr 2024</span>
-                </div>
-              </div>
-            </div>
-            <div class="client-actions">
-              <a href="projects.html" class="btn small">View Projects</a>
-              <div class="client-menu">
-                <a href="#" class="btn-icon" data-tooltip="Contact client">📞</a>
-                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
-              </div>
+          <article class="card">
+            <h3 style="margin-top:0; margin-bottom:6px;">BlueWave Foods</h3>
+            <div class="progress"><div class="bar"><span style="--w:22%"></span></div><span class="label">Microsite — 22%</span></div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="badge ongoing">Ongoing</span>
+              <a class="btn small" href="projects.html">View Projects</a>
             </div>
           </article>
-
-          <article class="client-card internal">
-            <div class="client-header">
-              <div class="client-logo">🏢</div>
-              <div class="client-status">
-                <span class="badge ongoing">Ongoing</span>
-                <span class="client-priority medium">Medium</span>
-              </div>
-            </div>
-            <div class="client-content">
-              <h3>IKF Internal</h3>
-              <p class="client-industry">Internal • Marketing</p>
-              <div class="client-progress">
-                <div class="progress-header">
-                  <span class="progress-label">Active Project</span>
-                  <span class="progress-value">61%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 61%"></div>
-                </div>
-                <p class="project-name">Marketing Site Refresh</p>
-              </div>
-              <div class="client-meta">
-                <div class="client-contact">
-                  <span class="contact-label">Contact:</span>
-                  <span class="contact-info">Priya Nair</span>
-                </div>
-                <div class="client-since">
-                  <span class="since-label">Since:</span>
-                  <span class="since-date">Jan 2024</span>
-                </div>
-              </div>
-            </div>
-            <div class="client-actions">
-              <a href="projects.html" class="btn small">View Projects</a>
-              <div class="client-menu">
-                <a href="#" class="btn-icon" data-tooltip="Contact client">📞</a>
-                <a href="#" class="btn-icon" data-tooltip="More options">⋯</a>
-              </div>
+          <article class="card">
+            <h3 style="margin-top:0; margin-bottom:6px;">Internal (IKF)</h3>
+            <div class="progress"><div class="bar"><span style="--w:61%"></span></div><span class="label">Marketing Site Refresh — 61%</span></div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="badge ongoing">Ongoing</span>
+              <a class="btn small" href="projects.html">View Projects</a>
             </div>
           </article>
         </div>

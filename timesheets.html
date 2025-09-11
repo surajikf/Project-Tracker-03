@@ -7,7 +7,7 @@
 <link rel="icon" href="assets/img/favicon.svg">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="timesheets-page">
+<body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="app">
   <aside class="sidebar" aria-label="Primary">
@@ -15,7 +15,7 @@
     <nav>
       <a href="admin.html"><span>Dashboard</span></a>
       <a href="projects.html"><span>Projects</span></a>
-      <a class="is-active" aria-current="page" href="timesheets.html"><span>Timesheets</span></a>
+      <a class="is-active" href="timesheets.html"><span>Timesheets</span></a>
       <a href="reports.html"><span>Reports</span></a>
       <a href="resources.html"><span>Resources</span></a>
       <a href="clients.html"><span>Clients</span></a>
@@ -23,51 +23,14 @@
     </nav>
   </aside>
   <div class="main">
-    <header class="app-header enhanced timesheet-header" role="banner">
-      <div class="timesheet-hero">
-        <div class="timesheet-header-content">
-          <div class="timesheet-title-section">
-            <h1 class="timesheet-title">Timesheet ✌</h1>
-            <div class="timesheet-subtitle">TIMESHEET V2 — Track Your Time, Effortlessly.</div>
-            <div class="timesheet-timer">
-              <div class="timer-display">
-                <span class="timer-icon">⏱️</span>
-                <span class="timer-text">02:53:52 hrs</span>
-              </div>
-              <div class="timer-label">Current Session</div>
-            </div>
-          </div>
-          <div class="timesheet-actions">
-            <div class="action-group">
-              <a class="btn primary" href="#tab-my" data-tooltip="Add new timesheet entry">
-                <span class="btn-icon">➕</span>
-                Add Timesheet
-              </a>
-              <a class="btn" href="assets/csv/timesheets.csv" download data-tooltip="Export timesheet data">
-                <span class="btn-icon">📊</span>
-                Export CSV
-              </a>
-            </div>
-            <div class="timesheet-utilities">
-              <a class="btn-icon" href="#timesheet-settings" data-tooltip="Timesheet settings">⚙️</a>
-              <a class="btn-icon" href="#help" data-tooltip="Help & support">❓</a>
-            </div>
-          </div>
-        </div>
-        <div class="timesheet-stats">
-          <div class="stat-item">
-            <span class="stat-label">Week Total</span>
-            <span class="stat-value">17 hrs</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-label">Active Projects</span>
-            <span class="stat-value">2</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-label">Avg Daily</span>
-            <span class="stat-value">3.4 hrs</span>
-          </div>
-        </div>
+    <header class="app-header" role="banner">
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Timesheet ✌</h1>
+        <span class="chip">TIMESHEET V2 — Track Your Time, Effortlessly.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="chip">02:53:52 hrs</span>
+        <a class="btn" href="assets/csv/timesheets.csv" download>Export CSV</a>
       </div>
     </header>
     <div class="app-content" id="main">
@@ -81,16 +44,10 @@
       <section id="tab-my" class="tab-panel is-active">
         <div class="card">
           <h2 style="margin-top:0">This Week</h2>
-          <div class="ts-kpis mt-4">
-            <article class="kpi-card"><div class="kpi"><div class="label">Week Total</div><div class="value">17 hrs</div></div></article>
-            <article class="kpi-card"><div class="kpi"><div class="label">Projects</div><div class="value">2</div></div></article>
-            <article class="kpi-card"><div class="kpi"><div class="label">Avg / Day</div><div class="value">3.4 hrs</div></div></article>
-          </div>
-          <div class="ts-legend mt-4"><span><span class="dot teal"></span>Logged</span><span><span class="dot saffron"></span>Pending</span><span><span class="dot emerald"></span>Approved</span></div>
-          <table class="table sticky compact" aria-label="My weekly timesheet">
+          <table class="table" aria-label="My weekly timesheet">
             <thead>
               <tr>
-                <th class="sticky-col">Task</th>
+                <th>Task</th>
                 <th>Project</th>
                 <th>Mon</th>
                 <th>Tue</th>
@@ -102,7 +59,7 @@
             </thead>
             <tbody>
               <tr>
-                <td class="sticky-col">Content Writing</td>
+                <td>Content Writing</td>
                 <td>Acme Website Revamp</td>
                 <td>6</td>
                 <td>2</td>
@@ -112,7 +69,7 @@
                 <td>12</td>
               </tr>
               <tr>
-                <td class="sticky-col">Content Updates</td>
+                <td>Content Updates</td>
                 <td>IKF Marketing Site Refresh</td>
                 <td>0</td>
                 <td>0</td>
@@ -122,773 +79,172 @@
                 <td>5</td>
               </tr>
             </tbody>
-            <tfoot>
-              <tr><td class="sticky-col">Totals</td><td></td><td></td><td></td><td></td><td></td><td></td><td>17</td></tr>
-            </tfoot>
           </table>
           <div class="mt-4 text-right"><strong>Week Total: 17 hrs</strong></div>
-          <div class="mobile-actionbar mt-4"><a class="btn small" href="assets/csv/timesheets.csv" download>Export CSV</a><a class="btn small ghost" href="#">Clear</a></div>
         </div>
       </section>
 
       <section id="tab-admin" class="tab-panel">
-        <!-- Enhanced Admin Header -->
-        <div class="timesheet-admin-header-enhanced">
-          <div class="admin-header-content">
-            <div class="admin-title-section">
-              <h2>Team Timesheet Overview</h2>
-              <div class="admin-meta">
-                <div class="period-info">
-                  <span class="period-label">Week of</span>
-                  <span class="period-dates">Aug 12-16, 2024</span>
-                </div>
-                <div class="total-info">
-                  <span class="total-label">Total Hours</span>
-                  <span class="total-hours">71 hrs</span>
-                </div>
-              </div>
-            </div>
-            <div class="admin-actions">
-              <div class="action-group">
-                <a class="btn primary" href="#tab-my" data-tooltip="Add new timesheet entry">
-                  <span class="btn-icon">➕</span>
-                  Add Timesheet
-                </a>
-                <a class="btn" href="assets/csv/timesheets.csv" download data-tooltip="Export team data">
-                  <span class="btn-icon">📊</span>
-                  Export CSV
-                </a>
-              </div>
-              <div class="admin-utilities">
-                <a class="btn-icon" href="#bulk-approve" data-tooltip="Bulk approve">✅</a>
-                <a class="btn-icon" href="#timesheet-settings" data-tooltip="Settings">⚙️</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Enhanced Filter System -->
-        <div class="timesheet-filters-enhanced">
-          <div class="filter-toolbar">
-            <div class="filter-group">
-              <span class="filter-label">Project</span>
-              <div class="filter-chips">
-                <a class="filter-chip active" href="#ts-all">All</a>
-                <a class="filter-chip" href="#ts-proj-acme">Acme</a>
-                <a class="filter-chip" href="#ts-proj-orchid">Orchid</a>
-                <a class="filter-chip" href="#ts-proj-phoenix">Phoenix</a>
-                <a class="filter-chip" href="#ts-proj-vista">Vista</a>
-                <a class="filter-chip" href="#ts-proj-bluewave">BlueWave</a>
-                <a class="filter-chip" href="#ts-proj-ikf">IKF</a>
-              </div>
-            </div>
-            <div class="filter-group">
-              <span class="filter-label">Employee</span>
-              <div class="filter-chips">
-                <a class="filter-chip active" href="#ts-user-all">All</a>
-                <a class="filter-chip" href="#ts-user-riya">Riya</a>
-                <a class="filter-chip" href="#ts-user-karan">Karan</a>
-                <a class="filter-chip" href="#ts-user-neha">Neha</a>
-                <a class="filter-chip" href="#ts-user-amit">Amit</a>
-                <a class="filter-chip" href="#ts-user-sana">Sana</a>
-              </div>
-            </div>
-            <div class="filter-group">
-              <span class="filter-label">Phase</span>
-              <div class="filter-chips">
-                <a class="filter-chip active" href="#ts-phase-all">All</a>
-                <a class="filter-chip" href="#ts-phase-content">Content</a>
-                <a class="filter-chip" href="#ts-phase-design">Design</a>
-                <a class="filter-chip" href="#ts-phase-development">Development</a>
-                <a class="filter-chip" href="#ts-phase-qa">QA</a>
-                <a class="filter-chip" href="#ts-phase-support">Support</a>
-              </div>
-            </div>
-            <div class="filter-group">
-              <span class="filter-label">Date</span>
-              <div class="filter-chips">
-                <a class="filter-chip active" href="#ts-date-all">All Days</a>
-                <a class="filter-chip" href="#ts-date-2024-08-12">Mon 12</a>
-                <a class="filter-chip" href="#ts-date-2024-08-13">Tue 13</a>
-                <a class="filter-chip" href="#ts-date-2024-08-14">Wed 14</a>
-                <a class="filter-chip" href="#ts-date-2024-08-15">Thu 15</a>
-                <a class="filter-chip" href="#ts-date-2024-08-16">Fri 16</a>
-              </div>
-            </div>
-            <div class="filter-actions">
-              <a class="btn small ghost" href="#ts-clear-all" data-tooltip="Clear all filters">Clear All</a>
-            </div>
-          </div>
-        </div>
-          
-        <!-- Enhanced Summary Statistics -->
-        <div class="timesheet-summary-enhanced mt-6">
-          <div class="summary-header">
-            <h3>Team Performance Overview</h3>
-            <div class="summary-period">Week of Aug 12-16, 2024</div>
-          </div>
-          <div class="summary-grid">
-            <div class="summary-card-enhanced primary">
-              <div class="card-header">
-                <div class="card-icon">👥</div>
-                <div class="card-trend positive">↗️</div>
-              </div>
-              <div class="card-content">
-                <div class="card-value">5</div>
-                <div class="card-label">Active Team Members</div>
-                <div class="card-subtitle">All hands on deck</div>
-              </div>
-            </div>
-            
-            <div class="summary-card-enhanced success">
-              <div class="card-header">
-                <div class="card-icon">⏱️</div>
-                <div class="card-trend stable">→</div>
-              </div>
-              <div class="card-content">
-                <div class="card-value">71</div>
-                <div class="card-label">Total Hours Logged</div>
-                <div class="card-subtitle">+12% vs last week</div>
-              </div>
-            </div>
-            
-            <div class="summary-card-enhanced warning">
-              <div class="card-header">
-                <div class="card-icon">📊</div>
-                <div class="card-trend positive">↗️</div>
-              </div>
-              <div class="card-content">
-                <div class="card-value">14.2</div>
-                <div class="card-label">Avg Hours/Person</div>
-                <div class="card-subtitle">Above target (12 hrs)</div>
-              </div>
-            </div>
-            
-            <div class="summary-card-enhanced info">
-              <div class="card-header">
-                <div class="card-icon">🎯</div>
-                <div class="card-trend stable">→</div>
-              </div>
-              <div class="card-content">
-                <div class="card-value">Phoenix</div>
-                <div class="card-label">Most Active Project</div>
-                <div class="card-subtitle">28 hours logged</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Enhanced Team Leaderboard -->
-        <div class="timesheet-leaderboard-enhanced mt-6">
-          <div class="leaderboard-header">
-            <h3>Team Performance Leaderboard</h3>
-            <div class="leaderboard-actions">
-              <a class="btn small" href="#view-all" data-tooltip="View all team members">View All</a>
-            </div>
-          </div>
-          <div class="leaderboard-grid">
-            <div class="leaderboard-card-enhanced rank-1">
-              <div class="rank-section">
-                <div class="rank-badge gold">1st</div>
-                <div class="rank-medal">🥇</div>
-              </div>
-              <div class="user-section">
-                <div class="user-avatar">NJ</div>
-                <div class="user-details">
-                  <div class="user-name">Neha Joshi</div>
-                  <div class="user-role">Development Lead</div>
-                  <div class="user-status online">● Online</div>
-                </div>
-              </div>
-              <div class="performance-section">
-                <div class="hours-logged">28 hrs</div>
-                <div class="utilization-bar">
-                  <div class="utilization-fill" style="width: 100%"></div>
-                </div>
-                <div class="utilization-text">100% utilization</div>
-                <div class="performance-badge excellent">Excellent</div>
-              </div>
-            </div>
-            
-            <div class="leaderboard-card-enhanced rank-2">
-              <div class="rank-section">
-                <div class="rank-badge silver">2nd</div>
-                <div class="rank-medal">🥈</div>
-              </div>
-              <div class="user-section">
-                <div class="user-avatar">RK</div>
-                <div class="user-details">
-                  <div class="user-name">Riya Kapoor</div>
-                  <div class="user-role">Content Writer</div>
-                  <div class="user-status online">● Online</div>
-                </div>
-              </div>
-              <div class="performance-section">
-                <div class="hours-logged">17 hrs</div>
-                <div class="utilization-bar">
-                  <div class="utilization-fill" style="width: 61%"></div>
-                </div>
-                <div class="utilization-text">61% utilization</div>
-                <div class="performance-badge good">Good</div>
-              </div>
-            </div>
-            
-            <div class="leaderboard-card-enhanced rank-3">
-              <div class="rank-section">
-                <div class="rank-badge bronze">3rd</div>
-                <div class="rank-medal">🥉</div>
-              </div>
-              <div class="user-section">
-                <div class="user-avatar">KS</div>
-                <div class="user-details">
-                  <div class="user-name">Karan Shah</div>
-                  <div class="user-role">UI/UX Designer</div>
-                  <div class="user-status busy">● Busy</div>
-                </div>
-              </div>
-              <div class="performance-section">
-                <div class="hours-logged">10 hrs</div>
-                <div class="utilization-bar">
-                  <div class="utilization-fill" style="width: 36%"></div>
-                </div>
-                <div class="utilization-text">36% utilization</div>
-                <div class="performance-badge needs-improvement">Needs Improvement</div>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-        <!-- Filter Anchors for CSS-only functionality -->
-        <span id="ts-all"></span>
-        <span id="ts-proj-acme"></span><span id="ts-proj-orchid"></span><span id="ts-proj-phoenix"></span><span id="ts-proj-vista"></span><span id="ts-proj-bluewave"></span><span id="ts-proj-ikf"></span>
-        <span id="ts-user-all"></span><span id="ts-user-riya"></span><span id="ts-user-karan"></span><span id="ts-user-neha"></span><span id="ts-user-amit"></span><span id="ts-user-sana"></span>
-        <span id="ts-phase-all"></span><span id="ts-phase-content"></span><span id="ts-phase-design"></span><span id="ts-phase-development"></span><span id="ts-phase-qa"></span><span id="ts-phase-support"></span>
-        <span id="ts-date-all"></span><span id="ts-date-2024-08-12"></span><span id="ts-date-2024-08-13"></span><span id="ts-date-2024-08-14"></span><span id="ts-date-2024-08-15"></span><span id="ts-date-2024-08-16"></span>
-        <span id="ts-clear-all"></span>
-        <!-- Timesheet Table -->
-        <div class="timesheet-table-section mt-6">
-          <div class="table-header">
-            <h3 style="margin:0">Detailed Timesheet Entries</h3>
-            <div class="table-actions">
-              <span class="chip">71 total entries</span>
-              <a class="btn small" href="assets/csv/timesheets.csv" download>Export CSV</a>
-            </div>
-          </div>
-          
-          <div class="table-container">
-            <table class="table ts-table compact sticky" aria-label="Admin view">
+        <div class="card">
+          <h2 style="margin-top:0">By User</h2>
+          <table class="table" aria-label="Admin view">
             <thead>
               <tr>
-                  <th class="sticky-col">User</th>
+                <th>User</th>
                 <th>Project</th>
                 <th>Stage</th>
                 <th>Date</th>
                 <th>Hours</th>
                 <th>Status</th>
-                  <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-                <tr data-user="riya" data-project="acme" data-phase="content" data-date="2024-08-12">
-                  <td class="sticky-col">
-                    <div class="user-info">
-                      <div class="avatar">RK</div>
-                      <div>
-                        <div class="name">Riya Kapoor</div>
-                        <div class="role">Content Writer</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="project-info">
-                      <div class="project-name">Acme Website Revamp</div>
-                      <div class="project-status">Ongoing</div>
-                    </div>
-                  </td>
-                  <td><span class="stage-badge">Content Writing</span></td>
-                  <td>Aug 12, 2024</td>
-                  <td><strong>6 hrs</strong></td>
+              <tr>
+                <td>Riya Kapoor</td>
+                <td>Acme Website Revamp</td>
+                <td>Content Writing</td>
+                <td>2024-08-12</td>
+                <td>6</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                  <td>
-                    <div class="action-buttons">
-                      <a href="#" class="btn-icon" title="Edit">✏️</a>
-                      <a href="#" class="btn-icon" title="Approve">✅</a>
-                    </div>
-                  </td>
               </tr>
-              <tr data-user="riya" data-project="acme" data-phase="content" data-date="2024-08-13">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">RK</div>
-                    <div>
-                      <div class="name">Riya Kapoor</div>
-                      <div class="role">Content Writer</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Acme Website Revamp</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Content Writing</span></td>
-                <td>Aug 13, 2024</td>
-                <td><strong>2 hrs</strong></td>
+              <tr>
+                <td>Riya Kapoor</td>
+                <td>Acme Website Revamp</td>
+                <td>Content Writing</td>
+                <td>2024-08-13</td>
+                <td>2</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="riya" data-project="acme" data-phase="content" data-date="2024-08-14">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">RK</div>
-                    <div>
-                      <div class="name">Riya Kapoor</div>
-                      <div class="role">Content Writer</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Acme Website Revamp</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Content Writing</span></td>
-                <td>Aug 14, 2024</td>
-                <td><strong>4 hrs</strong></td>
+              <tr>
+                <td>Riya Kapoor</td>
+                <td>Acme Website Revamp</td>
+                <td>Content Writing</td>
+                <td>2024-08-14</td>
+                <td>4</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="riya" data-project="ikf" data-phase="content" data-date="2024-08-15">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">RK</div>
-                    <div>
-                      <div class="name">Riya Kapoor</div>
-                      <div class="role">Content Writer</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">IKF Marketing Site Refresh</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Content Updates</span></td>
-                <td>Aug 15, 2024</td>
-                <td><strong>3 hrs</strong></td>
+              <tr>
+                <td>Riya Kapoor</td>
+                <td>IKF Marketing Site Refresh</td>
+                <td>Content Updates</td>
+                <td>2024-08-15</td>
+                <td>3</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="riya" data-project="ikf" data-phase="content" data-date="2024-08-16">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">RK</div>
-                    <div>
-                      <div class="name">Riya Kapoor</div>
-                      <div class="role">Content Writer</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">IKF Marketing Site Refresh</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Content Updates</span></td>
-                <td>Aug 16, 2024</td>
-                <td><strong>2 hrs</strong></td>
+              <tr>
+                <td>Riya Kapoor</td>
+                <td>IKF Marketing Site Refresh</td>
+                <td>Content Updates</td>
+                <td>2024-08-16</td>
+                <td>2</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="karan" data-project="orchid" data-phase="design" data-date="2024-08-13">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">KS</div>
-                    <div>
-                      <div class="name">Karan Shah</div>
-                      <div class="role">UI/UX Designer</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Orchid eCommerce Launch</div>
-                    <div class="project-status">On Hold</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Design</span></td>
-                <td>Aug 13, 2024</td>
-                <td><strong>5 hrs</strong></td>
+              <tr>
+                <td>Karan Shah</td>
+                <td>Orchid eCommerce Launch</td>
+                <td>Design</td>
+                <td>2024-08-13</td>
+                <td>5</td>
                 <td><span class="badge onhold">Pending</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="karan" data-project="orchid" data-phase="design" data-date="2024-08-15">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">KS</div>
-                    <div>
-                      <div class="name">Karan Shah</div>
-                      <div class="role">UI/UX Designer</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Orchid eCommerce Launch</div>
-                    <div class="project-status">On Hold</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Design</span></td>
-                <td>Aug 15, 2024</td>
-                <td><strong>3 hrs</strong></td>
+              <tr>
+                <td>Karan Shah</td>
+                <td>Orchid eCommerce Launch</td>
+                <td>Design</td>
+                <td>2024-08-15</td>
+                <td>3</td>
                 <td><span class="badge onhold">Pending</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="karan" data-project="ikf" data-phase="design" data-date="2024-08-16">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">KS</div>
-                    <div>
-                      <div class="name">Karan Shah</div>
-                      <div class="role">UI/UX Designer</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">IKF Marketing Site Refresh</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Design</span></td>
-                <td>Aug 16, 2024</td>
-                <td><strong>2 hrs</strong></td>
+              <tr>
+                <td>Karan Shah</td>
+                <td>IKF Marketing Site Refresh</td>
+                <td>Design</td>
+                <td>2024-08-16</td>
+                <td>2</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="neha" data-project="phoenix" data-phase="development" data-date="2024-08-12">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">NJ</div>
-                    <div>
-                      <div class="name">Neha Joshi</div>
-                      <div class="role">Development Lead</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Phoenix Logistics Portal</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Development</span></td>
-                <td>Aug 12, 2024</td>
-                <td><strong>7 hrs</strong></td>
+              <tr>
+                <td>Neha Joshi</td>
+                <td>Phoenix Logistics Portal</td>
+                <td>Development</td>
+                <td>2024-08-12</td>
+                <td>7</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="neha" data-project="phoenix" data-phase="development" data-date="2024-08-13">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">NJ</div>
-                    <div>
-                      <div class="name">Neha Joshi</div>
-                      <div class="role">Development Lead</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Phoenix Logistics Portal</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Development</span></td>
-                <td>Aug 13, 2024</td>
-                <td><strong>7 hrs</strong></td>
+              <tr>
+                <td>Neha Joshi</td>
+                <td>Phoenix Logistics Portal</td>
+                <td>Development</td>
+                <td>2024-08-13</td>
+                <td>7</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="neha" data-project="phoenix" data-phase="development" data-date="2024-08-14">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">NJ</div>
-                    <div>
-                      <div class="name">Neha Joshi</div>
-                      <div class="role">Development Lead</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Phoenix Logistics Portal</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Development</span></td>
-                <td>Aug 14, 2024</td>
-                <td><strong>7 hrs</strong></td>
+              <tr>
+                <td>Neha Joshi</td>
+                <td>Phoenix Logistics Portal</td>
+                <td>Development</td>
+                <td>2024-08-14</td>
+                <td>7</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="neha" data-project="bluewave" data-phase="development" data-date="2024-08-15">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">NJ</div>
-                    <div>
-                      <div class="name">Neha Joshi</div>
-                      <div class="role">Development Lead</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">BlueWave Foods Microsite</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Development</span></td>
-                <td>Aug 15, 2024</td>
-                <td><strong>4 hrs</strong></td>
+              <tr>
+                <td>Neha Joshi</td>
+                <td>BlueWave Foods Microsite</td>
+                <td>Development</td>
+                <td>2024-08-15</td>
+                <td>4</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="neha" data-project="bluewave" data-phase="development" data-date="2024-08-16">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">NJ</div>
-                    <div>
-                      <div class="name">Neha Joshi</div>
-                      <div class="role">Development Lead</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">BlueWave Foods Microsite</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Development</span></td>
-                <td>Aug 16, 2024</td>
-                <td><strong>3 hrs</strong></td>
+              <tr>
+                <td>Neha Joshi</td>
+                <td>BlueWave Foods Microsite</td>
+                <td>Development</td>
+                <td>2024-08-16</td>
+                <td>3</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="amit" data-project="vista" data-phase="qa" data-date="2024-08-12">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">AK</div>
-                    <div>
-                      <div class="name">Amit Kulkarni</div>
-                      <div class="role">QA Engineer</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Vista Realty Corporate Site</div>
-                    <div class="project-status">Completed</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">QA & Testing</span></td>
-                <td>Aug 12, 2024</td>
-                <td><strong>3 hrs</strong></td>
+              <tr>
+                <td>Amit Kulkarni</td>
+                <td>Vista Realty Corporate Site</td>
+                <td>QA & Testing</td>
+                <td>2024-08-12</td>
+                <td>3</td>
                 <td><span class="badge completed">Approved</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="View">👁️</a>
-                    <a href="#" class="btn-icon" title="Reject">❌</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="amit" data-project="vista" data-phase="qa" data-date="2024-08-13">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">AK</div>
-                    <div>
-                      <div class="name">Amit Kulkarni</div>
-                      <div class="role">QA Engineer</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Vista Realty Corporate Site</div>
-                    <div class="project-status">Completed</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">QA & Testing</span></td>
-                <td>Aug 13, 2024</td>
-                <td><strong>4 hrs</strong></td>
+              <tr>
+                <td>Amit Kulkarni</td>
+                <td>Vista Realty Corporate Site</td>
+                <td>QA & Testing</td>
+                <td>2024-08-13</td>
+                <td>4</td>
                 <td><span class="badge completed">Approved</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="View">👁️</a>
-                    <a href="#" class="btn-icon" title="Reject">❌</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="amit" data-project="phoenix" data-phase="qa" data-date="2024-08-14">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">AK</div>
-                    <div>
-                      <div class="name">Amit Kulkarni</div>
-                      <div class="role">QA Engineer</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Phoenix Logistics Portal</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">QA & Testing</span></td>
-                <td>Aug 14, 2024</td>
-                <td><strong>5 hrs</strong></td>
+              <tr>
+                <td>Amit Kulkarni</td>
+                <td>Phoenix Logistics Portal</td>
+                <td>QA & Testing</td>
+                <td>2024-08-14</td>
+                <td>5</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="amit" data-project="acme" data-phase="qa" data-date="2024-08-15">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">AK</div>
-                    <div>
-                      <div class="name">Amit Kulkarni</div>
-                      <div class="role">QA Engineer</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Acme Website Revamp</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">QA & Testing</span></td>
-                <td>Aug 15, 2024</td>
-                <td><strong>2 hrs</strong></td>
+              <tr>
+                <td>Amit Kulkarni</td>
+                <td>Acme Website Revamp</td>
+                <td>QA & Testing</td>
+                <td>2024-08-15</td>
+                <td>2</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
-              <tr data-user="sana" data-project="acme" data-phase="support" data-date="2024-08-16">
-                <td class="sticky-col">
-                  <div class="user-info">
-                    <div class="avatar">SI</div>
-                    <div>
-                      <div class="name">Sana Iqbal</div>
-                      <div class="role">Tech Support</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="project-info">
-                    <div class="project-name">Acme Website Revamp</div>
-                    <div class="project-status">Ongoing</div>
-                  </div>
-                </td>
-                <td><span class="stage-badge">Tech Support</span></td>
-                <td>Aug 16, 2024</td>
-                <td><strong>2 hrs</strong></td>
+              <tr>
+                <td>Sana Iqbal</td>
+                <td>Acme Website Revamp</td>
+                <td>Tech Support</td>
+                <td>2024-08-16</td>
+                <td>2</td>
                 <td><span class="badge ongoing">Logged</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <a href="#" class="btn-icon" title="Edit">✏️</a>
-                    <a href="#" class="btn-icon" title="Approve">✅</a>
-                  </div>
-                </td>
               </tr>
             </tbody>
-            <tfoot>
-              <tr>
-                <td class="sticky-col"><strong>Totals</strong></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><strong>71 hrs</strong></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tfoot>
           </table>
-          </div>
         </div>
       </section>
 

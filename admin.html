@@ -9,12 +9,11 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<span id="comfy"></span><span id="dense"></span>
 <div class="app">
   <aside class="sidebar" aria-label="Primary">
     <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
     <nav>
-      <a class="is-active" aria-current="page" href="admin.html"><span>Dashboard</span></a>
+      <a class="is-active" href="admin.html"><span>Dashboard</span></a>
       <a href="projects.html"><span>Projects</span></a>
       <a href="timesheets.html"><span>Timesheets</span></a>
       <a href="reports.html"><span>Reports</span></a>
@@ -25,199 +24,54 @@
   </aside>
   <div class="main">
     <header class="app-header" role="banner">
-      <div class="header-left">
-        <div class="page-title">
-          <h1>Admin Dashboard</h1>
-          <div class="page-meta">
-            <span class="breadcrumb">Home / Dashboard</span>
-          </div>
-        </div>
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Admin Dashboard</h1>
+        <span class="chip">Role: Admin</span>
       </div>
-      <div class="header-right">
-        <div class="header-actions">
-          <a class="btn primary" href="new-project.html">
-            <span class="btn-icon">➕</span>
-            New Project
-          </a>
-          <a class="btn" href="timesheets.html#tab-my">
-            <span class="btn-icon">⏱️</span>
-            Fill Timesheet
-          </a>
-          <a class="btn" href="assets/csv/projects.csv" download>
-            <span class="btn-icon">📊</span>
-            Export CSV
-          </a>
-        </div>
-        <div class="header-utilities">
-          <div class="user-menu">
-            <div class="user-avatar">A</div>
-            <div class="user-info">
-              <div class="user-name">Administrator</div>
-              <div class="user-role">Admin</div>
-            </div>
-          </div>
-          <a class="btn-icon" href="#help" data-tooltip="Help">❓</a>
-          <a class="btn-icon" href="settings.html" data-tooltip="Settings">⚙️</a>
-        </div>
+      <div class="flex items-center gap-2">
+        <a class="btn" href="new-project.html">New Project</a>
+        <a class="btn" href="assets/csv/projects.csv" download>Export CSV</a>
+        <a class="btn ghost" href="index.html#tour">Help</a>
       </div>
     </header>
     <div class="app-content" id="main">
       <nav class="breadcrumbs">Home / Dashboard</nav>
 
-      <!-- Jira-style KPI Section -->
-      <section class="kpi-section">
-        <div class="kpi-grid">
-          <div class="kpi-card">
-            <div class="kpi-header">
-              <div class="kpi-icon">📊</div>
-              <div class="kpi-trend positive">+8%</div>
-            </div>
-            <div class="kpi-content">
-              <div class="kpi-value">6</div>
-              <div class="kpi-label">Total Projects</div>
-              <div class="kpi-subtitle">Active across all departments</div>
-            </div>
-          </div>
-          
-          <div class="kpi-card">
-            <div class="kpi-header">
-              <div class="kpi-icon">🚀</div>
-              <div class="kpi-trend stable">Stable</div>
-            </div>
-            <div class="kpi-content">
-              <div class="kpi-value">4</div>
-              <div class="kpi-label">Ongoing</div>
-              <div class="kpi-subtitle">Projects in progress</div>
-            </div>
-          </div>
-          
-          <div class="kpi-card">
-            <div class="kpi-header">
-              <div class="kpi-icon">⏸️</div>
-              <div class="kpi-trend negative">Watch</div>
-            </div>
-            <div class="kpi-content">
-              <div class="kpi-value">1</div>
-              <div class="kpi-label">On Hold</div>
-              <div class="kpi-subtitle">Requires attention</div>
-            </div>
-          </div>
-          
-          <div class="kpi-card">
-            <div class="kpi-header">
-              <div class="kpi-icon">👥</div>
-              <div class="kpi-trend positive">+12%</div>
-            </div>
-            <div class="kpi-content">
-              <div class="kpi-value">24</div>
-              <div class="kpi-label">Team Members</div>
-              <div class="kpi-subtitle">Active contributors</div>
-            </div>
-          </div>
+      <section class="grid grid-3 mt-6">
+        <div class="card kpi">
+          <span class="label">Total Projects</span>
+          <span class="value">6</span>
+        </div>
+        <div class="card kpi">
+          <span class="label">Ongoing</span>
+          <span class="value">4</span>
+        </div>
+        <div class="card kpi">
+          <span class="label">On Hold</span>
+          <span class="value">1</span>
         </div>
       </section>
 
-      <!-- Smart Insights Section -->
-      <section class="insights-section mt-6">
-        <div class="insights-header">
-          <h2>Smart Insights</h2>
-          <div class="insights-actions">
-            <span class="insights-badge">AI-Powered</span>
-            <a class="btn small ghost" href="#insights">View All</a>
-          </div>
-        </div>
-        <div class="insights-grid">
-          <div class="insight-card priority">
-            <div class="insight-icon">⚠️</div>
-            <div class="insight-content">
-              <h4>High Priority Alert</h4>
-              <p>Orchid eCommerce project is on hold due to client content review delay. Consider reaching out to client.</p>
-              <div class="insight-actions">
-                <a href="project-details.html" class="btn small">View Project</a>
-                <a href="#" class="btn small ghost">Dismiss</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="insight-card success">
-            <div class="insight-icon">🎯</div>
-            <div class="insight-content">
-              <h4>Performance Boost</h4>
-              <p>Phoenix Logistics project is 76% complete and ahead of schedule. Great work by the development team!</p>
-              <div class="insight-actions">
-                <a href="project-details.html" class="btn small">View Project</a>
-                <a href="#" class="btn small ghost">Share</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="insight-card info">
-            <div class="insight-icon">📈</div>
-            <div class="insight-content">
-              <h4>Resource Optimization</h4>
-              <p>Team utilization is at 85%. Consider redistributing workload or taking on new projects.</p>
-              <div class="insight-actions">
-                <a href="reports.html" class="btn small">View Reports</a>
-                <a href="#" class="btn small ghost">Learn More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Enhanced Projects Section -->
-      <section class="projects-section mt-6">
-        <div class="projects-header">
-          <div class="projects-title">
-            <h2>Project Portfolio</h2>
-            <div class="projects-meta">
-              <span class="projects-count">6 projects</span>
-              <span class="projects-status">4 ongoing, 1 on hold, 1 completed</span>
-            </div>
-          </div>
-          <div class="projects-actions">
-            <div class="filter-toolbar">
-              <div class="filter-group">
-                <span class="filter-label">Status</span>
-                <div class="filter-chips" aria-label="Status filters">
-                  <a class="filter-chip" href="#filter-ongoing">Ongoing</a>
-                  <a class="filter-chip" href="#filter-onhold">On Hold</a>
-                  <a class="filter-chip" href="#filter-completed">Completed</a>
-                </div>
-              </div>
-              <div class="filter-group">
-                <span class="filter-label">Department</span>
-                <div class="filter-chips" aria-label="Department filters">
-                  <a class="filter-chip" href="#dept-all">All Depts</a>
-                  <a class="filter-chip" href="#dept-website">Website</a>
-                  <a class="filter-chip" href="#dept-marketing">Marketing</a>
-                  <a class="filter-chip" href="#dept-sales">Sales</a>
-                </div>
-              </div>
-            </div>
-            <div class="projects-utilities">
-              <a class="btn small" href="projects.html" data-tooltip="View full table">
-                <span class="btn-icon">📋</span>
-                Full List
-              </a>
-            </div>
+      <section class="card mt-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 style="margin:0">Projects</h2>
+          <div class="flex gap-2">
+            <a class="btn small ghost" href="#filter-ongoing">Ongoing</a>
+            <a class="btn small ghost" href="#filter-onhold">On Hold</a>
+            <a class="btn small ghost" href="#filter-completed">Completed</a>
+            <a class="btn small" href="projects.html">Open Full List</a>
           </div>
         </div>
         <span id="filter-ongoing"></span>
         <span id="filter-onhold"></span>
         <span id="filter-completed"></span>
-        <span id="dept-all"></span>
-        <span id="dept-website"></span>
-        <span id="dept-marketing"></span>
-        <span id="dept-sales"></span>
-        <table class="table compact projects-table" aria-describedby="projects-caption">
+        <table class="table projects-table" aria-describedby="projects-caption">
           <caption id="projects-caption" class="sr-only">Projects table</caption>
           <thead>
             <tr>
               <th>Project</th>
               <th>Client</th>
               <th>PM</th>
-              <th>Dept</th>
               <th>Status</th>
               <th>Progress</th>
               <th>Due</th>
@@ -225,11 +79,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr data-status="ongoing" data-dept="website">
+            <tr data-status="ongoing">
               <td><a href="project-details.html">Acme Website Revamp</a></td>
               <td>Acme Corp</td>
               <td>Priya Nair</td>
-              <td><span class="chip">Website</span></td>
               <td><span class="badge ongoing">Ongoing</span></td>
               <td>
                 <div class="progress">
@@ -240,11 +93,10 @@
               <td>2024-10-30</td>
               <td class="text-right"><a class="btn small" href="project-details.html">Open</a></td>
             </tr>
-            <tr data-status="onhold" data-dept="website">
+            <tr data-status="onhold">
               <td><a href="project-details.html">Orchid eCommerce Launch</a></td>
               <td>Orchid Spa</td>
               <td>Priya Nair</td>
-              <td><span class="chip">Website</span></td>
               <td><span class="badge onhold hold-client">On Hold</span></td>
               <td>
                 <div class="progress">
@@ -255,11 +107,10 @@
               <td>2024-11-15</td>
               <td class="text-right"><a class="btn small" href="project-details.html">Open</a></td>
             </tr>
-            <tr data-status="ongoing" data-dept="website">
+            <tr data-status="ongoing">
               <td><a href="project-details.html">Phoenix Logistics Portal</a></td>
               <td>Phoenix Logistics</td>
               <td>Arjun Mehta</td>
-              <td><span class="chip">Website</span></td>
               <td><span class="badge ongoing">Ongoing</span></td>
               <td>
                 <div class="progress">
@@ -270,11 +121,10 @@
               <td>2024-09-20</td>
               <td class="text-right"><a class="btn small" href="project-details.html">Open</a></td>
             </tr>
-            <tr data-status="completed" data-dept="website">
+            <tr data-status="completed">
               <td><a href="project-details.html">Vista Realty Corporate Site</a></td>
               <td>Vista Realty</td>
               <td>Priya Nair</td>
-              <td><span class="chip">Website</span></td>
               <td><span class="badge completed">Completed</span></td>
               <td>
                 <div class="progress">
@@ -285,11 +135,10 @@
               <td>2024-05-30</td>
               <td class="text-right"><a class="btn small" href="project-details.html">Open</a></td>
             </tr>
-            <tr data-status="ongoing" data-dept="website">
+            <tr data-status="ongoing">
               <td><a href="project-details.html">BlueWave Foods Microsite</a></td>
               <td>BlueWave Foods</td>
               <td>Arjun Mehta</td>
-              <td><span class="chip">Website</span></td>
               <td><span class="badge ongoing">Ongoing</span></td>
               <td>
                 <div class="progress">
@@ -300,11 +149,10 @@
               <td>2024-12-10</td>
               <td class="text-right"><a class="btn small" href="project-details.html">Open</a></td>
             </tr>
-            <tr data-status="ongoing" data-dept="marketing">
+            <tr data-status="ongoing">
               <td><a href="project-details.html">IKF Marketing Site Refresh</a></td>
               <td>Internal</td>
               <td>Priya Nair</td>
-              <td><span class="chip">Marketing</span></td>
               <td><span class="badge ongoing">Ongoing</span></td>
               <td>
                 <div class="progress">
@@ -318,13 +166,6 @@
           </tbody>
         </table>
       </section>
-
-      <!-- Mobile sticky actions (CSS-only) -->
-      <div class="mobile-actionbar">
-        <a class="btn small" href="#dense">Compact</a>
-        <a class="btn small" href="#comfy">Comfy</a>
-        <a class="btn small primary" href="projects.html">All Projects</a>
-      </div>
 
       <details class="drawer mt-6">
         <summary class="btn ghost">Bottlenecks & Risks</summary>
