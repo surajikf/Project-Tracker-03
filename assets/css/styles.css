@@ -126,6 +126,58 @@ a { color: var(--brand-primary); text-decoration: none; }
   content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; border-radius: 2px; background: var(--brand-teal);
 }
 
+/* Master Setup Submenu */
+.master-setup {
+  position: relative;
+}
+
+.master-setup summary {
+  display: flex; align-items: center; gap: var(--space-3);
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: var(--slate-700);
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+  list-style: none;
+}
+
+.master-setup summary::-webkit-details-marker {
+  display: none;
+}
+
+.master-setup summary::after {
+  content: "▼";
+  margin-left: auto;
+  font-size: 10px;
+  transition: transform .18s ease;
+}
+
+.master-setup[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.master-setup summary:hover {
+  background: var(--white);
+}
+
+.master-setup .submenu {
+  margin-left: var(--space-4);
+  margin-top: 6px;
+  display: grid;
+  gap: 4px;
+}
+
+.master-setup .submenu a {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--slate-600);
+}
+
+.master-setup .submenu a:hover {
+  background: var(--slate-100);
+  color: var(--slate-800);
+}
+
 .main {
   display: grid;
   grid-template-rows: auto 1fr auto;

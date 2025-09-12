@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Departments — IKF Project Livetracker</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary">
+    <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
+    <nav>
+      <a href="admin.html"><span>Dashboard</span></a>
+      <a href="projects.html"><span>Projects</span></a>
+      <a href="timesheets.html"><span>Timesheets</span></a>
+      <a href="reports.html"><span>Reports</span></a>
+      <a href="resources.html"><span>Resources</span></a>
+      <details class="master-setup">
+        <summary><span>Master Setup</span></summary>
+        <div class="submenu">
+          <a class="is-active" href="departments.html"><span>Departments</span></a>
+          <a href="projects-master.html"><span>Projects</span></a>
+          <a href="users.html"><span>Users</span></a>
+          <a href="stages.html"><span>Stages</span></a>
+        </div>
+      </details>
+      <a href="clients.html"><span>Clients</span></a>
+      <a href="settings.html"><span>Settings</span></a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="app-header" role="banner">
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Departments</h1>
+        <span class="chip">Role: Admin</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a class="btn" href="#new-department">New Department</a>
+        <a class="btn ghost" href="index.html#tour">Help</a>
+      </div>
+    </header>
+    <div class="app-content" id="main">
+      <nav class="breadcrumbs">Home › Master Setup › Departments</nav>
+
+      <!-- Analytics Widget -->
+      <section class="grid grid-4 mt-6">
+        <div class="card kpi">
+          <span class="label">Total Departments</span>
+          <span class="value">12</span>
+          <small>+2 this month</small>
+        </div>
+        <div class="card kpi">
+          <span class="label">Sub-departments</span>
+          <span class="value">24</span>
+          <small>+4 this week</small>
+        </div>
+        <div class="card kpi">
+          <span class="label">Coverage</span>
+          <span class="value">85%</span>
+          <small>+5% vs last month</small>
+        </div>
+        <div class="card kpi">
+          <span class="label">Unstaffed</span>
+          <span class="value">2</span>
+          <small>⚠️ Needs attention</small>
+        </div>
+      </section>
+
+      <!-- Coverage Heatmap -->
+      <section class="card mt-6">
+        <h2 style="margin-top:0">Department Coverage</h2>
+        <div class="progress">
+          <div class="bar"><span style="--w:85%"></span></div>
+          <span class="label">85% of projects have department assignments</span>
+        </div>
+        <div class="mt-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="dot teal"></span>
+            <span>Website: 8 projects</span>
+          </div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="dot saffron"></span>
+            <span>Mobile: 6 projects</span>
+          </div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="dot emerald"></span>
+            <span>Marketing: 4 projects</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Departments Table -->
+      <section class="card mt-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 style="margin:0">Departments</h2>
+          <div class="flex gap-2">
+            <a class="btn small ghost" href="#filter-all">All</a>
+            <a class="btn small ghost" href="#filter-staffed">Staffed</a>
+            <a class="btn small ghost" href="#filter-unstaffed">Unstaffed</a>
+            <a class="btn small" href="#new-department">New Department</a>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Department Name</th>
+              <th>Sub-Departments</th>
+              <th>Head</th>
+              <th>Created By</th>
+              <th>Last Updated</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Website</strong></td>
+              <td>
+                <span class="chip">Design</span>
+                <span class="chip">Development</span>
+              </td>
+              <td>Priya Nair</td>
+              <td>Admin</td>
+              <td>2d ago</td>
+              <td class="text-right">
+                <a class="btn small" href="#edit-website">Edit</a>
+                <a class="btn small ghost" href="#delete-website">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Mobile</strong></td>
+              <td>
+                <span class="chip">iOS</span>
+                <span class="chip">Android</span>
+              </td>
+              <td>Arjun Mehta</td>
+              <td>Admin</td>
+              <td>1w ago</td>
+              <td class="text-right">
+                <a class="btn small" href="#edit-mobile">Edit</a>
+                <a class="btn small ghost" href="#delete-mobile">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Marketing</strong></td>
+              <td>
+                <span class="chip">Content</span>
+                <span class="chip">SEO</span>
+              </td>
+              <td><span class="text-muted">Unassigned</span></td>
+              <td>Admin</td>
+              <td>3d ago</td>
+              <td class="text-right">
+                <a class="btn small" href="#edit-marketing">Edit</a>
+                <a class="btn small ghost" href="#delete-marketing">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Sales</strong></td>
+              <td>
+                <span class="chip">Lead Gen</span>
+                <span class="chip">CRM</span>
+              </td>
+              <td>Sarah Johnson</td>
+              <td>Admin</td>
+              <td>5d ago</td>
+              <td class="text-right">
+                <a class="btn small" href="#edit-sales">Edit</a>
+                <a class="btn small ghost" href="#delete-sales">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <footer class="app-footer">© 2024 I Knowledge Factory Pvt. Ltd. — All Rights Reserved.</footer>
+  </div>
+</div>
+
+<!-- New Department Modal -->
+<section id="new-department" class="overlay" aria-labelledby="new-dept-title" role="dialog" aria-modal="true">
+  <div class="modal card" style="position:relative;">
+    <a class="btn small ghost close" href="#">Close</a>
+    <h2 id="new-dept-title" style="margin-top:0">Create Department</h2>
+    <div class="form">
+      <div class="field">
+        <label for="dept-name">Department Name *</label>
+        <input type="text" id="dept-name" class="input" placeholder="Enter department name">
+      </div>
+      <div class="field">
+        <label>Sub-Departments *</label>
+        <div class="flex gap-2 mb-2">
+          <span class="chip">Design <button type="button" style="background:none;border:none;color:inherit;">×</button></span>
+          <span class="chip">Development <button type="button" style="background:none;border:none;color:inherit;">×</button></span>
+          <button type="button" class="btn small ghost">+ Add</button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="dept-head">Assign Department Head</label>
+        <select id="dept-head" class="select">
+          <option>Select User</option>
+          <option>Priya Nair (PM)</option>
+          <option>Arjun Mehta (PM)</option>
+          <option>Sarah Johnson (Team)</option>
+        </select>
+      </div>
+    </div>
+    <div class="flex gap-2 mt-4">
+      <a class="btn ghost" href="#">Cancel</a>
+      <a class="btn primary" href="#">Create Department</a>
+    </div>
+  </div>
+</section>
+</body>
+</html>
