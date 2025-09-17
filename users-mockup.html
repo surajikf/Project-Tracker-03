@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Users Management Mockup — IKF Project Livetracker</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+/* Users Management Mockup Styles */
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.users-filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.role-hierarchy {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  color: white;
+}
+
+.role-level {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.role-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.role-super-admin { background: #ff6b6b; color: white; }
+.role-admin { background: #4ecdc4; color: white; }
+.role-pm { background: #45b7d1; color: white; }
+.role-team { background: #96ceb4; color: white; }
+.role-client { background: #feca57; color: white; }
+
+.permission-matrix {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.matrix-table th,
+.matrix-table td {
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+.matrix-table th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #374151;
+}
+
+.permission-yes { color: #10b981; font-weight: 600; }
+.permission-no { color: #ef4444; font-weight: 600; }
+.permission-limited { color: #f59e0b; font-weight: 600; }
+
+.users-table {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+.users-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.users-table th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #374151;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-details h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.user-details p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.status-active { background: #10b981; }
+.status-inactive { background: #ef4444; }
+.status-pending { background: #f59e0b; }
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary { background: #3b82f6; color: white; }
+.btn-secondary { background: #6b7280; color: white; }
+.btn-danger { background: #ef4444; color: white; }
+
+.btn-sm:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.security-features {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.security-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.security-card {
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.security-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.security-2fa { background: #10b981; }
+.security-password { background: #3b82f6; }
+.security-login { background: #f59e0b; }
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary { background: #3b82f6; color: white; }
+.btn-secondary { background: #6b7280; color: white; }
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .users-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .users-filters {
+    justify-content: center;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary">
+    <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
+    <nav>
+      <a href="admin.html"><span>Dashboard</span></a>
+      <a href="projects.html"><span>Projects</span></a>
+      <a href="timesheets.html"><span>Timesheets</span></a>
+      <a href="reports.html"><span>Reports</span></a>
+      <a href="team.html"><span>Team</span></a>
+      <a href="settings.html"><span>Settings</span></a>
+    </nav>
+  </aside>
+  <main class="main" id="main">
+    <header class="app-header" role="banner">
+      <h1>Users Management</h1>
+      <div class="header-actions">
+        <button class="btn btn-primary" onclick="openAddUserModal()">Add User</button>
+      </div>
+    </header>
+
+    <div class="users-header">
+      <div class="users-filters">
+        <select class="form-control">
+          <option>All Roles</option>
+          <option>Super Admin</option>
+          <option>Admin</option>
+          <option>Project Manager</option>
+          <option>Team Member</option>
+        </select>
+        <select class="form-control">
+          <option>All Departments</option>
+          <option>Development</option>
+          <option>Design</option>
+          <option>Marketing</option>
+          <option>Sales</option>
+        </select>
+        <select class="form-control">
+          <option>All Status</option>
+          <option>Active</option>
+          <option>Inactive</option>
+          <option>Pending</option>
+        </select>
+        <input type="text" placeholder="Search users..." class="form-control">
+      </div>
+    </div>
+
+    <!-- Role Hierarchy -->
+    <div class="role-hierarchy">
+      <h3>Role Hierarchy & Access Levels</h3>
+      <div class="role-level">
+        <div>
+          <span class="role-badge role-super-admin">Super Admin</span>
+          <span style="margin-left: 1rem;">Full system access, user management, system settings</span>
+        </div>
+        <div>Level 1</div>
+      </div>
+      <div class="role-level">
+        <div>
+          <span class="role-badge role-admin">Admin</span>
+          <span style="margin-left: 1rem;">Project management, user assignment, reports access</span>
+        </div>
+        <div>Level 2</div>
+      </div>
+      <div class="role-level">
+        <div>
+          <span class="role-badge role-pm">Project Manager</span>
+          <span style="margin-left: 1rem;">Project oversight, team management, client communication</span>
+        </div>
+        <div>Level 3</div>
+      </div>
+      <div class="role-level">
+        <div>
+          <span class="role-badge role-team">Team Member</span>
+          <span style="margin-left: 1rem;">Task execution, timesheet entry, project updates</span>
+        </div>
+        <div>Level 4</div>
+      </div>
+      <div class="role-level">
+        <div>
+          <span class="role-badge role-client">Client Portal</span>
+          <span style="margin-left: 1rem;">Project visibility, approval workflow (Future)</span>
+        </div>
+        <div>Level 5</div>
+      </div>
+    </div>
+
+    <!-- Permission Matrix -->
+    <div class="permission-matrix">
+      <h3>Permission Matrix</h3>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Super Admin</th>
+            <th>Admin</th>
+            <th>Project Manager</th>
+            <th>Team Member</th>
+            <th>Client</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>User Management</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-limited">Limited</td>
+            <td class="permission-no">✗</td>
+            <td class="permission-no">✗</td>
+            <td class="permission-no">✗</td>
+          </tr>
+          <tr>
+            <td>Project Creation</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-limited">Limited</td>
+            <td class="permission-no">✗</td>
+            <td class="permission-no">✗</td>
+          </tr>
+          <tr>
+            <td>Team Assignment</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-no">✗</td>
+            <td class="permission-no">✗</td>
+          </tr>
+          <tr>
+            <td>Timesheet Approval</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-no">✗</td>
+            <td class="permission-no">✗</td>
+          </tr>
+          <tr>
+            <td>Reports Access</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-limited">Limited</td>
+            <td class="permission-no">✗</td>
+            <td class="permission-limited">Limited</td>
+          </tr>
+          <tr>
+            <td>System Settings</td>
+            <td class="permission-yes">✓</td>
+            <td class="permission-no">✗</td>
+            <td class="permission-no">✗</td>
+            <td class="permission-no">✗</td>
+            <td class="permission-no">✗</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Security Features -->
+    <div class="security-features">
+      <h3>Security Features</h3>
+      <div class="security-grid">
+        <div class="security-card">
+          <div class="security-icon security-2fa">🔐</div>
+          <h4>2FA Support</h4>
+          <p>Two-factor authentication enabled for enhanced security</p>
+          <div class="status-indicator status-active"></div>
+          <span>Active</span>
+        </div>
+        <div class="security-card">
+          <div class="security-icon security-password">🔑</div>
+          <h4>Password Policy</h4>
+          <p>Strong password requirements enforced</p>
+          <div class="status-indicator status-active"></div>
+          <span>Enforced</span>
+        </div>
+        <div class="security-card">
+          <div class="security-icon security-login">📊</div>
+          <h4>Login Activity</h4>
+          <p>Track user login patterns and suspicious activity</p>
+          <div class="status-indicator status-active"></div>
+          <span>Monitoring</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Users Table -->
+    <div class="users-table">
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Role</th>
+            <th>Department</th>
+            <th>Projects</th>
+            <th>Status</th>
+            <th>Last Login</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="user-info">
+                <div class="user-avatar">SK</div>
+                <div class="user-details">
+                  <h4>Suraj Kumar</h4>
+                  <p>suraj@ikf.com</p>
+                </div>
+              </div>
+            </td>
+            <td><span class="role-badge role-super-admin">Super Admin</span></td>
+            <td>IT</td>
+            <td>12</td>
+            <td><span class="status-indicator status-active"></span>Active</td>
+            <td>2 hours ago</td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn-sm btn-primary">Edit</button>
+                <button class="btn-sm btn-secondary">View</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="user-info">
+                <div class="user-avatar">AM</div>
+                <div class="user-details">
+                  <h4>Admin Manager</h4>
+                  <p>admin@ikf.com</p>
+                </div>
+              </div>
+            </td>
+            <td><span class="role-badge role-admin">Admin</span></td>
+            <td>Operations</td>
+            <td>8</td>
+            <td><span class="status-indicator status-active"></span>Active</td>
+            <td>1 day ago</td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn-sm btn-primary">Edit</button>
+                <button class="btn-sm btn-secondary">View</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="user-info">
+                <div class="user-avatar">PM</div>
+                <div class="user-details">
+                  <h4>Project Manager</h4>
+                  <p>pm@ikf.com</p>
+                </div>
+              </div>
+            </td>
+            <td><span class="role-badge role-pm">Project Manager</span></td>
+            <td>Development</td>
+            <td>5</td>
+            <td><span class="status-indicator status-active"></span>Active</td>
+            <td>3 hours ago</td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn-sm btn-primary">Edit</button>
+                <button class="btn-sm btn-secondary">View</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="user-info">
+                <div class="user-avatar">TM</div>
+                <div class="user-details">
+                  <h4>Team Member</h4>
+                  <p>team@ikf.com</p>
+                </div>
+              </div>
+            </td>
+            <td><span class="role-badge role-team">Team Member</span></td>
+            <td>Design</td>
+            <td>3</td>
+            <td><span class="status-indicator status-pending"></span>Pending</td>
+            <td>Never</td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn-sm btn-primary">Edit</button>
+                <button class="btn-sm btn-danger">Deactivate</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Add New User</h2>
+          <button class="close-btn" onclick="closeAddUserModal()">&times;</button>
+        </div>
+        
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="role">Role</label>
+              <select id="role" required>
+                <option value="">Select Role</option>
+                <option value="super-admin">Super Admin</option>
+                <option value="admin">Admin</option>
+                <option value="project-manager">Project Manager</option>
+                <option value="team-member">Team Member</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="department">Department</label>
+              <select id="department" required>
+                <option value="">Select Department</option>
+                <option value="development">Development</option>
+                <option value="design">Design</option>
+                <option value="marketing">Marketing</option>
+                <option value="sales">Sales</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="projects">Assign to Projects</label>
+            <select id="projects" multiple>
+              <option value="project1">Website Redesign</option>
+              <option value="project2">Mobile App</option>
+              <option value="project3">SEO Campaign</option>
+              <option value="project4">Social Media</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="sendWelcomeEmail">
+              Send welcome email with login credentials
+            </label>
+          </div>
+        </form>
+        
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeAddUserModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="addUser()">Add User</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+function openAddUserModal() {
+  document.getElementById('addUserModal').classList.add('active');
+}
+
+function closeAddUserModal() {
+  document.getElementById('addUserModal').classList.remove('active');
+}
+
+function addUser() {
+  // Add user logic here
+  alert('User added successfully!');
+  closeAddUserModal();
+}
+
+// Close modal when clicking outside
+document.getElementById('addUserModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeAddUserModal();
+  }
+});
+</script>
+</body>
+</html>

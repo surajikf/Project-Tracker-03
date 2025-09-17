@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stages Management Mockup — IKF Project Livetracker</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+/* Stages Management Mockup Styles */
+.stages-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stages-filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stage-types {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stage-type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.stage-type-card {
+  padding: 1.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.stage-type-card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.stage-type-card.standard {
+  border-color: #10b981;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.stage-type-card.temporary {
+  border-color: #f59e0b;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+}
+
+.stage-type-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.stage-catalog {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stage-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.stage-item:hover {
+  background: #f8fafc;
+  border-color: #3b82f6;
+}
+
+.stage-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stage-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.stage-icon.planning { background: #3b82f6; }
+.stage-icon.design { background: #8b5cf6; }
+.stage-icon.development { background: #10b981; }
+.stage-icon.testing { background: #f59e0b; }
+.stage-icon.deployment { background: #ef4444; }
+.stage-icon.maintenance { background: #6b7280; }
+
+.stage-details h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.stage-details p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.stage-weights {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.weight-input {
+  width: 80px;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.weight-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.weight-total {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.weight-total.valid {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.weight-total.invalid {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.stage-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary { background: #3b82f6; color: white; }
+.btn-secondary { background: #6b7280; color: white; }
+.btn-danger { background: #ef4444; color: white; }
+.btn-success { background: #10b981; color: white; }
+
+.btn-sm:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weight-validation {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.validation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.validation-card {
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.validation-card.success {
+  background: #dcfce7;
+  border: 2px solid #10b981;
+  color: #166534;
+}
+
+.validation-card.warning {
+  background: #fef3c7;
+  border: 2px solid #f59e0b;
+  color: #92400e;
+}
+
+.validation-card.error {
+  background: #fef2f2;
+  border: 2px solid #ef4444;
+  color: #dc2626;
+}
+
+.validation-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.usage-statistics {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.stat-card {
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary { background: #3b82f6; color: white; }
+.btn-secondary { background: #6b7280; color: white; }
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stages-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .stages-filters {
+    justify-content: center;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .stage-actions {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary">
+    <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
+    <nav>
+      <a href="admin.html"><span>Dashboard</span></a>
+      <a href="projects.html"><span>Projects</span></a>
+      <a href="timesheets.html"><span>Timesheets</span></a>
+      <a href="reports.html"><span>Reports</span></a>
+      <a href="team.html"><span>Team</span></a>
+      <a href="settings.html"><span>Settings</span></a>
+    </nav>
+  </aside>
+  <main class="main" id="main">
+    <header class="app-header" role="banner">
+      <h1>Stages Management</h1>
+      <div class="header-actions">
+        <button class="btn btn-primary" onclick="openAddStageModal()">Add Stage</button>
+      </div>
+    </header>
+
+    <div class="stages-header">
+      <div class="stages-filters">
+        <select class="form-control">
+          <option>All Types</option>
+          <option>Standard</option>
+          <option>Temporary</option>
+        </select>
+        <select class="form-control">
+          <option>All Projects</option>
+          <option>Website Redesign</option>
+          <option>Mobile App</option>
+          <option>SEO Campaign</option>
+        </select>
+        <input type="text" placeholder="Search stages..." class="form-control">
+      </div>
+    </div>
+
+    <!-- Stage Types -->
+    <div class="stage-types">
+      <h3>Stage Types</h3>
+      <div class="stage-type-grid">
+        <div class="stage-type-card standard">
+          <div class="stage-type-icon">📋</div>
+          <h4>Standard Stages</h4>
+          <p>Pre-defined stages used across multiple projects. Consistent workflow and weight allocation.</p>
+          <div style="margin-top: 1rem;">
+            <strong>12 Active</strong> | <strong>Used in 45 Projects</strong>
+          </div>
+        </div>
+        <div class="stage-type-card temporary">
+          <div class="stage-type-icon">⚡</div>
+          <h4>Temporary Stages</h4>
+          <p>Custom stages created for specific projects. Flexible weight allocation and project-specific workflow.</p>
+          <div style="margin-top: 1rem;">
+            <strong>8 Active</strong> | <strong>Used in 12 Projects</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weight Validation -->
+    <div class="weight-validation">
+      <h3>Weight Validation</h3>
+      <div class="validation-grid">
+        <div class="validation-card success">
+          <div class="validation-icon">✅</div>
+          <h4>Valid Projects</h4>
+          <p>Projects with stage weights totaling exactly 100%</p>
+          <div style="font-size: 2rem; font-weight: 700; margin-top: 1rem;">42</div>
+        </div>
+        <div class="validation-card warning">
+          <div class="validation-icon">⚠️</div>
+          <h4>Warning Projects</h4>
+          <p>Projects with stage weights between 95-105%</p>
+          <div style="font-size: 2rem; font-weight: 700; margin-top: 1rem;">8</div>
+        </div>
+        <div class="validation-card error">
+          <div class="validation-icon">❌</div>
+          <h4>Invalid Projects</h4>
+          <p>Projects with stage weights outside acceptable range</p>
+          <div style="font-size: 2rem; font-weight: 700; margin-top: 1rem;">3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Usage Statistics -->
+    <div class="usage-statistics">
+      <h3>Stage Usage Statistics</h3>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">20</div>
+          <div class="stat-label">Total Stages</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">57</div>
+          <div class="stat-label">Active Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Standard Stages</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Temporary Stages</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage Catalog -->
+    <div class="stage-catalog">
+      <h3>Stage Catalog</h3>
+      <div class="stage-item">
+        <div class="stage-info">
+          <div class="stage-icon planning">📋</div>
+          <div class="stage-details">
+            <h4>Planning & Analysis</h4>
+            <p>Project requirements gathering, scope definition, and initial planning</p>
+          </div>
+        </div>
+        <div class="stage-weights">
+          <input type="number" class="weight-input" value="15" min="0" max="100">
+          <span>%</span>
+          <div class="weight-total valid">Total: 100%</div>
+        </div>
+        <div class="stage-actions">
+          <button class="btn-sm btn-primary">Edit</button>
+          <button class="btn-sm btn-secondary">Duplicate</button>
+          <button class="btn-sm btn-danger">Delete</button>
+        </div>
+      </div>
+
+      <div class="stage-item">
+        <div class="stage-info">
+          <div class="stage-icon design">🎨</div>
+          <div class="stage-details">
+            <h4>Design & Wireframing</h4>
+            <p>UI/UX design, wireframes, mockups, and design system creation</p>
+          </div>
+        </div>
+        <div class="stage-weights">
+          <input type="number" class="weight-input" value="25" min="0" max="100">
+          <span>%</span>
+          <div class="weight-total valid">Total: 100%</div>
+        </div>
+        <div class="stage-actions">
+          <button class="btn-sm btn-primary">Edit</button>
+          <button class="btn-sm btn-secondary">Duplicate</button>
+          <button class="btn-sm btn-danger">Delete</button>
+        </div>
+      </div>
+
+      <div class="stage-item">
+        <div class="stage-info">
+          <div class="stage-icon development">💻</div>
+          <div class="stage-details">
+            <h4>Development</h4>
+            <p>Frontend and backend development, API integration, and core functionality</p>
+          </div>
+        </div>
+        <div class="stage-weights">
+          <input type="number" class="weight-input" value="35" min="0" max="100">
+          <span>%</span>
+          <div class="weight-total valid">Total: 100%</div>
+        </div>
+        <div class="stage-actions">
+          <button class="btn-sm btn-primary">Edit</button>
+          <button class="btn-sm btn-secondary">Duplicate</button>
+          <button class="btn-sm btn-danger">Delete</button>
+        </div>
+      </div>
+
+      <div class="stage-item">
+        <div class="stage-info">
+          <div class="stage-icon testing">🧪</div>
+          <div class="stage-details">
+            <h4>Testing & QA</h4>
+            <p>Quality assurance, testing, bug fixes, and performance optimization</p>
+          </div>
+        </div>
+        <div class="stage-weights">
+          <input type="number" class="weight-input" value="15" min="0" max="100">
+          <span>%</span>
+          <div class="weight-total valid">Total: 100%</div>
+        </div>
+        <div class="stage-actions">
+          <button class="btn-sm btn-primary">Edit</button>
+          <button class="btn-sm btn-secondary">Duplicate</button>
+          <button class="btn-sm btn-danger">Delete</button>
+        </div>
+      </div>
+
+      <div class="stage-item">
+        <div class="stage-info">
+          <div class="stage-icon deployment">🚀</div>
+          <div class="stage-details">
+            <h4>Deployment & Launch</h4>
+            <p>Production deployment, launch preparation, and go-live activities</p>
+          </div>
+        </div>
+        <div class="stage-weights">
+          <input type="number" class="weight-input" value="10" min="0" max="100">
+          <span>%</span>
+          <div class="weight-total valid">Total: 100%</div>
+        </div>
+        <div class="stage-actions">
+          <button class="btn-sm btn-primary">Edit</button>
+          <button class="btn-sm btn-secondary">Duplicate</button>
+          <button class="btn-sm btn-danger">Delete</button>
+        </div>
+      </div>
+
+      <div class="stage-item">
+        <div class="stage-info">
+          <div class="stage-icon maintenance">🔧</div>
+          <div class="stage-details">
+            <h4>Maintenance & Support</h4>
+            <p>Ongoing maintenance, updates, and client support (Temporary Stage)</p>
+          </div>
+        </div>
+        <div class="stage-weights">
+          <input type="number" class="weight-input" value="0" min="0" max="100">
+          <span>%</span>
+          <div class="weight-total valid">Total: 100%</div>
+        </div>
+        <div class="stage-actions">
+          <button class="btn-sm btn-primary">Edit</button>
+          <button class="btn-sm btn-secondary">Duplicate</button>
+          <button class="btn-sm btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Stage Modal -->
+    <div id="addStageModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Add New Stage</h2>
+          <button class="close-btn" onclick="closeAddStageModal()">&times;</button>
+        </div>
+        
+        <form>
+          <div class="form-group">
+            <label for="stageName">Stage Name</label>
+            <input type="text" id="stageName" placeholder="e.g., Planning & Analysis" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="stageDescription">Description</label>
+            <textarea id="stageDescription" rows="3" placeholder="Brief description of this stage..."></textarea>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="stageType">Stage Type</label>
+              <select id="stageType" required>
+                <option value="">Select Type</option>
+                <option value="standard">Standard</option>
+                <option value="temporary">Temporary</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="stageWeight">Weight (%)</label>
+              <input type="number" id="stageWeight" min="0" max="100" placeholder="15" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="stageIcon">Icon</label>
+            <select id="stageIcon">
+              <option value="📋">📋 Planning</option>
+              <option value="🎨">🎨 Design</option>
+              <option value="💻">💻 Development</option>
+              <option value="🧪">🧪 Testing</option>
+              <option value="🚀">🚀 Deployment</option>
+              <option value="🔧">🔧 Maintenance</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="isRequired">
+              Required stage (must be included in all projects)
+            </label>
+          </div>
+        </form>
+        
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeAddStageModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="addStage()">Add Stage</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+function openAddStageModal() {
+  document.getElementById('addStageModal').classList.add('active');
+}
+
+function closeAddStageModal() {
+  document.getElementById('addStageModal').classList.remove('active');
+}
+
+function addStage() {
+  // Add stage logic here
+  alert('Stage added successfully!');
+  closeAddStageModal();
+}
+
+// Weight validation
+document.querySelectorAll('.weight-input').forEach(input => {
+  input.addEventListener('input', function() {
+    validateWeights();
+  });
+});
+
+function validateWeights() {
+  const inputs = document.querySelectorAll('.weight-input');
+  let total = 0;
+  
+  inputs.forEach(input => {
+    total += parseInt(input.value) || 0;
+  });
+  
+  const totalElements = document.querySelectorAll('.weight-total');
+  totalElements.forEach(element => {
+    element.textContent = `Total: ${total}%`;
+    if (total === 100) {
+      element.className = 'weight-total valid';
+    } else if (total >= 95 && total <= 105) {
+      element.className = 'weight-total warning';
+    } else {
+      element.className = 'weight-total invalid';
+    }
+  });
+}
+
+// Close modal when clicking outside
+document.getElementById('addStageModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeAddStageModal();
+  }
+});
+
+// Initialize weight validation
+validateWeights();
+</script>
+</body>
+</html>

@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health Tracking Mockup — IKF Project Livetracker</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+/* Health Tracking Mockup Styles */
+.health-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.health-filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.health-zones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.health-zone {
+  border-radius: 12px;
+  padding: 2rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.health-zone::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="2"/></svg>');
+  background-size: 60px 60px;
+}
+
+.health-zone.green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.health-zone.orange {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.health-zone.red {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.zone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.zone-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.zone-count {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.zone-projects {
+  position: relative;
+  z-index: 1;
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.project-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.project-details h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.project-details p {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.project-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-on-track { background: #10b981; }
+.status-at-risk { background: #f59e0b; }
+.status-delayed { background: #ef4444; }
+
+.project-health-score {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* Project Status Management */
+.status-management {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.status-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.status-tab {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #6b7280;
+}
+
+.status-tab.active {
+  background: #3b82f6;
+  color: white;
+}
+
+.status-tab:hover:not(.active) {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.status-content {
+  display: none;
+}
+
+.status-content.active {
+  display: block;
+}
+
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.projects-table th,
+.projects-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.projects-table th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #374151;
+}
+
+.project-row {
+  transition: all 0.2s;
+}
+
+.project-row:hover {
+  background: #f8fafc;
+}
+
+.health-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.health-score.excellent {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.health-score.good {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.health-score.fair {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.health-score.poor {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.progress-bar {
+  width: 100px;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+.progress-green { background: #10b981; }
+.progress-orange { background: #f59e0b; }
+.progress-red { background: #ef4444; }
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary { background: #3b82f6; color: white; }
+.btn-secondary { background: #6b7280; color: white; }
+.btn-warning { background: #f59e0b; color: white; }
+.btn-danger { background: #ef4444; color: white; }
+
+.btn-sm:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Health Analytics */
+.health-analytics {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.analytics-card {
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.analytics-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.analytics-label {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* Service Filters */
+.service-filters {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.service-card {
+  padding: 1.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.service-card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-card.active {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.service-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.service-name {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.service-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+/* Archiving Rules */
+.archiving-rules {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rule-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.rule-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rule-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.rule-details h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.rule-details p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.rule-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.rule-active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.rule-inactive {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .health-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .health-filters {
+    justify-content: center;
+  }
+  
+  .status-tabs {
+    flex-wrap: wrap;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary">
+    <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
+    <nav>
+      <a href="admin.html"><span>Dashboard</span></a>
+      <a href="projects.html"><span>Projects</span></a>
+      <a href="timesheets.html"><span>Timesheets</span></a>
+      <a href="reports.html"><span>Reports</span></a>
+      <a href="team.html"><span>Team</span></a>
+      <a href="settings.html"><span>Settings</span></a>
+    </nav>
+  </aside>
+  <main class="main" id="main">
+    <header class="app-header" role="banner">
+      <h1>Project Health Tracking</h1>
+      <div class="header-actions">
+        <button class="btn btn-primary">Export Report</button>
+        <button class="btn btn-secondary">Settings</button>
+      </div>
+    </header>
+
+    <div class="health-header">
+      <div class="health-filters">
+        <select class="form-control">
+          <option>All Health Zones</option>
+          <option>Green Zone</option>
+          <option>Orange Zone</option>
+          <option>Red Zone</option>
+        </select>
+        <select class="form-control">
+          <option>All Services</option>
+          <option>Website</option>
+          <option>SEO</option>
+          <option>PPC</option>
+          <option>Social Media</option>
+          <option>AMC</option>
+        </select>
+        <select class="form-control">
+          <option>All Status</option>
+          <option>Ongoing</option>
+          <option>On-hold</option>
+          <option>Completed</option>
+        </select>
+        <input type="text" placeholder="Search projects..." class="form-control">
+      </div>
+    </div>
+
+    <!-- Health Zones -->
+    <div class="health-zones">
+      <div class="health-zone green">
+        <div class="zone-header">
+          <div class="zone-icon">✅</div>
+          <div class="zone-count">42</div>
+        </div>
+        <h3>Green Zone</h3>
+        <p>Projects on track with excellent health scores</p>
+        <div class="zone-projects">
+          <div class="project-item">
+            <div class="project-info">
+              <div class="project-avatar">WR</div>
+              <div class="project-details">
+                <h4>Website Redesign</h4>
+                <p>TechCorp Solutions</p>
+              </div>
+            </div>
+            <div class="project-status">
+              <div class="status-indicator status-on-track"></div>
+              <span class="project-health-score">95%</span>
+            </div>
+          </div>
+          <div class="project-item">
+            <div class="project-info">
+              <div class="project-avatar">MA</div>
+              <div class="project-details">
+                <h4>Mobile App</h4>
+                <p>HealthCare Plus</p>
+              </div>
+            </div>
+            <div class="project-status">
+              <div class="status-indicator status-on-track"></div>
+              <span class="project-health-score">88%</span>
+            </div>
+          </div>
+          <div class="project-item">
+            <div class="project-info">
+              <div class="project-avatar">SC</div>
+              <div class="project-details">
+                <h4>SEO Campaign</h4>
+                <p>FinanceFirst</p>
+              </div>
+            </div>
+            <div class="project-status">
+              <div class="status-indicator status-on-track"></div>
+              <span class="project-health-score">92%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="health-zone orange">
+        <div class="zone-header">
+          <div class="zone-icon">⚠️</div>
+          <div class="zone-count">8</div>
+        </div>
+        <h3>Orange Zone</h3>
+        <p>Projects at risk requiring attention</p>
+        <div class="zone-projects">
+          <div class="project-item">
+            <div class="project-info">
+              <div class="project-avatar">SM</div>
+              <div class="project-details">
+                <h4>Social Media</h4>
+                <p>E-commerce Hub</p>
+              </div>
+            </div>
+            <div class="project-status">
+              <div class="status-indicator status-at-risk"></div>
+              <span class="project-health-score">65%</span>
+            </div>
+          </div>
+          <div class="project-item">
+            <div class="project-info">
+              <div class="project-avatar">PP</div>
+              <div class="project-details">
+                <h4>PPC Campaign</h4>
+                <p>TechCorp Solutions</p>
+              </div>
+            </div>
+            <div class="project-status">
+              <div class="status-indicator status-at-risk"></div>
+              <span class="project-health-score">72%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="health-zone red">
+        <div class="zone-header">
+          <div class="zone-icon">🚨</div>
+          <div class="zone-count">3</div>
+        </div>
+        <h3>Red Zone</h3>
+        <p>Critical projects requiring immediate action</p>
+        <div class="zone-projects">
+          <div class="project-item">
+            <div class="project-info">
+              <div class="project-avatar">AM</div>
+              <div class="project-details">
+                <h4>AMC Support</h4>
+                <p>HealthCare Plus</p>
+              </div>
+            </div>
+            <div class="project-status">
+              <div class="status-indicator status-delayed"></div>
+              <span class="project-health-score">35%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Health Analytics -->
+    <div class="health-analytics">
+      <h3>Health Analytics Overview</h3>
+      <div class="analytics-grid">
+        <div class="analytics-card">
+          <div class="analytics-number">53</div>
+          <div class="analytics-label">Total Projects</div>
+        </div>
+        <div class="analytics-card">
+          <div class="analytics-number">79%</div>
+          <div class="analytics-label">Average Health Score</div>
+        </div>
+        <div class="analytics-card">
+          <div class="analytics-number">42</div>
+          <div class="analytics-label">Green Zone Projects</div>
+        </div>
+        <div class="analytics-card">
+          <div class="analytics-number">8</div>
+          <div class="analytics-label">At Risk Projects</div>
+        </div>
+        <div class="analytics-card">
+          <div class="analytics-number">3</div>
+          <div class="analytics-label">Critical Projects</div>
+        </div>
+        <div class="analytics-card">
+          <div class="analytics-number">15</div>
+          <div class="analytics-label">Completed This Month</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Filters -->
+    <div class="service-filters">
+      <h3>Service Type Filters</h3>
+      <div class="service-grid">
+        <div class="service-card active">
+          <div class="service-icon">🌐</div>
+          <div class="service-name">Website</div>
+          <div class="service-count">18</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔍</div>
+          <div class="service-name">SEO</div>
+          <div class="service-count">12</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📈</div>
+          <div class="service-name">PPC</div>
+          <div class="service-count">8</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <div class="service-name">Social Media</div>
+          <div class="service-count">7</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <div class="service-name">AMC</div>
+          <div class="service-count">5</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <div class="service-name">Mobile App</div>
+          <div class="service-count">3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Status Management -->
+    <div class="status-management">
+      <h3>Project Status Management</h3>
+      <div class="status-tabs">
+        <button class="status-tab active" onclick="showStatusTab('ongoing')">Ongoing (35)</button>
+        <button class="status-tab" onclick="showStatusTab('onhold')">On-hold (8)</button>
+        <button class="status-tab" onclick="showStatusTab('completed')">Completed (10)</button>
+      </div>
+
+      <div class="status-content active" id="ongoing">
+        <table class="projects-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Customer</th>
+              <th>Service</th>
+              <th>Health Score</th>
+              <th>Progress</th>
+              <th>Due Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="project-row">
+              <td>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="project-avatar">WR</div>
+                  <div>
+                    <strong>Website Redesign</strong><br>
+                    <small style="color: #6b7280;">WR-2024-001</small>
+                  </div>
+                </div>
+              </td>
+              <td>TechCorp Solutions</td>
+              <td>Website</td>
+              <td><span class="health-score excellent">95%</span></td>
+              <td>
+                <div class="progress-bar">
+                  <div class="progress-fill progress-green" style="width: 75%;"></div>
+                </div>
+                <small>75%</small>
+              </td>
+              <td>Dec 15, 2024</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-sm btn-primary">View</button>
+                  <button class="btn-sm btn-warning">Hold</button>
+                </div>
+              </td>
+            </tr>
+            <tr class="project-row">
+              <td>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="project-avatar">MA</div>
+                  <div>
+                    <strong>Mobile App</strong><br>
+                    <small style="color: #6b7280;">MA-2024-002</small>
+                  </div>
+                </div>
+              </td>
+              <td>HealthCare Plus</td>
+              <td>Mobile App</td>
+              <td><span class="health-score good">88%</span></td>
+              <td>
+                <div class="progress-bar">
+                  <div class="progress-fill progress-green" style="width: 60%;"></div>
+                </div>
+                <small>60%</small>
+              </td>
+              <td>Jan 20, 2025</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-sm btn-primary">View</button>
+                  <button class="btn-sm btn-warning">Hold</button>
+                </div>
+              </td>
+            </tr>
+            <tr class="project-row">
+              <td>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="project-avatar">SC</div>
+                  <div>
+                    <strong>SEO Campaign</strong><br>
+                    <small style="color: #6b7280;">SC-2024-003</small>
+                  </div>
+                </div>
+              </td>
+              <td>FinanceFirst</td>
+              <td>SEO</td>
+              <td><span class="health-score fair">65%</span></td>
+              <td>
+                <div class="progress-bar">
+                  <div class="progress-fill progress-orange" style="width: 45%;"></div>
+                </div>
+                <small>45%</small>
+              </td>
+              <td>Feb 10, 2025</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-sm btn-primary">View</button>
+                  <button class="btn-sm btn-warning">Hold</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="status-content" id="onhold">
+        <table class="projects-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Customer</th>
+              <th>Hold Reason</th>
+              <th>Hold Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="project-row">
+              <td>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="project-avatar">SM</div>
+                  <div>
+                    <strong>Social Media</strong><br>
+                    <small style="color: #6b7280;">SM-2024-004</small>
+                  </div>
+                </div>
+              </td>
+              <td>E-commerce Hub</td>
+              <td>Client Review</td>
+              <td>Nov 20, 2024</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-sm btn-primary">View</button>
+                  <button class="btn-sm btn-success">Resume</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="status-content" id="completed">
+        <table class="projects-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Customer</th>
+              <th>Completion Date</th>
+              <th>Final Score</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="project-row">
+              <td>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="project-avatar">PP</div>
+                  <div>
+                    <strong>PPC Campaign</strong><br>
+                    <small style="color: #6b7280;">PP-2024-005</small>
+                  </div>
+                </div>
+              </td>
+              <td>TechCorp Solutions</td>
+              <td>Nov 15, 2024</td>
+              <td><span class="health-score excellent">98%</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-sm btn-primary">View</button>
+                  <button class="btn-sm btn-secondary">Archive</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Archiving Rules -->
+    <div class="archiving-rules">
+      <h3>Archiving & Visibility Rules</h3>
+      <div class="rule-item">
+        <div class="rule-info">
+          <div class="rule-icon">📅</div>
+          <div class="rule-details">
+            <h4>Auto-Archive Completed Projects</h4>
+            <p>Automatically archive projects 30 days after completion</p>
+          </div>
+        </div>
+        <span class="rule-status rule-active">Active</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-info">
+          <div class="rule-icon">👁️</div>
+          <div class="rule-details">
+            <h4>Hide Archived Projects</h4>
+            <p>Hide archived projects from main project views</p>
+          </div>
+        </div>
+        <span class="rule-status rule-active">Active</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-info">
+          <div class="rule-icon">🔒</div>
+          <div class="rule-details">
+            <h4>Restrict Access to Archived</h4>
+            <p>Only Super Admins can view archived projects</p>
+          </div>
+        </div>
+        <span class="rule-status rule-inactive">Inactive</span>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+function showStatusTab(tabName) {
+  // Hide all content
+  document.querySelectorAll('.status-content').forEach(content => {
+    content.classList.remove('active');
+  });
+  
+  // Remove active class from all tabs
+  document.querySelectorAll('.status-tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  // Show selected content
+  document.getElementById(tabName).classList.add('active');
+  
+  // Add active class to clicked tab
+  event.target.classList.add('active');
+}
+
+// Service filter functionality
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('click', function() {
+    // Remove active class from all cards
+    document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active'));
+    
+    // Add active class to clicked card
+    this.classList.add('active');
+    
+    // Filter projects based on service type
+    const serviceType = this.querySelector('.service-name').textContent;
+    console.log('Filtering by service:', serviceType);
+  });
+});
+
+// Health score color coding
+function updateHealthScores() {
+  document.querySelectorAll('.health-score').forEach(score => {
+    const value = parseInt(score.textContent);
+    score.className = 'health-score';
+    
+    if (value >= 90) {
+      score.classList.add('excellent');
+    } else if (value >= 75) {
+      score.classList.add('good');
+    } else if (value >= 60) {
+      score.classList.add('fair');
+    } else {
+      score.classList.add('poor');
+    }
+  });
+}
+
+// Initialize
+updateHealthScores();
+</script>
+</body>
+</html>

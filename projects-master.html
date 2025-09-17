@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects Master — IKF Project Livetracker</title>
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Primary">
+    <div class="logo"><img src="assets/img/ikf-logo.svg" alt="IKF" width="36"><strong>IKF</strong></div>
+    <nav>
+      <a href="admin.html"><span>Dashboard</span></a>
+      <a href="projects.html"><span>Projects</span></a>
+      <a href="timesheets.html"><span>Timesheets</span></a>
+      <a href="reports.html"><span>Reports</span></a>
+      <a href="resources.html"><span>Resources</span></a>
+      <details class="master-setup">
+        <summary><span>Master Setup</span></summary>
+        <div class="submenu">
+          <a href="departments.html"><span>Departments</span></a>
+          <a class="is-active" href="projects-master.html"><span>Projects</span></a>
+          <a href="users.html"><span>Users</span></a>
+          <a href="stages.html"><span>Stages</span></a>
+        </div>
+      </details>
+      <a href="clients.html"><span>Clients</span></a>
+      <a href="settings.html"><span>Settings</span></a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="app-header" role="banner">
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Projects Master</h1>
+        <span class="chip">Role: Admin</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a class="btn" href="#new-project">New Project</a>
+        <a class="btn" href="#bulk-update">Bulk Update</a>
+        <a class="btn ghost" href="#export-csv">Export CSV</a>
+        <a class="btn ghost" href="index.html#tour">Help</a>
+      </div>
+    </header>
+    <div class="app-content" id="main">
+      <nav class="breadcrumbs">Home › Master Setup › Projects</nav>
+
+      <!-- Analytics Header Band -->
+      <section class="card mt-6">
+        <div class="grid grid-4">
+          <div class="kpi">
+            <span class="label">Total Customers</span>
+            <span class="value">8</span>
+            <small>+1 this month</small>
+          </div>
+          <div class="kpi">
+            <span class="label">Total Projects</span>
+            <span class="value">24</span>
+            <small>+3 this week</small>
+          </div>
+          <div class="kpi">
+            <span class="label">Avg Completion</span>
+            <span class="value">67%</span>
+            <small>+5% vs last month</small>
+          </div>
+          <div class="kpi">
+            <span class="label">Behind Schedule</span>
+            <span class="value">3</span>
+            <small>⚠️ Needs attention</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- Status Distribution & Quick Actions -->
+      <section class="grid grid-3 mt-6">
+        <div class="card">
+          <h3 style="margin-top:0">Projects by Status</h3>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center justify-between">
+              <span class="chip ongoing">Ongoing</span>
+              <span class="text-lg font-semibold">18</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="chip on-hold">On Hold</span>
+              <span class="text-lg font-semibold">4</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="chip completed">Completed</span>
+              <span class="text-lg font-semibold">2</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3 style="margin-top:0">PM Load Distribution</h3>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center justify-between">
+              <span>Priya Nair</span>
+              <span class="text-sm text-muted">8 projects</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>Arjun Mehta</span>
+              <span class="text-sm text-muted">6 projects</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>Sarah Johnson</span>
+              <span class="text-sm text-muted">4 projects</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>Mike Chen</span>
+              <span class="text-sm text-muted">3 projects</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>Lisa Wang</span>
+              <span class="text-sm text-muted">3 projects</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Hold Status</h3>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center justify-between">
+              <span class="chip amber">Client Hold</span>
+              <span class="text-lg font-semibold">2</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="chip purple">Team Hold</span>
+              <span class="text-lg font-semibold">2</span>
+            </div>
+          </div>
+          <div class="mt-3">
+            <a class="btn small" href="#filter-holds">View All Holds</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Table -->
+      <section class="card mt-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 style="margin:0">All Projects</h2>
+          <div class="flex gap-2">
+            <select class="select small">
+              <option>All Customers</option>
+              <option>Acme Corp</option>
+              <option>Orchid Spa</option>
+              <option>Phoenix Logistics</option>
+            </select>
+            <select class="select small">
+              <option>All PMs</option>
+              <option>Priya Nair</option>
+              <option>Arjun Mehta</option>
+              <option>Sarah Johnson</option>
+            </select>
+            <select class="select small">
+              <option>All Status</option>
+              <option>Ongoing</option>
+              <option>On Hold</option>
+              <option>Completed</option>
+            </select>
+            <a class="btn small" href="#new-project">New Project</a>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Project Name</th>
+              <th>Code</th>
+              <th>Status</th>
+              <th>Assigned PM</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Acme Corp</strong></td>
+              <td><a href="project-details.html">Acme Website Revamp</a></td>
+              <td>ACME-001</td>
+              <td><span class="chip ongoing">Ongoing</span></td>
+              <td>Priya Nair</td>
+              <td>2024-08-15</td>
+              <td>2024-10-30</td>
+              <td class="text-right">
+                <a class="btn small" href="#edit-acme">Edit</a>
+                <a class="btn small ghost" href="#archive-acme">Archive</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Orchid Spa</strong></td>
+              <td><a href="project-details.html">Orchid eCommerce Launch</a></td>
+              <td>ORCH-001</td>
+              <td><span class="chip on-hold">On Hold</span></td>
+              <td>Priya Nair</td>
+              <td>2024-09-01</td>
+              <td>2024-11-15</td>
+              <td class="text-right">
+                <a class="btn small" href="#edit-orchid">Edit</a>
+                <a class="btn small ghost" href="#archive-orchid">Archive</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Phoenix Logistics</strong></td>
+              <td><a href="project-details.html">Phoenix Logistics Portal</a></td>
+              <td>PHNX-001</td>
+              <td><span class="chip ongoing">Ongoing</span></td>
+              <td>Arjun Mehta</td>
+              <td>2024-07-20</td>
+              <td>2024-09-20</td>
+              <td class="text-right">
+                <a class="btn small" href="#edit-phoenix">Edit</a>
+                <a class="btn small ghost" href="#archive-phoenix">Archive</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Vista Realty</strong></td>
+              <td><a href="project-details.html">Vista Realty Corporate Site</a></td>
+              <td>VIST-001</td>
+              <td><span class="chip completed">Completed</span></td>
+              <td>Priya Nair</td>
+              <td>2024-03-15</td>
+              <td>2024-05-30</td>
+              <td class="text-right">
+                <a class="btn small" href="#edit-vista">Edit</a>
+                <a class="btn small ghost" href="#archive-vista">Archive</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>BlueWave Foods</strong></td>
+              <td><a href="project-details.html">BlueWave Foods Microsite</a></td>
+              <td>BLUE-001</td>
+              <td><span class="chip ongoing">Ongoing</span></td>
+              <td>Arjun Mehta</td>
+              <td>2024-10-01</td>
+              <td>2024-12-10</td>
+              <td class="text-right">
+                <a class="btn small" href="#edit-bluewave">Edit</a>
+                <a class="btn small ghost" href="#archive-bluewave">Archive</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Internal</strong></td>
+              <td><a href="project-details.html">IKF Marketing Site Refresh</a></td>
+              <td>IKF-001</td>
+              <td><span class="chip ongoing">Ongoing</span></td>
+              <td>Priya Nair</td>
+              <td>2024-08-01</td>
+              <td>2024-10-05</td>
+              <td class="text-right">
+                <a class="btn small" href="#edit-ikf">Edit</a>
+                <a class="btn small ghost" href="#archive-ikf">Archive</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <footer class="app-footer">© 2024 I Knowledge Factory Pvt. Ltd. — All Rights Reserved.</footer>
+  </div>
+</div>
+
+<!-- New Project Modal -->
+<section id="new-project" class="overlay" aria-labelledby="new-project-title" role="dialog" aria-modal="true">
+  <div class="modal card" style="position:relative;">
+    <a class="btn small ghost close" href="#">Close</a>
+    <h2 id="new-project-title" style="margin-top:0">Create New Project</h2>
+    <div class="form">
+      <div class="field">
+        <label for="customer">Customer *</label>
+        <select id="customer" class="select">
+          <option>Select Customer</option>
+          <option>Acme Corp</option>
+          <option>Orchid Spa</option>
+          <option>Phoenix Logistics</option>
+          <option>+ Create New Customer</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="project-name">Project Name *</label>
+        <input type="text" id="project-name" class="input" placeholder="Enter project name">
+      </div>
+      <div class="field">
+        <label for="project-code">Project Code *</label>
+        <input type="text" id="project-code" class="input" placeholder="e.g., ACME-002">
+      </div>
+      <div class="field">
+        <label for="assigned-pm">Assigned PM *</label>
+        <select id="assigned-pm" class="select">
+          <option>Select PM</option>
+          <option>Priya Nair</option>
+          <option>Arjun Mehta</option>
+          <option>Sarah Johnson</option>
+        </select>
+      </div>
+      <div class="grid grid-2">
+        <div class="field">
+          <label for="start-date">Start Date *</label>
+          <input type="date" id="start-date" class="input">
+        </div>
+        <div class="field">
+          <label for="end-date">End Date *</label>
+          <input type="date" id="end-date" class="input">
+        </div>
+      </div>
+      <div class="field">
+        <label>Departments</label>
+        <div class="flex gap-2 mb-2">
+          <span class="chip">Website <button type="button" style="background:none;border:none;color:inherit;">×</button></span>
+          <span class="chip">Mobile <button type="button" style="background:none;border:none;color:inherit;">×</button></span>
+          <button type="button" class="btn small ghost">+ Add Department</button>
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-2 mt-4">
+      <a class="btn ghost" href="#">Cancel</a>
+      <a class="btn primary" href="#">Create Project</a>
+    </div>
+  </div>
+</section>
+</body>
+</html>
