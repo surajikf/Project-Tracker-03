@@ -116,7 +116,7 @@
                 <div class="text-sm text-gray-600">Revenue</div>
               </div>
             </div>
-            <div class="flex gap-2">
+            <div class="flex gap-2 items-center">
               <button class="btn small">View Projects</button>
               <button class="btn small ghost">Edit</button>
               <button class="btn small">New Project</button>
@@ -141,7 +141,7 @@
                 <div class="text-sm text-gray-600">Revenue</div>
               </div>
             </div>
-            <div class="flex gap-2">
+            <div class="flex gap-2 items-center">
               <button class="btn small">View Projects</button>
               <button class="btn small ghost">Edit</button>
               <button class="btn small">New Project</button>
@@ -166,7 +166,7 @@
                 <div class="text-sm text-gray-600">Revenue</div>
               </div>
             </div>
-            <div class="flex gap-2">
+            <div class="flex gap-2 items-center">
               <button class="btn small">View Projects</button>
               <button class="btn small ghost">Edit</button>
               <button class="btn small">New Project</button>
@@ -191,7 +191,7 @@
                 <div class="text-sm text-gray-600">Revenue</div>
               </div>
             </div>
-            <div class="flex gap-2">
+            <div class="flex gap-2 items-center">
               <button class="btn small">View Projects</button>
               <button class="btn small ghost">Edit</button>
               <button class="btn small">New Project</button>
@@ -214,22 +214,22 @@
               <p>Follow these steps to create a new project</p>
             </div>
 
-            <div class="wizard-steps">
-              <div class="wizard-step active" data-step="1">
-                <div class="wizard-step-number">1</div>
-                <div class="wizard-step-title">Customer Details</div>
+            <div class="wizard-steps flex justify-center items-center gap-8">
+              <div class="wizard-step active flex flex-col items-center" data-step="1">
+                <div class="wizard-step-number w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold bg-blue-600">1</div>
+                <div class="wizard-step-title text-sm font-medium text-blue-600 mt-2">Customer Details</div>
               </div>
-              <div class="wizard-step pending" data-step="2">
-                <div class="wizard-step-number">2</div>
-                <div class="wizard-step-title">Project Info</div>
+              <div class="wizard-step pending flex flex-col items-center" data-step="2">
+                <div class="wizard-step-number w-10 h-10 rounded-full flex items-center justify-center text-gray-500 font-semibold bg-gray-200">2</div>
+                <div class="wizard-step-title text-sm font-medium text-gray-500 mt-2">Project Info</div>
               </div>
-              <div class="wizard-step pending" data-step="3">
-                <div class="wizard-step-number">3</div>
-                <div class="wizard-step-title">Team Assignment</div>
+              <div class="wizard-step pending flex flex-col items-center" data-step="3">
+                <div class="wizard-step-number w-10 h-10 rounded-full flex items-center justify-center text-gray-500 font-semibold bg-gray-200">3</div>
+                <div class="wizard-step-title text-sm font-medium text-gray-500 mt-2">Team Assignment</div>
               </div>
-              <div class="wizard-step pending" data-step="4">
-                <div class="wizard-step-number">4</div>
-                <div class="wizard-step-title">Stage Configuration</div>
+              <div class="wizard-step pending flex flex-col items-center" data-step="4">
+                <div class="wizard-step-number w-10 h-10 rounded-full flex items-center justify-center text-gray-500 font-semibold bg-gray-200">4</div>
+                <div class="wizard-step-title text-sm font-medium text-gray-500 mt-2">Stage Configuration</div>
               </div>
             </div>
 
@@ -539,14 +539,25 @@ function updateWizardDisplay() {
   // Update step indicators
   document.querySelectorAll('.wizard-step').forEach((step, index) => {
     const stepNumber = index + 1;
+    const numberEl = step.querySelector('.wizard-step-number');
+    const titleEl = step.querySelector('.wizard-step-title');
+    
     step.classList.remove('active', 'completed', 'pending');
+    numberEl.className = 'wizard-step-number w-10 h-10 rounded-full flex items-center justify-center font-semibold';
+    titleEl.className = 'wizard-step-title text-sm font-medium mt-2';
     
     if (stepNumber < currentStep) {
       step.classList.add('completed');
+      numberEl.classList.add('text-white', 'bg-green-600');
+      titleEl.classList.add('text-green-600');
     } else if (stepNumber === currentStep) {
       step.classList.add('active');
+      numberEl.classList.add('text-white', 'bg-blue-600');
+      titleEl.classList.add('text-blue-600');
     } else {
       step.classList.add('pending');
+      numberEl.classList.add('text-gray-500', 'bg-gray-200');
+      titleEl.classList.add('text-gray-500');
     }
   });
 
