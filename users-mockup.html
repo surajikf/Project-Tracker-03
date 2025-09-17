@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Users Management Mockup — IKF Project Livetracker</title>
+<title>Users Management — IKF Project Livetracker</title>
 <link rel="icon" href="assets/img/favicon.svg">
 <link rel="stylesheet" href="assets/css/styles.css">
 <style>
@@ -363,47 +363,68 @@
       <a href="projects.html"><span>Projects</span></a>
       <a href="timesheets.html"><span>Timesheets</span></a>
       <a href="reports.html"><span>Reports</span></a>
-      <a href="team.html"><span>Team</span></a>
+      <a href="resources.html"><span>Resources</span></a>
+      <details class="master-setup">
+        <summary><span>Master Setup</span></summary>
+        <div class="submenu">
+          <a href="departments.html"><span>Departments</span></a>
+          <a href="projects-master.html"><span>Projects</span></a>
+          <a class="is-active" href="users-mockup.html"><span>Users</span></a>
+          <a href="stages-mockup.html"><span>Stages</span></a>
+        </div>
+      </details>
+      <details class="project-lifecycle">
+        <summary><span>Project Lifecycle</span></summary>
+        <div class="submenu">
+          <a href="customer-mockup.html"><span>Customers</span></a>
+          <a href="health-tracking-mockup.html"><span>Health Tracking</span></a>
+          <a href="ai-insights-mockup.html"><span>AI Insights</span></a>
+        </div>
+      </details>
+      <a href="clients.html"><span>Clients</span></a>
       <a href="settings.html"><span>Settings</span></a>
     </nav>
   </aside>
-  <main class="main" id="main">
+  <div class="main">
     <header class="app-header" role="banner">
-      <h1>Users Management</h1>
-      <div class="header-actions">
-        <button class="btn btn-primary" onclick="openAddUserModal()">Add User</button>
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Users Management</h1>
+        <span class="chip">Role: Admin</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button class="btn" onclick="openAddUserModal()">Add User</button>
+        <a class="btn" href="assets/csv/users.csv" download>Export CSV</a>
+        <a class="btn ghost" href="index.html#tour">Help</a>
       </div>
     </header>
+    <div class="app-content" id="main">
+      <nav class="breadcrumbs">Home / Master Setup / Users</nav>
 
-    <div class="users-header">
-      <div class="users-filters">
-        <select class="form-control">
-          <option>All Roles</option>
-          <option>Super Admin</option>
-          <option>Admin</option>
-          <option>Project Manager</option>
-          <option>Team Member</option>
-        </select>
-        <select class="form-control">
-          <option>All Departments</option>
-          <option>Development</option>
-          <option>Design</option>
-          <option>Marketing</option>
-          <option>Sales</option>
-        </select>
-        <select class="form-control">
-          <option>All Status</option>
-          <option>Active</option>
-          <option>Inactive</option>
-          <option>Pending</option>
-        </select>
-        <input type="text" placeholder="Search users..." class="form-control">
-      </div>
-    </div>
+      <!-- Quick Stats -->
+      <section class="grid grid-4 mt-6">
+        <div class="card kpi">
+          <span class="label">Total Users</span>
+          <span class="value">24</span>
+        </div>
+        <div class="card kpi">
+          <span class="label">Active</span>
+          <span class="value">22</span>
+        </div>
+        <div class="card kpi">
+          <span class="label">Pending</span>
+          <span class="value">2</span>
+        </div>
+        <div class="card kpi">
+          <span class="label">Departments</span>
+          <span class="value">5</span>
+        </div>
+      </section>
 
-    <!-- Role Hierarchy -->
-    <div class="role-hierarchy">
-      <h3>Role Hierarchy & Access Levels</h3>
+      <!-- Role Hierarchy -->
+      <section class="card mt-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 style="margin:0">Role Hierarchy & Access Levels</h2>
+        </div>
       <div class="role-level">
         <div>
           <span class="role-badge role-super-admin">Super Admin</span>
@@ -441,9 +462,11 @@
       </div>
     </div>
 
-    <!-- Permission Matrix -->
-    <div class="permission-matrix">
-      <h3>Permission Matrix</h3>
+      <!-- Permission Matrix -->
+      <section class="card mt-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 style="margin:0">Permission Matrix</h2>
+        </div>
       <table class="matrix-table">
         <thead>
           <tr>
@@ -536,9 +559,29 @@
       </div>
     </div>
 
-    <!-- Users Table -->
-    <div class="users-table">
-      <table>
+      <!-- Users Table -->
+      <section class="card mt-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 style="margin:0">Users</h2>
+          <div class="flex gap-2">
+            <select class="btn small ghost">
+              <option>All Roles</option>
+              <option>Super Admin</option>
+              <option>Admin</option>
+              <option>Project Manager</option>
+              <option>Team Member</option>
+            </select>
+            <select class="btn small ghost">
+              <option>All Departments</option>
+              <option>Development</option>
+              <option>Design</option>
+              <option>Marketing</option>
+              <option>Sales</option>
+            </select>
+            <input type="text" placeholder="Search users..." class="btn small ghost" style="min-width: 200px;">
+          </div>
+        </div>
+        <table class="table">
         <thead>
           <tr>
             <th>User</th>
@@ -640,10 +683,10 @@
             </td>
           </tr>
         </tbody>
-      </table>
-    </div>
+        </table>
+      </section>
 
-    <!-- Add User Modal -->
+      <!-- Add User Modal -->
     <div id="addUserModal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
@@ -715,7 +758,7 @@
         </div>
       </div>
     </div>
-  </main>
+  </div>
 </div>
 
 <script>

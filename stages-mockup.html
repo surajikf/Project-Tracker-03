@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stages Management Mockup — IKF Project Livetracker</title>
+<title>Stages Management — IKF Project Livetracker</title>
 <link rel="icon" href="assets/img/favicon.svg">
 <link rel="stylesheet" href="assets/css/styles.css">
 <style>
@@ -423,17 +423,42 @@
       <a href="projects.html"><span>Projects</span></a>
       <a href="timesheets.html"><span>Timesheets</span></a>
       <a href="reports.html"><span>Reports</span></a>
-      <a href="team.html"><span>Team</span></a>
+      <a href="resources.html"><span>Resources</span></a>
+      <details class="master-setup">
+        <summary><span>Master Setup</span></summary>
+        <div class="submenu">
+          <a href="departments.html"><span>Departments</span></a>
+          <a href="projects-master.html"><span>Projects</span></a>
+          <a href="users-mockup.html"><span>Users</span></a>
+          <a class="is-active" href="stages-mockup.html"><span>Stages</span></a>
+        </div>
+      </details>
+      <details class="project-lifecycle">
+        <summary><span>Project Lifecycle</span></summary>
+        <div class="submenu">
+          <a href="customer-mockup.html"><span>Customers</span></a>
+          <a href="health-tracking-mockup.html"><span>Health Tracking</span></a>
+          <a href="ai-insights-mockup.html"><span>AI Insights</span></a>
+        </div>
+      </details>
+      <a href="clients.html"><span>Clients</span></a>
       <a href="settings.html"><span>Settings</span></a>
     </nav>
   </aside>
-  <main class="main" id="main">
+  <div class="main">
     <header class="app-header" role="banner">
-      <h1>Stages Management</h1>
-      <div class="header-actions">
-        <button class="btn btn-primary" onclick="openAddStageModal()">Add Stage</button>
+      <div class="flex items-center gap-3">
+        <h1 style="margin:0; font-size: 22px;">Stages Management</h1>
+        <span class="chip">Role: Admin</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button class="btn" onclick="openAddStageModal()">Add Stage</button>
+        <a class="btn" href="assets/csv/stages.csv" download>Export CSV</a>
+        <a class="btn ghost" href="index.html#tour">Help</a>
       </div>
     </header>
+    <div class="app-content" id="main">
+      <nav class="breadcrumbs">Home / Master Setup / Stages</nav>
 
     <div class="stages-header">
       <div class="stages-filters">
